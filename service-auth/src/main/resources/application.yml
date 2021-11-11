@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-auth
+    
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/sangria/auth/mapper/*Mapper.xml
+  type-aliases-package: com.sangria.auth.entity

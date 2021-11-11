@@ -1,0 +1,10 @@
+2021-11-11 12:39:00.779  INFO 10320 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_101 on StevenPersonal with PID 10320 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-11 12:39:00.782  INFO 10320 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
+2021-11-11 12:39:01.871 ERROR 10320 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-11 12:39:02.776  INFO 10320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-11 12:39:02.790  INFO 10320 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-11 12:39:02.790  INFO 10320 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-11 12:39:02.884  INFO 10320 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-11 12:39:02.884  INFO 10320 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2028 ms
+2021-11-11 12:39:05.015  INFO 10320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-11 12:39:05.026  INFO 10320 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 4.863 seconds (JVM running for 5.405)
