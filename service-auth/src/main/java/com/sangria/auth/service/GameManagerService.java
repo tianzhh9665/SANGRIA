@@ -1,11 +1,15 @@
 package com.sangria.auth.service;
 
-import com.sangria.auth.dto.GameManagerAddDTO;
+import com.sangria.auth.dto.ManagerLoginDTO;
+import com.sangria.auth.dto.ManagerRegDTO;
 import com.sangria.auth.dto.ResponseDTO;
 
 public interface GameManagerService {
 	
-	int getManagerCount();
+	ResponseDTO register(ManagerRegDTO dto);
 	
-	ResponseDTO addManager(GameManagerAddDTO manager);
+	ResponseDTO login(ManagerLoginDTO dto);
+	
+	ResponseDTO verifyToken(String token);
+
 }

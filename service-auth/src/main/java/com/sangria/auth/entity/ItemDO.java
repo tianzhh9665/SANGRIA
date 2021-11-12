@@ -9,24 +9,24 @@ import lombok.ToString;
 
 @Data
 @ToString
-@TableName("sangria_game_manager")
-public class GameManagerDO {
+@TableName("sangria_item_info")
+public class ItemDO {
 	
 	@TableId(type = IdType.AUTO)
 	private Long id;
 	
 	private String uuid;
 	
-	private String username;
+	private String name;
 	
-	private String password;
+	private String type;
 	
-	private String token;
+	private String inventoryUuid;
 	
 	private String createTime;
 	
 	private String modifiedTime;
-	
-	private String gameUuid;
 
 }
+
+
