@@ -8,3 +8,28 @@
 2021-11-11 12:39:02.884  INFO 10320 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2028 ms
 2021-11-11 12:39:05.015  INFO 10320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
 2021-11-11 12:39:05.026  INFO 10320 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 4.863 seconds (JVM running for 5.405)
+2021-11-11 14:53:05.453  INFO 20978 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-216.dyn.columbia.edu with PID 20978 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
+2021-11-11 14:53:05.457  INFO 20978 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
+2021-11-11 14:53:06.715  INFO 20978 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-11 14:53:06.724  INFO 20978 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-11 14:53:06.724  INFO 20978 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-11 14:53:06.794  INFO 20978 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-11 14:53:06.795  INFO 20978 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1260 ms
+2021-11-11 14:53:07.543  INFO 20978 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-11 14:53:07.554  INFO 20978 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.995 seconds (JVM running for 3.679)
+2021-11-11 14:56:14.017  INFO 21039 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-216.dyn.columbia.edu with PID 21039 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
+2021-11-11 14:56:14.019  INFO 21039 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
+2021-11-11 14:56:14.942  INFO 21039 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-11 14:56:14.949  INFO 21039 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-11 14:56:14.950  INFO 21039 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-11 14:56:15.015  INFO 21039 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-11 14:56:15.016  INFO 21039 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 960 ms
+2021-11-11 14:56:15.729  INFO 21039 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-11 14:56:15.740  INFO 21039 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.116 seconds (JVM running for 2.635)
+2021-11-11 14:57:40.210  INFO 21039 --- [http-nio-8091-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-11 14:57:40.211  INFO 21039 --- [http-nio-8091-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-11 14:57:40.212  INFO 21039 --- [http-nio-8091-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-11 15:03:28.093  INFO 21039 --- [http-nio-8091-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-11 15:03:29.790  INFO 21039 --- [http-nio-8091-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-11 15:03:43.820  INFO 21039 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-11 15:03:43.830  INFO 21039 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

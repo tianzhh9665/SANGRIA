@@ -16,8 +16,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 	
 	@Resource
 	private GameManagerMapper gameManagerMapper;
-	
-	
+
 	@Override
 	public int getManagerCount() {
 		return gameManagerMapper.getManagerNum();
