@@ -32,7 +32,7 @@ Service-operation APIs:
 	a. request method: GET  
 	b. parameters: token(required), inventoryId(optional, if presents, meaning query a specific iventory info, otherwise query all inventory info in the game)  
 	c. return: JSON Object with code 200 --> success with inventory info in data, 500 --> failed with corresponding error message. 
-3. /inventory/clear	-->clear a inventory
+3. /inventory/clear	-->clear a inventory  
 	a. request method: POST   
 	b. parameters: token(required), inventoryId(required)  
 	c. return: JSON Object with code 200 --> success, 500 --> failed with corresponding error message.   
