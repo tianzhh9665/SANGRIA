@@ -21,3 +21,26 @@ Service-auth APIs:
 	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.  
 
 ...
+
+Service-operation APIs:
+
+1. /inventory/add	-->add a new inventory to the game  
+	a. request method: POST  
+	b. parameters: token(required)  
+	c. return: JSON Object with code 200 --> success, 500 --> failed with corresponding error message.   
+2. /inventory/info	-->query inventory info  
+	a. request method: GET  
+	b. parameters: token(required), inventoryId(optional, if presents, meaning query a specific iventory info, otherwise query all inventory info in the game)  
+	c. return: JSON Object with code 200 --> success with inventory info in data, 500 --> failed with corresponding error message. 
+3. /inventory/clear	-->clear a inventory  
+	a. request method: POST   
+	b. parameters: token(required), inventoryId(required)  
+	c. return: JSON Object with code 200 --> success, 500 --> failed with corresponding error message.   
+4. /item/add	-->add a item to a inventory  
+	a. request method: POST   
+	b. parameters: token(required), name(required), inventoryId(required), type(required), attributes(optional)  
+	c. return: JSON Object with code 200 --> success, 500 --> failed with corresponding error message.   
+5. /item/info	-->query a item's info  
+	a. request method: GET   
+	b. parameters: token(required), itemId(required)  
+	c. return: JSON Object with code 200 --> success with item info in data, 500 --> failed with corresponding error message.   

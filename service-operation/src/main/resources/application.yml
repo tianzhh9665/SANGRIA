@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-operation
+    
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/sangria/operation/mapper/*Mapper.xml
+  type-aliases-package: com.sangria.operation.entity

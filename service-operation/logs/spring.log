@@ -1,0 +1,181 @@
+2021-11-12 10:37:32.124  INFO 13968 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 13968 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 10:37:32.141  INFO 13968 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 10:37:33.992 ERROR 13968 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 10:37:35.085  INFO 13968 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 10:37:35.093  INFO 13968 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 10:37:35.093  INFO 13968 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 10:37:35.219  INFO 13968 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 10:37:35.219  INFO 13968 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2964 ms
+2021-11-12 10:37:37.828  INFO 13968 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-11-12 10:37:37.844  INFO 13968 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 6.736 seconds (JVM running for 7.698)
+2021-11-12 10:38:13.083  INFO 14368 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 14368 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 10:38:13.099  INFO 14368 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 10:38:14.163 ERROR 14368 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 10:38:15.086  INFO 14368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 10:38:15.101  INFO 14368 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 10:38:15.101  INFO 14368 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 10:38:15.195  INFO 14368 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 10:38:15.195  INFO 14368 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2024 ms
+2021-11-12 10:38:17.382  INFO 14368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-11-12 10:38:17.382  INFO 14368 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 4.9 seconds (JVM running for 5.439)
+2021-11-12 11:43:34.565  INFO 9676 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 9676 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 11:43:34.568  INFO 9676 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 11:43:35.688 ERROR 9676 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 11:43:36.627  INFO 9676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 11:43:36.641  INFO 9676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 11:43:36.641  INFO 9676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 11:43:36.750  INFO 9676 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 11:43:36.750  INFO 9676 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2112 ms
+2021-11-12 11:43:39.066  INFO 9676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-11-12 11:43:39.077  INFO 9676 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 5.148 seconds (JVM running for 5.679)
+2021-11-12 11:51:27.499  INFO 9676 --- [http-nio-8092-exec-2] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-12 11:51:27.501  INFO 9676 --- [http-nio-8092-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-12 11:51:27.504  INFO 9676 --- [http-nio-8092-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-11-12 11:51:27.678  INFO 9676 --- [http-nio-8092-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-12 11:51:28.625  INFO 9676 --- [http-nio-8092-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-12 12:05:25.149  INFO 4780 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 4780 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 12:05:25.152  INFO 4780 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 12:05:26.243 ERROR 4780 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 12:05:27.177  INFO 4780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 12:05:27.190  INFO 4780 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 12:05:27.190  INFO 4780 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 12:05:27.292  INFO 4780 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 12:05:27.292  INFO 4780 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2069 ms
+2021-11-12 12:05:29.574  INFO 4780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-11-12 12:05:29.585  INFO 4780 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 5.045 seconds (JVM running for 5.579)
+2021-11-12 12:06:01.304  INFO 4780 --- [http-nio-8092-exec-2] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-12 12:06:01.304  INFO 4780 --- [http-nio-8092-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-12 12:06:01.307  INFO 4780 --- [http-nio-8092-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-12 12:06:01.551  INFO 4780 --- [http-nio-8092-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-12 12:06:02.410  INFO 4780 --- [http-nio-8092-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-12 12:18:39.155  INFO 15740 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 15740 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 12:18:39.159  INFO 15740 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 12:18:40.404 ERROR 15740 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 12:18:41.419  INFO 15740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 12:18:41.435  INFO 15740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 12:18:41.436  INFO 15740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 12:18:41.566  INFO 15740 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 12:18:41.566  INFO 15740 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2334 ms
+2021-11-12 12:18:44.174  INFO 15740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-11-12 12:18:44.187  INFO 15740 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 5.766 seconds (JVM running for 6.322)
+2021-11-12 12:19:07.997  INFO 15740 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-12 12:19:07.998  INFO 15740 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-12 12:19:08.000  INFO 15740 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-12 12:19:08.183  INFO 15740 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-12 12:19:09.038  INFO 15740 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-12 12:19:45.663  INFO 9816 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 9816 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 12:19:45.666  INFO 9816 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 12:19:46.776 ERROR 9816 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 12:19:47.681  INFO 9816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 12:19:47.695  INFO 9816 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 12:19:47.695  INFO 9816 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 12:19:47.796  INFO 9816 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 12:19:47.796  INFO 9816 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2055 ms
+2021-11-12 12:19:50.101  INFO 9816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-11-12 12:19:50.111  INFO 9816 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 5.07 seconds (JVM running for 5.619)
+2021-11-12 12:19:56.347  INFO 9816 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-12 12:19:56.347  INFO 9816 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-12 12:19:56.349  INFO 9816 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-12 12:19:56.491  INFO 9816 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-12 12:19:57.353  INFO 9816 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-12 12:38:25.596  INFO 2608 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 2608 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 12:38:25.599  INFO 2608 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 12:38:26.708 ERROR 2608 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 12:38:27.612  INFO 2608 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 12:38:27.625  INFO 2608 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 12:38:27.625  INFO 2608 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 12:38:27.724  INFO 2608 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 12:38:27.724  INFO 2608 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2050 ms
+2021-11-12 12:38:29.992  INFO 2608 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-11-12 12:38:30.006  INFO 2608 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 5.027 seconds (JVM running for 5.568)
+2021-11-12 12:39:45.750  INFO 2608 --- [http-nio-8092-exec-2] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-12 12:39:45.750  INFO 2608 --- [http-nio-8092-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-12 12:39:45.752  INFO 2608 --- [http-nio-8092-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-12 12:39:46.140  WARN 2608 --- [http-nio-8092-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries<LF> at [Source: (PushbackInputStream); line: 6, column: 6]]
+2021-11-12 12:40:08.987  INFO 2608 --- [http-nio-8092-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-12 12:40:09.836  INFO 2608 --- [http-nio-8092-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-12 12:41:24.251  WARN 2608 --- [http-nio-8092-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2021-11-12 12:50:10.096  INFO 11460 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 11460 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 12:50:10.100  INFO 11460 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 12:50:11.270 ERROR 11460 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 12:50:12.201  INFO 11460 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 12:50:12.215  INFO 11460 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 12:50:12.216  INFO 11460 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 12:50:12.318  INFO 11460 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 12:50:12.318  INFO 11460 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2146 ms
+2021-11-12 12:50:14.763  INFO 11460 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-11-12 12:50:14.774  INFO 11460 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 5.288 seconds (JVM running for 5.851)
+2021-11-12 12:50:18.389  INFO 11460 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-12 12:50:18.389  INFO 11460 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-12 12:50:18.391  INFO 11460 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-12 12:50:18.547  INFO 11460 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-12 12:50:19.395  INFO 11460 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-12 13:05:00.510  INFO 9124 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 9124 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 13:05:00.514  INFO 9124 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 13:05:01.638 ERROR 9124 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 13:05:02.560  INFO 9124 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 13:05:02.573  INFO 9124 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 13:05:02.574  INFO 9124 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 13:05:02.670  INFO 9124 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 13:05:02.671  INFO 9124 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2085 ms
+2021-11-12 13:05:05.029  WARN 9124 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8092 is already in use
+2021-11-12 13:05:05.035  INFO 9124 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-11-12 13:05:05.052  INFO 9124 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-11-12 13:05:05.359 ERROR 9124 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8092 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8092 or configure this application to listen on another port.
+
+2021-11-12 13:05:25.072  INFO 15228 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 15228 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 13:05:25.076  INFO 15228 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 13:05:26.175 ERROR 15228 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 13:05:27.092  INFO 15228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 13:05:27.106  INFO 15228 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 13:05:27.106  INFO 15228 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 13:05:27.209  INFO 15228 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 13:05:27.210  INFO 15228 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2059 ms
+2021-11-12 13:05:29.510  WARN 15228 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8092 is already in use
+2021-11-12 13:05:29.514  INFO 15228 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-11-12 13:05:29.526  INFO 15228 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-11-12 13:05:29.548 ERROR 15228 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8092 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8092 or configure this application to listen on another port.
+
+2021-11-12 13:06:17.964  INFO 12912 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_101 on StevenPersonal with PID 12912 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 13:06:17.967  INFO 12912 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-11-12 13:06:19.091 ERROR 12912 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 13:06:20.037  INFO 12912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-11-12 13:06:20.051  INFO 12912 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-12 13:06:20.051  INFO 12912 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-12 13:06:20.150  INFO 12912 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-11-12 13:06:20.151  INFO 12912 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2108 ms
+2021-11-12 13:06:22.462  INFO 12912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-11-12 13:06:22.475  INFO 12912 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 5.17 seconds (JVM running for 5.816)
+2021-11-12 13:07:06.042  INFO 12912 --- [http-nio-8092-exec-2] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-12 13:07:06.043  INFO 12912 --- [http-nio-8092-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-12 13:07:06.044  INFO 12912 --- [http-nio-8092-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-12 13:07:06.174  INFO 12912 --- [http-nio-8092-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-12 13:07:07.042  INFO 12912 --- [http-nio-8092-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
