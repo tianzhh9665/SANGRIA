@@ -84,5 +84,21 @@ public class GameManagerController extends BaseController{
 		ResponseDTO result = gameManagerService.verifyToken(token);
 		return result;
 	}
+
+	/**
+	 * return the manager info, game info, inventory info according to the token
+	 * @param token
+	 * @return ResponseDTO
+	 */
+	@GetMapping(value = "/info")
+	public ResponseDTO info(String token) {
+
+		if(StringUtils.isBlank(token)) {
+			return renderFail("ERROR: authentication failed -- token can not be empty");
+		}
+
+		ResponseDTO result = gameManagerService.info(token);
+		return result;
+	}
 	
 }

@@ -5,6 +5,10 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 
+
+import com.alibaba.fastjson.JSONObject;
+import com.sangria.auth.dao.InventoryMapper;
+import com.sangria.auth.entity.InventoryDO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +33,10 @@ public class GameManagerServiceImpl implements GameManagerService{
 	
 	@Resource
 	private GameMapper gameMapper;
-	
+
+	@Resource
+	private InventoryMapper inventoryMapper;
+
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public ResponseDTO register(ManagerRegDTO dto) {
@@ -131,5 +138,39 @@ public class GameManagerServiceImpl implements GameManagerService{
 		}catch(Exception e) {
 			return new ResponseDTO(501, "ERROR: token verification failed with Exception thrown", null);
 		}
+	}
+
+	@Override
+	public ResponseDTO info(String token) {
+		GameManagerDO managerSearch = new GameManagerDO();
+		managerSearch.setToken(token);
+		GameManagerDO manager = gameManagerMapper.selectOne(new QueryWrapper<>(managerSearch));
+
+		if (manager == null) {
+			return new ResponseDTO(500, "token is not valid, please login first", null);
+		}
+
+		GameDO gameSearch = new GameDO();
+		gameSearch.setManagerUuid(manager.getUuid());
+		GameDO game = gameMapper.selectOne(new QueryWrapper<>(gameSearch));
+
+		if (game == null) {
+			return new ResponseDTO(500, "can not find gameInfo with this manager's uuid", null);
+		}
+
+		InventoryDO inventorySearch = new InventoryDO();
+		inventorySearch.setGameUuid(game.getUuid());
+		List<InventoryDO> inventory = inventoryMapper.selectList(new QueryWrapper<>(inventorySearch));
+
+		if (inventory == null) {
+			return new ResponseDTO(500, "can not find inventoryInfo with this game's uuid", null);
+		}
+
+		JSONObject resultJSON = new JSONObject();
+		resultJSON.put("managerInfo", manager);
+		resultJSON.put("gameInfo", game);
+		resultJSON.put("inventoryInfo", inventory);
+
+		return new ResponseDTO(200, "", resultJSON);
 	}
 }

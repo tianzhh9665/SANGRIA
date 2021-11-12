@@ -12,4 +12,6 @@ public interface GameManagerService {
 	
 	ResponseDTO verifyToken(String token);
 
+	ResponseDTO info(String token);
+
 }

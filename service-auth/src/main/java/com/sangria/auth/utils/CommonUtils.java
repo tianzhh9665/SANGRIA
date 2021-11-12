@@ -28,6 +28,10 @@ public class CommonUtils {
         }
         return fromObject;
     }
+
+    public static String generateJSON(Object fromObject) {
+        return JSONObject.toJSONString(fromObject);
+    }
     
     public static String generateUniqueId(String prefix, int numOfRandomInt) {
     	String result = prefix;
