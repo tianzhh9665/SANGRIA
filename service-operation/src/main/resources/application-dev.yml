@@ -1,0 +1,26 @@
+#Environmental Variable
+
+#server
+server:
+  port: 8092
+  servlet:
+    context-path: /operation
+
+#database
+spring:
+  datasource:
+    username: sangria
+    password: sangria
+    url: jdbc:mysql://35.196.112.19:3306/comsw4156?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+
+#sql log
+logging:
+  file:
+    path: ./logs
+  level:
+    com:
+      sangria:
+        auth:
+          mapper : debug
