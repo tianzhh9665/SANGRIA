@@ -29,6 +29,11 @@ Service-auth APIs:
 	a. request method: POST  
 	b. parameters: token(required)  
 	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.
+	
+6. /gameManager/logout -->game manager logout  
+	a. request method: POST  
+	b. parameters: token(required)  
+	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.  
 
 
 Service-operation APIs:
