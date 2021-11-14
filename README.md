@@ -36,7 +36,7 @@ Service-auth APIs:
 	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.  
 
 
-Service-operation APIs:
+Service-operation APIs: (please consider only Service-auth as the official submission for Assignment T3 First Iteration, service-operation is still under development and it is here for the purpose of providing some functionalities for First Iteration Demo with the IA)
 
 1. /inventory/add	-->add a new inventory to the game  
 	a. request method: POST  
@@ -60,3 +60,38 @@ Service-operation APIs:
 	c. return: JSON Object with code 200 --> success with item info in data, 500 --> failed with corresponding error message.   
 
 ... more to come
+
+How to build, run, and test the project:  
+
+--Build:  
+	a. clone the repo to the local machine.  
+	b. have a JAVA IDE, we use Eclipse so we will use it as the example IDE in this documentation.  
+	c. have Java and maven installed on the computer, have lombok installed in the eclipse  
+	d. have jdk, maven configured in the eclipse  
+	e. File --> import --> Existing Maven Project --> choose the folder service-auth(or service-operation) --> finish  
+	f. wait for the maven to auto-download all required dependencies jar  
+	g. Project --> clean to clean the project first  
+	h. right-click on the project folder --> maven --> Update Project to update and build the project  
+
+--Run:  
+	--Run the project locally:  
+		a. build the project first described above  
+		b. run src/main/java/ServiceAuthApplication.java(or src/main/java/ServiceOperationApplication.java for service-operation) as java Application (right-click on the file --> run as.. --> Java Application)  
+	--Run the project on the VM(deployment):  
+		a. right-click on the project folder --> run as --> maven clean  
+		b. right-click on the project folder --> run as --> maven install  
+		c. upload the service-auth-0.0.1-SNAPSHOT.jar(or service-operation-0.0.1-SNAPSHOT.jar) file in the src/target/ to the VM  
+		d. have java, maven, MySQL installed on the VM  
+		e. on the VM, run "nohup java -jar service-auth-0.0.1-SNAPSHOT.jar &"  
+		
+--Test:  
+	--Unit Test:  
+		a. all test cases/code are written in src/test/java/com/sangria/auth(operation)/ServiceAuth(Operation)ApplicationTests.java  
+		b. run the .java as Junit Test(right-click on the file --> run as --> Junit Test)  
+	--Test via Postman:  
+		a. have the project deployed and run on the vm as described above  
+		b. in the Postman, send requests to the endpoints: e.g. 35.196.112.19/auth/gameManager/login with parameters  
+		
+Style Checker:  
+	The style checker we used is CheckStyle Plug-in, which is a eclipse software that is built-in in the IDE. it can be activated by right-click the file --> check --> activate checkstyle, and can be downloaded in the eclipse marketplace. It generates no report and the result can not be redirected to a file since it will show the check result directly in the IDE interface.  
+
