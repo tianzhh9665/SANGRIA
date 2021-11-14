@@ -123,24 +123,8 @@ public class GameManagerController extends BaseController{
 	}
 	
 	/**
-	 * return the manager info, game info, inventory info according to the token
-	 * @param token
-	 * @return ResponseDTO
-	 */
-	@GetMapping(value = "/info")
-	public ResponseDTO info(String token) {
-
-		if(StringUtils.isBlank(token)) {
-			return renderFail("ERROR: authentication failed -- token can not be empty");
-		}
-
-		ResponseDTO result = gameManagerService.info(token);
-		return result;
-	}
-	
-	/**
 	 * allow manager logout, aka set token value to null if the given token is valid
-	 * @param token
+	 * @param dto
 	 * @return ResponseDTO
 	 */
 	@PostMapping(value = "/logout")

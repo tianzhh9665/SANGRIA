@@ -19,6 +19,4 @@ public interface GameManagerService {
 	
 	ResponseDTO logout(String token);
 
-	ResponseDTO info(String token);
-
 }
