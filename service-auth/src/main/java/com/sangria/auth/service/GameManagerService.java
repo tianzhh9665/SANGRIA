@@ -16,5 +16,7 @@ public interface GameManagerService {
 	ResponseDTO delete(ManagerDeleteDTO dto);
 	
 	ResponseDTO info(String token);
+	
+	ResponseDTO logout(String token);
 
 }

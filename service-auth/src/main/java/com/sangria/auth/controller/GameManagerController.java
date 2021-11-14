@@ -122,4 +122,20 @@ public class GameManagerController extends BaseController{
 		return result;
 	}
 	
+	/**
+	 * allow manager logout, aka set token value to null if the given token is valid
+	 * @param token
+	 * @return ResponseDTO
+	 */
+	@PostMapping(value = "/logout")
+	public ResponseDTO logout(@RequestBody ManagerDeleteDTO dto) {
+
+		if(StringUtils.isBlank(dto.getToken())) {
+			return renderFail("ERROR: authentication failed -- token can not be empty");
+		}
+
+		ResponseDTO result = gameManagerService.logout(dto.getToken());
+		return result;
+	}
+	
 }

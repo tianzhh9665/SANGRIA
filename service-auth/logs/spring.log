@@ -1,4 +1,162 @@
-2021-11-13 19:17:01.750  INFO 11328 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 11328 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
-2021-11-13 19:17:01.758  INFO 11328 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
-2021-11-13 19:17:05.811 ERROR 11328 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2021-11-13 19:17:07.848  INFO 11328 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.862 seconds (JVM running for 8.675)
+2021-11-14 11:24:22.918  INFO 7064 --- [main] c.s.auth.GameManagerControllerTest       : Starting GameManagerControllerTest using Java 1.8.0_101 on StevenPersonal with PID 7064 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:24:22.928  INFO 7064 --- [main] c.s.auth.GameManagerControllerTest       : The following profiles are active: dev
+2021-11-14 11:24:26.623 ERROR 7064 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:24:28.903  INFO 7064 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-11-14 11:24:28.904  INFO 7064 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-11-14 11:24:28.906  INFO 7064 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-11-14 11:24:28.933  INFO 7064 --- [main] c.s.auth.GameManagerControllerTest       : Started GameManagerControllerTest in 6.695 seconds (JVM running for 8.579)
+2021-11-14 11:30:34.346  INFO 2360 --- [main] c.s.auth.GameManagerControllerTest       : Starting GameManagerControllerTest using Java 1.8.0_101 on StevenPersonal with PID 2360 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:30:34.348  INFO 2360 --- [main] c.s.auth.GameManagerControllerTest       : The following profiles are active: dev
+2021-11-14 11:30:37.558 ERROR 2360 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:30:39.542  INFO 2360 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-11-14 11:30:39.543  INFO 2360 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-11-14 11:30:39.544  INFO 2360 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-11-14 11:30:39.567  INFO 2360 --- [main] c.s.auth.GameManagerControllerTest       : Started GameManagerControllerTest in 5.766 seconds (JVM running for 7.2)
+2021-11-14 11:34:11.385  INFO 5760 --- [main] c.s.auth.GameManagerControllerTest       : Starting GameManagerControllerTest using Java 1.8.0_101 on StevenPersonal with PID 5760 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:34:11.386  INFO 5760 --- [main] c.s.auth.GameManagerControllerTest       : The following profiles are active: dev
+2021-11-14 11:34:12.761 ERROR 5760 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:34:13.826  INFO 5760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:34:13.842  INFO 5760 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:34:13.843  INFO 5760 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:34:13.976  INFO 5760 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:34:13.977  INFO 5760 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2568 ms
+2021-11-14 11:34:16.989  INFO 5760 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring TestDispatcherServlet ''
+2021-11-14 11:34:16.990  INFO 5760 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-11-14 11:34:16.991  INFO 5760 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-11-14 11:34:17.087  INFO 5760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:34:17.099  INFO 5760 --- [main] c.s.auth.GameManagerControllerTest       : Started GameManagerControllerTest in 6.288 seconds (JVM running for 8.18)
+2021-11-14 11:38:54.575  INFO 2308 --- [main] c.s.auth.GameManagerControllerTest       : Starting GameManagerControllerTest using Java 1.8.0_101 on StevenPersonal with PID 2308 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:38:54.577  INFO 2308 --- [main] c.s.auth.GameManagerControllerTest       : The following profiles are active: dev
+2021-11-14 11:38:55.991 ERROR 2308 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:38:57.091  INFO 2308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:38:57.109  INFO 2308 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:38:57.110  INFO 2308 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:38:57.256  INFO 2308 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:38:57.257  INFO 2308 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2658 ms
+2021-11-14 11:39:00.406  INFO 2308 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring TestDispatcherServlet ''
+2021-11-14 11:39:00.406  INFO 2308 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-11-14 11:39:00.408  INFO 2308 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-11-14 11:39:00.512  INFO 2308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:39:00.526  INFO 2308 --- [main] c.s.auth.GameManagerControllerTest       : Started GameManagerControllerTest in 6.549 seconds (JVM running for 8.558)
+2021-11-14 11:40:24.051  INFO 8788 --- [main] c.s.auth.GameManagerControllerTest       : Starting GameManagerControllerTest using Java 1.8.0_101 on StevenPersonal with PID 8788 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:40:24.052  INFO 8788 --- [main] c.s.auth.GameManagerControllerTest       : The following profiles are active: dev
+2021-11-14 11:40:25.862 ERROR 8788 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:40:27.048  INFO 8788 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:40:27.072  INFO 8788 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:40:27.073  INFO 8788 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:40:27.256  INFO 8788 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:40:27.257  INFO 8788 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3170 ms
+2021-11-14 11:40:30.678  INFO 8788 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring TestDispatcherServlet ''
+2021-11-14 11:40:30.678  INFO 8788 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-11-14 11:40:30.681  INFO 8788 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-11-14 11:40:30.796  INFO 8788 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:40:30.814  INFO 8788 --- [main] c.s.auth.GameManagerControllerTest       : Started GameManagerControllerTest in 7.566 seconds (JVM running for 11.182)
+2021-11-14 11:44:32.960  INFO 14732 --- [main] com.sangria.auth.GameManagerServiceTest  : Starting GameManagerServiceTest using Java 1.8.0_101 on StevenPersonal with PID 14732 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:44:32.962  INFO 14732 --- [main] com.sangria.auth.GameManagerServiceTest  : The following profiles are active: dev
+2021-11-14 11:44:34.321 ERROR 14732 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:44:35.384  INFO 14732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:44:35.401  INFO 14732 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:44:35.401  INFO 14732 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:44:35.541  INFO 14732 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:44:35.541  INFO 14732 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2549 ms
+2021-11-14 11:44:38.752  INFO 14732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:44:38.764  INFO 14732 --- [main] com.sangria.auth.GameManagerServiceTest  : Started GameManagerServiceTest in 6.399 seconds (JVM running for 7.912)
+2021-11-14 11:49:09.093  INFO 2384 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 2384 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:49:09.095  INFO 2384 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:49:10.392 ERROR 2384 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:49:11.444  INFO 2384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:49:11.461  INFO 2384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:49:11.461  INFO 2384 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:49:11.593  INFO 2384 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:49:11.593  INFO 2384 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2468 ms
+2021-11-14 11:49:14.666  INFO 2384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:49:14.677  INFO 2384 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.156 seconds (JVM running for 7.497)
+2021-11-14 11:49:15.044  INFO 2384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:49:15.935  INFO 2384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:49:17.333  INFO 2384 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:49:17.692  INFO 2384 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:50:37.886  INFO 11384 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 11384 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:50:37.887  INFO 11384 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:50:39.283 ERROR 11384 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:50:40.375  INFO 11384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:50:40.394  INFO 11384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:50:40.395  INFO 11384 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:50:40.537  INFO 11384 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:50:40.538  INFO 11384 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2621 ms
+2021-11-14 11:50:43.799  INFO 11384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:50:43.812  INFO 11384 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.529 seconds (JVM running for 7.911)
+2021-11-14 11:50:44.210  INFO 11384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:50:45.085  INFO 11384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:50:46.164  INFO 11384 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:50:46.467  INFO 11384 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:51:06.586  INFO 16276 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 16276 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:51:06.588  INFO 16276 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:51:07.912 ERROR 16276 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:51:08.936  INFO 16276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:51:08.952  INFO 16276 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:51:08.953  INFO 16276 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:51:09.078  INFO 16276 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:51:09.078  INFO 16276 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2461 ms
+2021-11-14 11:51:12.128  INFO 16276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:51:12.139  INFO 16276 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.132 seconds (JVM running for 7.456)
+2021-11-14 11:51:12.518  INFO 16276 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:51:13.395  INFO 16276 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:51:14.415  INFO 16276 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:51:14.736  INFO 16276 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:52:06.218  INFO 16196 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 16196 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:52:06.220  INFO 16196 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:52:07.535 ERROR 16196 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:52:08.547  INFO 16196 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:52:08.564  INFO 16196 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:52:08.564  INFO 16196 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:52:08.708  INFO 16196 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:52:08.708  INFO 16196 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2459 ms
+2021-11-14 11:52:11.758  INFO 16196 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:52:11.769  INFO 16196 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.121 seconds (JVM running for 7.424)
+2021-11-14 11:52:12.153  INFO 16196 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:52:13.001  INFO 16196 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:52:14.451  INFO 16196 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:52:14.739  INFO 16196 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:58:32.930  INFO 13860 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 13860 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:58:32.932  INFO 13860 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:58:34.236 ERROR 13860 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:58:35.268  INFO 13860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:58:35.284  INFO 13860 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:58:35.285  INFO 13860 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:58:35.414  INFO 13860 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:58:35.415  INFO 13860 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2451 ms
+2021-11-14 11:58:38.450  INFO 13860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:58:38.461  INFO 13860 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.101 seconds (JVM running for 7.42)
+2021-11-14 11:58:38.832  INFO 13860 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:58:39.684  INFO 13860 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:58:41.830  INFO 13860 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:58:42.168  INFO 13860 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:59:49.676  INFO 13924 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 13924 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:59:49.677  INFO 13924 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:59:50.958 ERROR 13924 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:59:52.006  INFO 13924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:59:52.024  INFO 13924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:59:52.024  INFO 13924 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:59:52.159  INFO 13924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:59:52.159  INFO 13924 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2452 ms
+2021-11-14 11:59:55.259  INFO 13924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:59:55.270  INFO 13924 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.197 seconds (JVM running for 7.568)
+2021-11-14 11:59:55.626  INFO 13924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:59:56.512  INFO 13924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:59:58.744  INFO 13924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:59:59.087  INFO 13924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 12:00:58.317  INFO 9188 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_101 on StevenPersonal with PID 9188 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 12:00:58.323  INFO 9188 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
+2021-11-14 12:00:59.529 ERROR 9188 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 12:01:00.516  INFO 9188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 12:01:00.533  INFO 9188 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 12:01:00.534  INFO 9188 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 12:01:00.650  INFO 9188 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 12:01:00.651  INFO 9188 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2238 ms
+2021-11-14 12:01:03.133  INFO 9188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 12:01:03.148  INFO 9188 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 5.508 seconds (JVM running for 6.073)
+2021-11-14 12:01:51.900  INFO 9188 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-14 12:01:51.901  INFO 9188 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-14 12:01:51.903  INFO 9188 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-14 12:01:52.128  INFO 9188 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 12:01:52.992  INFO 9188 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

@@ -224,4 +224,27 @@ public class GameManagerServiceImpl implements GameManagerService{
 
 		return new ResponseDTO(200, "", resultJSON);
 	}
+	
+	@Override
+	public ResponseDTO logout(String token) {
+		try {
+			GameManagerDO managerSearch = new GameManagerDO();
+			managerSearch.setToken(token);
+			GameManagerDO manager = gameManagerMapper.selectOne(new QueryWrapper<>(managerSearch));
+
+			// verify token
+			if (manager == null) {
+				return new ResponseDTO(500, "token is not valid, cannot logout", null);
+			}
+			
+			// set token to null in sangria_game_manager table
+			if(gameManagerMapper.updateLogout(token) <= 0) {
+				return new ResponseDTO(500,"ERROR: manager logout failed", null);
+			}
+			return new ResponseDTO(200, "manager logout successful", null);
+
+		} catch (Exception e) {
+			return new ResponseDTO(501, "ERROR: logout failed with Exception thrown", null);
+		}
+	}
 }
