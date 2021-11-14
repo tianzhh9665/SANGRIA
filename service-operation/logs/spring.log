@@ -179,3 +179,7 @@ Identify and stop the process that's listening on port 8092 or configure this ap
 2021-11-12 13:07:06.044  INFO 12912 --- [http-nio-8092-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2021-11-12 13:07:06.174  INFO 12912 --- [http-nio-8092-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 2021-11-12 13:07:07.042  INFO 12912 --- [http-nio-8092-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-12 13:26:32.735  INFO 5592 --- [main] c.s.o.ServiceOperationApplicationTests   : Starting ServiceOperationApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 5592 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-operation)
+2021-11-12 13:26:32.736  INFO 5592 --- [main] c.s.o.ServiceOperationApplicationTests   : The following profiles are active: dev
+2021-11-12 13:26:36.018 ERROR 5592 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-12 13:26:37.833  INFO 5592 --- [main] c.s.o.ServiceOperationApplicationTests   : Started ServiceOperationApplicationTests in 5.63 seconds (JVM running for 7.054)

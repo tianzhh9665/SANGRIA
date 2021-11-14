@@ -1,346 +1,162 @@
-2021-11-12 17:07:03.118  INFO 25633 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-134.dyn.columbia.edu with PID 25633 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
-2021-11-12 17:07:03.123  INFO 25633 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
-2021-11-12 17:07:04.319  INFO 25633 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
-2021-11-12 17:07:04.327  INFO 25633 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-12 17:07:04.327  INFO 25633 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-12 17:07:04.389  INFO 25633 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
-2021-11-12 17:07:04.390  INFO 25633 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1221 ms
-2021-11-12 17:07:05.210  INFO 25633 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
-2021-11-12 17:07:05.221  INFO 25633 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.597 seconds (JVM running for 3.134)
-2021-11-12 17:10:32.148  INFO 25633 --- [http-nio-8091-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-12 17:10:32.149  INFO 25633 --- [http-nio-8091-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-12 17:10:32.154  INFO 25633 --- [http-nio-8091-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2021-11-12 17:10:55.142  INFO 25633 --- [http-nio-8091-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-12 17:10:56.113  INFO 25633 --- [http-nio-8091-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-12 17:21:58.759  INFO 25633 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-12 17:21:58.771  INFO 25633 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-12 17:22:05.122  INFO 25767 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-134.dyn.columbia.edu with PID 25767 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
-2021-11-12 17:22:05.124  INFO 25767 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
-2021-11-12 17:22:06.055  INFO 25767 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
-2021-11-12 17:22:06.062  INFO 25767 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-12 17:22:06.063  INFO 25767 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-12 17:22:06.117  INFO 25767 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
-2021-11-12 17:22:06.118  INFO 25767 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 952 ms
-2021-11-12 17:22:06.861  INFO 25767 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
-2021-11-12 17:22:06.871  INFO 25767 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.145 seconds (JVM running for 2.682)
-2021-11-12 17:22:10.399  INFO 25767 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-12 17:22:10.400  INFO 25767 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-12 17:22:10.401  INFO 25767 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-12 17:22:10.497  INFO 25767 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-12 17:22:11.322  INFO 25767 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-12 17:27:50.601  INFO 25767 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-12 17:27:50.614  INFO 25767 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-12 17:27:56.308  INFO 25822 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-134.dyn.columbia.edu with PID 25822 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
-2021-11-12 17:27:56.311  INFO 25822 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
-2021-11-12 17:27:57.259  INFO 25822 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
-2021-11-12 17:27:57.266  INFO 25822 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-12 17:27:57.267  INFO 25822 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-12 17:27:57.324  INFO 25822 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
-2021-11-12 17:27:57.325  INFO 25822 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 976 ms
-2021-11-12 17:27:58.177  INFO 25822 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
-2021-11-12 17:27:58.188  INFO 25822 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.273 seconds (JVM running for 2.762)
-2021-11-12 17:28:03.454  INFO 25822 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-12 17:28:03.454  INFO 25822 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-12 17:28:03.455  INFO 25822 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-12 17:28:03.548  INFO 25822 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-12 17:28:04.438  INFO 25822 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-12 17:37:08.403  INFO 25822 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-12 17:37:08.413  INFO 25822 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-12 17:37:17.283  INFO 25910 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-134.dyn.columbia.edu with PID 25910 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
-2021-11-12 17:37:17.286  INFO 25910 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
-2021-11-12 17:37:18.225  INFO 25910 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
-2021-11-12 17:37:18.232  INFO 25910 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-12 17:37:18.233  INFO 25910 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-12 17:37:18.288  INFO 25910 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
-2021-11-12 17:37:18.288  INFO 25910 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 962 ms
-2021-11-12 17:37:19.102  INFO 25910 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
-2021-11-12 17:37:19.114  INFO 25910 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.228 seconds (JVM running for 2.734)
-2021-11-12 17:37:23.987  INFO 25910 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-12 17:37:23.988  INFO 25910 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-12 17:37:23.989  INFO 25910 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-12 17:37:24.088  INFO 25910 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-12 17:37:24.904  INFO 25910 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-12 17:37:25.306 ERROR 25910 --- [http-nio-8091-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/auth] threw exception [Request processing failed; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: One record is expected, but the query result is multiple records] with root cause
-
-com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: One record is expected, but the query result is multiple records
-	at com.baomidou.mybatisplus.core.toolkit.ExceptionUtils.mpe(ExceptionUtils.java:49) ~[mybatis-plus-core-3.4.3.4.jar:3.4.3.4]
-	at com.baomidou.mybatisplus.core.mapper.BaseMapper.selectOne(BaseMapper.java:177) ~[mybatis-plus-core-3.4.3.4.jar:3.4.3.4]
-	at java.lang.invoke.MethodHandle.invokeWithArguments(MethodHandle.java:627) ~[na:1.8.0_291]
-	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$DefaultMethodInvoker.invoke(MybatisMapperProxy.java:162) ~[mybatis-plus-core-3.4.3.4.jar:3.4.3.4]
-	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.4.3.4.jar:3.4.3.4]
-	at com.sun.proxy.$Proxy65.selectOne(Unknown Source) ~[na:na]
-	at com.sangria.auth.service.impl.GameManagerServiceImpl.info(GameManagerServiceImpl.java:162) ~[classes/:na]
-	at com.sangria.auth.service.impl.GameManagerServiceImpl$$FastClassBySpringCGLIB$$1f26ce01.invoke(<generated>) ~[classes/:na]
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.12.jar:5.3.12]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689) ~[spring-aop-5.3.12.jar:5.3.12]
-	at com.sangria.auth.service.impl.GameManagerServiceImpl$$EnhancerBySpringCGLIB$$86c799e2.info(<generated>) ~[classes/:na]
-	at com.sangria.auth.controller.GameManagerController.info(GameManagerController.java:100) ~[classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
-
-2021-11-12 17:41:05.657  INFO 25910 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-12 17:41:05.673  INFO 25910 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-12 17:41:10.038  INFO 25932 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-134.dyn.columbia.edu with PID 25932 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
-2021-11-12 17:41:10.041  INFO 25932 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
-2021-11-12 17:41:10.979  INFO 25932 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
-2021-11-12 17:41:10.986  INFO 25932 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-12 17:41:10.987  INFO 25932 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-12 17:41:11.048  INFO 25932 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
-2021-11-12 17:41:11.048  INFO 25932 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 969 ms
-2021-11-12 17:41:11.993  INFO 25932 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
-2021-11-12 17:41:12.006  INFO 25932 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.38 seconds (JVM running for 2.878)
-2021-11-12 17:41:13.285  INFO 25932 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-12 17:41:13.285  INFO 25932 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-12 17:41:13.287  INFO 25932 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-12 17:41:13.414  INFO 25932 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-12 17:41:14.596  INFO 25932 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-12 17:44:52.459  INFO 25932 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-12 17:44:52.470  INFO 25932 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-12 17:44:56.937  INFO 25952 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-134.dyn.columbia.edu with PID 25952 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
-2021-11-12 17:44:56.940  INFO 25952 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
-2021-11-12 17:44:57.813  INFO 25952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
-2021-11-12 17:44:57.820  INFO 25952 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-12 17:44:57.821  INFO 25952 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-12 17:44:57.874  INFO 25952 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
-2021-11-12 17:44:57.874  INFO 25952 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 894 ms
-2021-11-12 17:44:58.629  INFO 25952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
-2021-11-12 17:44:58.640  INFO 25952 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.152 seconds (JVM running for 2.887)
-2021-11-12 17:45:01.400  INFO 25952 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-12 17:45:01.400  INFO 25952 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-12 17:45:01.401  INFO 25952 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2021-11-12 17:45:01.496  INFO 25952 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-12 17:45:02.234  INFO 25952 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-12 17:45:02.692 ERROR 25952 --- [http-nio-8091-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/auth] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: java.lang.String cannot be cast to com.alibaba.fastjson.JSONObject] with root cause
-
-java.lang.ClassCastException: java.lang.String cannot be cast to com.alibaba.fastjson.JSONObject
-	at com.sangria.auth.service.impl.GameManagerServiceImpl.info(GameManagerServiceImpl.java:174) ~[classes/:na]
-	at com.sangria.auth.service.impl.GameManagerServiceImpl$$FastClassBySpringCGLIB$$1f26ce01.invoke(<generated>) ~[classes/:na]
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.12.jar:5.3.12]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689) ~[spring-aop-5.3.12.jar:5.3.12]
-	at com.sangria.auth.service.impl.GameManagerServiceImpl$$EnhancerBySpringCGLIB$$86c799e2.info(<generated>) ~[classes/:na]
-	at com.sangria.auth.controller.GameManagerController.info(GameManagerController.java:100) ~[classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
-
-2021-11-12 17:45:46.548  INFO 25952 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-12 17:45:46.559  INFO 25952 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-12 17:45:50.759  INFO 25962 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-134.dyn.columbia.edu with PID 25962 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
-2021-11-12 17:45:50.761  INFO 25962 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
-2021-11-12 17:45:51.684  INFO 25962 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
-2021-11-12 17:45:51.691  INFO 25962 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-12 17:45:51.691  INFO 25962 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-12 17:45:51.743  INFO 25962 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
-2021-11-12 17:45:51.744  INFO 25962 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 944 ms
-2021-11-12 17:45:52.502  INFO 25962 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
-2021-11-12 17:45:52.512  INFO 25962 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.166 seconds (JVM running for 2.672)
-2021-11-12 17:45:55.186  INFO 25962 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-12 17:45:55.186  INFO 25962 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-12 17:45:55.187  INFO 25962 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-12 17:45:55.281  INFO 25962 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-12 17:45:56.169  INFO 25962 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-12 17:45:56.346 ERROR 25962 --- [http-nio-8091-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/auth] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: com.alibaba.fastjson.JSONArray cannot be cast to com.alibaba.fastjson.JSONObject] with root cause
-
-java.lang.ClassCastException: com.alibaba.fastjson.JSONArray cannot be cast to com.alibaba.fastjson.JSONObject
-	at com.sangria.auth.service.impl.GameManagerServiceImpl.info(GameManagerServiceImpl.java:175) ~[classes/:na]
-	at com.sangria.auth.service.impl.GameManagerServiceImpl$$FastClassBySpringCGLIB$$1f26ce01.invoke(<generated>) ~[classes/:na]
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.12.jar:5.3.12]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689) ~[spring-aop-5.3.12.jar:5.3.12]
-	at com.sangria.auth.service.impl.GameManagerServiceImpl$$EnhancerBySpringCGLIB$$86c799e2.info(<generated>) ~[classes/:na]
-	at com.sangria.auth.controller.GameManagerController.info(GameManagerController.java:100) ~[classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
-
-2021-11-12 17:50:29.472  INFO 25962 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-12 17:50:29.484  INFO 25962 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-12 17:50:33.808  INFO 25994 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-134.dyn.columbia.edu with PID 25994 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
-2021-11-12 17:50:33.811  INFO 25994 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
-2021-11-12 17:50:34.749  INFO 25994 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
-2021-11-12 17:50:34.757  INFO 25994 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-12 17:50:34.757  INFO 25994 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-12 17:50:34.817  INFO 25994 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
-2021-11-12 17:50:34.818  INFO 25994 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 967 ms
-2021-11-12 17:50:35.611  INFO 25994 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
-2021-11-12 17:50:35.622  INFO 25994 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.213 seconds (JVM running for 2.704)
-2021-11-12 17:50:38.005  INFO 25994 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-12 17:50:38.005  INFO 25994 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-12 17:50:38.006  INFO 25994 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-12 17:50:38.100  INFO 25994 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-12 17:50:38.799  INFO 25994 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-12 17:51:09.793  INFO 25994 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-12 17:51:09.805  INFO 25994 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-12 17:51:14.112  INFO 26000 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-134.dyn.columbia.edu with PID 26000 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
-2021-11-12 17:51:14.114  INFO 26000 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
-2021-11-12 17:51:14.990  INFO 26000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
-2021-11-12 17:51:14.996  INFO 26000 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-12 17:51:14.997  INFO 26000 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-12 17:51:15.050  INFO 26000 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
-2021-11-12 17:51:15.050  INFO 26000 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 899 ms
-2021-11-12 17:51:15.829  INFO 26000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
-2021-11-12 17:51:15.839  INFO 26000 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.121 seconds (JVM running for 2.623)
-2021-11-12 17:51:18.320  INFO 26000 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-12 17:51:18.320  INFO 26000 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-12 17:51:18.321  INFO 26000 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-12 17:51:18.417  INFO 26000 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-12 17:51:19.303  INFO 26000 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-12 18:23:47.184  INFO 26000 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-12 18:23:47.196  INFO 26000 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-12 18:52:46.157  INFO 26323 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_291 on dyn-160-39-202-134.dyn.columbia.edu with PID 26323 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
-2021-11-12 18:52:46.159  INFO 26323 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
-2021-11-12 18:52:46.946  INFO 26323 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
-2021-11-12 18:52:46.953  INFO 26323 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-12 18:52:46.953  INFO 26323 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-12 18:52:47.001  INFO 26323 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
-2021-11-12 18:52:47.002  INFO 26323 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 813 ms
-2021-11-12 18:52:47.587  INFO 26323 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
-2021-11-12 18:52:47.595  INFO 26323 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 1.758 seconds (JVM running for 2.165)
-2021-11-12 18:53:21.587  INFO 26323 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-12 18:53:21.588  INFO 26323 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-12 18:53:21.589  INFO 26323 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-12 18:53:21.672  INFO 26323 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-12 18:53:22.533  INFO 26323 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-12 18:54:16.155  INFO 26323 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-12 18:54:16.168  INFO 26323 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:24:22.918  INFO 7064 --- [main] c.s.auth.GameManagerControllerTest       : Starting GameManagerControllerTest using Java 1.8.0_101 on StevenPersonal with PID 7064 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:24:22.928  INFO 7064 --- [main] c.s.auth.GameManagerControllerTest       : The following profiles are active: dev
+2021-11-14 11:24:26.623 ERROR 7064 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:24:28.903  INFO 7064 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-11-14 11:24:28.904  INFO 7064 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-11-14 11:24:28.906  INFO 7064 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-11-14 11:24:28.933  INFO 7064 --- [main] c.s.auth.GameManagerControllerTest       : Started GameManagerControllerTest in 6.695 seconds (JVM running for 8.579)
+2021-11-14 11:30:34.346  INFO 2360 --- [main] c.s.auth.GameManagerControllerTest       : Starting GameManagerControllerTest using Java 1.8.0_101 on StevenPersonal with PID 2360 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:30:34.348  INFO 2360 --- [main] c.s.auth.GameManagerControllerTest       : The following profiles are active: dev
+2021-11-14 11:30:37.558 ERROR 2360 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:30:39.542  INFO 2360 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-11-14 11:30:39.543  INFO 2360 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-11-14 11:30:39.544  INFO 2360 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-11-14 11:30:39.567  INFO 2360 --- [main] c.s.auth.GameManagerControllerTest       : Started GameManagerControllerTest in 5.766 seconds (JVM running for 7.2)
+2021-11-14 11:34:11.385  INFO 5760 --- [main] c.s.auth.GameManagerControllerTest       : Starting GameManagerControllerTest using Java 1.8.0_101 on StevenPersonal with PID 5760 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:34:11.386  INFO 5760 --- [main] c.s.auth.GameManagerControllerTest       : The following profiles are active: dev
+2021-11-14 11:34:12.761 ERROR 5760 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:34:13.826  INFO 5760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:34:13.842  INFO 5760 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:34:13.843  INFO 5760 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:34:13.976  INFO 5760 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:34:13.977  INFO 5760 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2568 ms
+2021-11-14 11:34:16.989  INFO 5760 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring TestDispatcherServlet ''
+2021-11-14 11:34:16.990  INFO 5760 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-11-14 11:34:16.991  INFO 5760 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-11-14 11:34:17.087  INFO 5760 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:34:17.099  INFO 5760 --- [main] c.s.auth.GameManagerControllerTest       : Started GameManagerControllerTest in 6.288 seconds (JVM running for 8.18)
+2021-11-14 11:38:54.575  INFO 2308 --- [main] c.s.auth.GameManagerControllerTest       : Starting GameManagerControllerTest using Java 1.8.0_101 on StevenPersonal with PID 2308 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:38:54.577  INFO 2308 --- [main] c.s.auth.GameManagerControllerTest       : The following profiles are active: dev
+2021-11-14 11:38:55.991 ERROR 2308 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:38:57.091  INFO 2308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:38:57.109  INFO 2308 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:38:57.110  INFO 2308 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:38:57.256  INFO 2308 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:38:57.257  INFO 2308 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2658 ms
+2021-11-14 11:39:00.406  INFO 2308 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring TestDispatcherServlet ''
+2021-11-14 11:39:00.406  INFO 2308 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-11-14 11:39:00.408  INFO 2308 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-11-14 11:39:00.512  INFO 2308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:39:00.526  INFO 2308 --- [main] c.s.auth.GameManagerControllerTest       : Started GameManagerControllerTest in 6.549 seconds (JVM running for 8.558)
+2021-11-14 11:40:24.051  INFO 8788 --- [main] c.s.auth.GameManagerControllerTest       : Starting GameManagerControllerTest using Java 1.8.0_101 on StevenPersonal with PID 8788 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:40:24.052  INFO 8788 --- [main] c.s.auth.GameManagerControllerTest       : The following profiles are active: dev
+2021-11-14 11:40:25.862 ERROR 8788 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:40:27.048  INFO 8788 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:40:27.072  INFO 8788 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:40:27.073  INFO 8788 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:40:27.256  INFO 8788 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:40:27.257  INFO 8788 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3170 ms
+2021-11-14 11:40:30.678  INFO 8788 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring TestDispatcherServlet ''
+2021-11-14 11:40:30.678  INFO 8788 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-11-14 11:40:30.681  INFO 8788 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-11-14 11:40:30.796  INFO 8788 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:40:30.814  INFO 8788 --- [main] c.s.auth.GameManagerControllerTest       : Started GameManagerControllerTest in 7.566 seconds (JVM running for 11.182)
+2021-11-14 11:44:32.960  INFO 14732 --- [main] com.sangria.auth.GameManagerServiceTest  : Starting GameManagerServiceTest using Java 1.8.0_101 on StevenPersonal with PID 14732 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:44:32.962  INFO 14732 --- [main] com.sangria.auth.GameManagerServiceTest  : The following profiles are active: dev
+2021-11-14 11:44:34.321 ERROR 14732 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:44:35.384  INFO 14732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:44:35.401  INFO 14732 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:44:35.401  INFO 14732 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:44:35.541  INFO 14732 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:44:35.541  INFO 14732 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2549 ms
+2021-11-14 11:44:38.752  INFO 14732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:44:38.764  INFO 14732 --- [main] com.sangria.auth.GameManagerServiceTest  : Started GameManagerServiceTest in 6.399 seconds (JVM running for 7.912)
+2021-11-14 11:49:09.093  INFO 2384 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 2384 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:49:09.095  INFO 2384 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:49:10.392 ERROR 2384 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:49:11.444  INFO 2384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:49:11.461  INFO 2384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:49:11.461  INFO 2384 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:49:11.593  INFO 2384 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:49:11.593  INFO 2384 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2468 ms
+2021-11-14 11:49:14.666  INFO 2384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:49:14.677  INFO 2384 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.156 seconds (JVM running for 7.497)
+2021-11-14 11:49:15.044  INFO 2384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:49:15.935  INFO 2384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:49:17.333  INFO 2384 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:49:17.692  INFO 2384 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:50:37.886  INFO 11384 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 11384 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:50:37.887  INFO 11384 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:50:39.283 ERROR 11384 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:50:40.375  INFO 11384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:50:40.394  INFO 11384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:50:40.395  INFO 11384 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:50:40.537  INFO 11384 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:50:40.538  INFO 11384 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2621 ms
+2021-11-14 11:50:43.799  INFO 11384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:50:43.812  INFO 11384 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.529 seconds (JVM running for 7.911)
+2021-11-14 11:50:44.210  INFO 11384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:50:45.085  INFO 11384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:50:46.164  INFO 11384 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:50:46.467  INFO 11384 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:51:06.586  INFO 16276 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 16276 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:51:06.588  INFO 16276 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:51:07.912 ERROR 16276 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:51:08.936  INFO 16276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:51:08.952  INFO 16276 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:51:08.953  INFO 16276 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:51:09.078  INFO 16276 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:51:09.078  INFO 16276 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2461 ms
+2021-11-14 11:51:12.128  INFO 16276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:51:12.139  INFO 16276 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.132 seconds (JVM running for 7.456)
+2021-11-14 11:51:12.518  INFO 16276 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:51:13.395  INFO 16276 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:51:14.415  INFO 16276 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:51:14.736  INFO 16276 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:52:06.218  INFO 16196 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 16196 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:52:06.220  INFO 16196 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:52:07.535 ERROR 16196 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:52:08.547  INFO 16196 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:52:08.564  INFO 16196 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:52:08.564  INFO 16196 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:52:08.708  INFO 16196 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:52:08.708  INFO 16196 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2459 ms
+2021-11-14 11:52:11.758  INFO 16196 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:52:11.769  INFO 16196 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.121 seconds (JVM running for 7.424)
+2021-11-14 11:52:12.153  INFO 16196 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:52:13.001  INFO 16196 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:52:14.451  INFO 16196 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:52:14.739  INFO 16196 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:58:32.930  INFO 13860 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 13860 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:58:32.932  INFO 13860 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:58:34.236 ERROR 13860 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:58:35.268  INFO 13860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:58:35.284  INFO 13860 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:58:35.285  INFO 13860 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:58:35.414  INFO 13860 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:58:35.415  INFO 13860 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2451 ms
+2021-11-14 11:58:38.450  INFO 13860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:58:38.461  INFO 13860 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.101 seconds (JVM running for 7.42)
+2021-11-14 11:58:38.832  INFO 13860 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:58:39.684  INFO 13860 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:58:41.830  INFO 13860 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:58:42.168  INFO 13860 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 11:59:49.676  INFO 13924 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 13924 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 11:59:49.677  INFO 13924 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-11-14 11:59:50.958 ERROR 13924 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 11:59:52.006  INFO 13924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 11:59:52.024  INFO 13924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 11:59:52.024  INFO 13924 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 11:59:52.159  INFO 13924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 11:59:52.159  INFO 13924 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2452 ms
+2021-11-14 11:59:55.259  INFO 13924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 11:59:55.270  INFO 13924 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.197 seconds (JVM running for 7.568)
+2021-11-14 11:59:55.626  INFO 13924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 11:59:56.512  INFO 13924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-14 11:59:58.744  INFO 13924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-14 11:59:59.087  INFO 13924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-14 12:00:58.317  INFO 9188 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 1.8.0_101 on StevenPersonal with PID 9188 (C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
+2021-11-14 12:00:58.323  INFO 9188 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
+2021-11-14 12:00:59.529 ERROR 9188 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-11-14 12:01:00.516  INFO 9188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 12:01:00.533  INFO 9188 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 12:01:00.534  INFO 9188 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 12:01:00.650  INFO 9188 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 12:01:00.651  INFO 9188 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2238 ms
+2021-11-14 12:01:03.133  INFO 9188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 12:01:03.148  INFO 9188 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 5.508 seconds (JVM running for 6.073)
+2021-11-14 12:01:51.900  INFO 9188 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-14 12:01:51.901  INFO 9188 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-14 12:01:51.903  INFO 9188 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-14 12:01:52.128  INFO 9188 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-14 12:01:52.992  INFO 9188 --- [http-nio-8091-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
