@@ -100,6 +100,5 @@ Test:
 		b. in the Postman, send requests to the endpoints: e.g. 35.196.112.19/auth/gameManager/login with parameters  
 		
 Style Checker:  
-
 	The style checker we used is CheckStyle Plug-in, which is a eclipse software that is built-in in the IDE. it can be activated by right-click the file --> check --> activate checkstyle, and can be downloaded in the eclipse marketplace. It generates no report and the result can not be redirected to a file since it will show the check result directly in the IDE interface.  
 
