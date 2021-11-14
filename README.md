@@ -19,6 +19,11 @@ Service-auth APIs:
 	a. request method: GET  
 	b. parameters: token(required)  
 	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.  
+	
+4. /gameManager/info -->manager info, game info and inventory info  
+	a. request method: GET  
+	b. parameters: token(required)  
+	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.
 
 ...
 
