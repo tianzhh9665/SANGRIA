@@ -30,7 +30,6 @@ Service-auth APIs:
 	b. parameters: token(required)  
 	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.
 
-...
 
 Service-operation APIs:
 
@@ -54,3 +53,5 @@ Service-operation APIs:
 	a. request method: GET   
 	b. parameters: token(required), itemId(required)  
 	c. return: JSON Object with code 200 --> success with item info in data, 500 --> failed with corresponding error message.   
+
+... more to come
