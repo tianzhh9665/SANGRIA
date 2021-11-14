@@ -12,7 +12,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.sangria.auth.Enum.RequestResultEnum;
 import com.sangria.auth.dto.ResponseDTO;
-
+/**
+ * 
+ * @author Steven Huang
+ *
+ */
 public class BaseController {
 
 	public ResponseDTO renderOk() {

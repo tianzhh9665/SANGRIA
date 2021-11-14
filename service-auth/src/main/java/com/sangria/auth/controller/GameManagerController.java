@@ -9,11 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.sangria.auth.dto.ManagerDeleteDTO;
 import com.sangria.auth.dto.ManagerLoginDTO;
 import com.sangria.auth.dto.ManagerRegDTO;
 import com.sangria.auth.dto.ResponseDTO;
 import com.sangria.auth.service.GameManagerService;
-
+/**
+ * 
+ * @author Steven Huang
+ *
+ */
 @RestController
 @RequestMapping("/gameManager")
 public class GameManagerController extends BaseController{
@@ -82,6 +87,38 @@ public class GameManagerController extends BaseController{
 		}
 		
 		ResponseDTO result = gameManagerService.verifyToken(token);
+		return result;
+	}
+	
+	/**
+	 * game manager delete
+	 * @param dto
+	 * @return ResponseDTO
+	 */
+	@PostMapping(value = "/delete")
+	public ResponseDTO delete(@RequestBody ManagerDeleteDTO dto) {
+
+		if(StringUtils.isBlank(dto.getToken())) {
+			return renderFail("ERROR: parameter token can not be empty");
+		}
+
+		ResponseDTO result = gameManagerService.delete(dto);
+		return result;
+	}
+	
+	/**
+	 * return the manager info, game info, inventory info according to the token
+	 * @param token
+	 * @return ResponseDTO
+	 */
+	@GetMapping(value = "/info")
+	public ResponseDTO info(String token) {
+
+		if(StringUtils.isBlank(token)) {
+			return renderFail("ERROR: authentication failed -- token can not be empty");
+		}
+
+		ResponseDTO result = gameManagerService.info(token);
 		return result;
 	}
 	

@@ -8,14 +8,20 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sangria.auth.dao.GameManagerMapper;
 import com.sangria.auth.dao.GameMapper;
+import com.sangria.auth.dao.InventoryMapper;
+import com.sangria.auth.dao.ItemMapper;
+import com.sangria.auth.dto.ManagerDeleteDTO;
 import com.sangria.auth.dto.ManagerLoginDTO;
 import com.sangria.auth.dto.ManagerRegDTO;
 import com.sangria.auth.dto.ResponseDTO;
 import com.sangria.auth.entity.GameDO;
 import com.sangria.auth.entity.GameManagerDO;
+import com.sangria.auth.entity.InventoryDO;
+import com.sangria.auth.entity.ItemDO;
 import com.sangria.auth.service.GameManagerService;
 import com.sangria.auth.utils.CommonUtils;
 import com.sangria.auth.utils.MD5Utils;
@@ -29,6 +35,12 @@ public class GameManagerServiceImpl implements GameManagerService{
 	
 	@Resource
 	private GameMapper gameMapper;
+	
+	@Resource
+	private InventoryMapper inventoryMapper;
+
+	@Resource
+	private ItemMapper itemMapper;
 	
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -111,6 +123,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 		}
 		String token = UUID.randomUUID().toString().replace("-","");
 		manager.setToken(token);
+		manager.setModifiedTime(CommonUtils.getTimeNow());
 		if(gameManagerMapper.updateById(manager) < 0) {
 			return new ResponseDTO(500, "ERROR: login failed, please try again later", null);
 		}
@@ -131,5 +144,84 @@ public class GameManagerServiceImpl implements GameManagerService{
 		}catch(Exception e) {
 			return new ResponseDTO(501, "ERROR: token verification failed with Exception thrown", null);
 		}
+	}
+	
+	@Override
+	public ResponseDTO delete(ManagerDeleteDTO dto) {
+		try {
+			String token = dto.getToken();
+			GameManagerDO managerSearch = new GameManagerDO();
+			managerSearch.setToken(token);
+			// verify token
+			GameManagerDO manager = gameManagerMapper.selectOne(new QueryWrapper<>(managerSearch));
+			if(manager == null) {
+				return new ResponseDTO(500, "token is not valid, please login first", null);
+			}
+			// delete manager from manager table
+			String gameUuid = manager.getGameUuid();
+			if (gameManagerMapper.delete(new QueryWrapper<>(managerSearch)) < 0){
+				return new ResponseDTO(500, "ERROR: fail to delete manager", null);
+			}
+			// delete game from game table
+			GameDO gameSearch = new GameDO();
+			gameSearch.setUuid(gameUuid);
+			if (gameMapper.delete(new QueryWrapper<>(gameSearch)) < 0) {
+				return new ResponseDTO(500, "ERROR: fail to delete game", null);
+			}
+			// fetch and delete inventory from inventory table
+			InventoryDO inventorySearch = new InventoryDO();
+			inventorySearch.setGameUuid(gameUuid);
+			List<InventoryDO> inventorySearchResult = inventoryMapper.selectList(new QueryWrapper<>(inventorySearch));
+			if (inventoryMapper.delete(new QueryWrapper<>(inventorySearch)) < 0){
+				return new ResponseDTO(500, "ERROR: fail to delete inventory", null);
+			}
+			// delete item from item table
+			ItemDO itemSearch = new ItemDO();
+			for (int i=0; i<inventorySearchResult.size(); i++){
+				itemSearch.setInventoryUuid(inventorySearchResult.get(i).getUuid());
+				if (itemMapper.delete(new QueryWrapper<>(itemSearch)) < 0){
+					return new ResponseDTO(500, "ERROR: fail to delete item", null);
+				}
+			}
+
+			return new ResponseDTO(200, "game deleted successfully", null);
+
+		}catch(Exception e) {
+			return new ResponseDTO(501, "ERROR: delete failed with Exception thrown", null);
+		}
+	}
+	
+	@Override
+	public ResponseDTO info(String token) {
+		GameManagerDO managerSearch = new GameManagerDO();
+		managerSearch.setToken(token);
+		GameManagerDO manager = gameManagerMapper.selectOne(new QueryWrapper<>(managerSearch));
+
+		if (manager == null) {
+			return new ResponseDTO(500, "token is not valid, please login first", null);
+		}
+
+		GameDO gameSearch = new GameDO();
+		gameSearch.setManagerUuid(manager.getUuid());
+		GameDO game = gameMapper.selectOne(new QueryWrapper<>(gameSearch));
+
+		if (game == null) {
+			return new ResponseDTO(500, "can not find gameInfo with this manager's uuid", null);
+		}
+
+		InventoryDO inventorySearch = new InventoryDO();
+		inventorySearch.setGameUuid(game.getUuid());
+		List<InventoryDO> inventory = inventoryMapper.selectList(new QueryWrapper<>(inventorySearch));
+
+		if (inventory == null) {
+			return new ResponseDTO(500, "can not find inventoryInfo with this game's uuid", null);
+		}
+
+		JSONObject resultJSON = new JSONObject();
+		resultJSON.put("managerInfo", manager);
+		resultJSON.put("gameInfo", game);
+		resultJSON.put("inventoryInfo", inventory);
+
+		return new ResponseDTO(200, "", resultJSON);
 	}
 }

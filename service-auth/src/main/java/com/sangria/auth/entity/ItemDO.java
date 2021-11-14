@@ -26,6 +26,8 @@ public class ItemDO {
 	private String createTime;
 	
 	private String modifiedTime;
+	
+	private String attributes;
 
 }
 
