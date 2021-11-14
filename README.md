@@ -79,6 +79,7 @@ Run:
 		a. build the project first described above  
 		b. run src/main/java/ServiceAuthApplication.java(or src/main/java/ServiceOperationApplication.java for service-operation) as java Application (right-click on the file --> run as.. --> Java Application)  
 
+
 	Run the project on the VM(deployment):  
 		a. right-click on the project folder --> run as --> maven clean  
 		b. right-click on the project folder --> run as --> maven install  
