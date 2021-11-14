@@ -74,8 +74,8 @@ How to build, run, and test the project:
 	g. Project --> clean to clean the project first  
 	h. right-click on the project folder --> maven --> Update Project to update and build the project  
 
---Run:
-	--Run the project locally:  
+--Run:  
+  	--Run the project locally:  
 		a. build the project first described above  
 		b. run src/main/java/ServiceAuthApplication.java(or src/main/java/ServiceOperationApplication.java for service-operation) as java Application (right-click on the file --> run as.. --> Java Application)  
 	--Run the project on the VM(deployment):  
@@ -93,6 +93,6 @@ How to build, run, and test the project:
 		a. have the project deployed and run on the vm as described above  
 		b. in the Postman, send requests to the endpoints: e.g. 35.196.112.19/auth/gameManager/login with parameters  
 		
-Style Checker:
+Style Checker:  
 	The style checker we used is CheckStyle Plug-in, which is a eclipse software that is built-in in the IDE. it can be activated by right-click the file --> check --> activate checkstyle, and can be downloaded in the eclipse marketplace. It generates no report and the result can not be redirected to a file since it will show the check result directly in the IDE interface.  
 
