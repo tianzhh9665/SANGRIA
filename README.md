@@ -36,7 +36,8 @@ Service-auth APIs:
 	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.  
 
 
-Service-operation APIs: (please consider only Service-auth as the official submission for Assignment T3 First Iteration, service-operation is still under development and it is here for the purpose of providing some functionalities for First Iteration Demo with the IA)
+Service-operation APIs:   
+(please consider only Service-auth as the official submission for Assignment T3 First Iteration, service-operation is still under development and it is here for the purpose of providing some functionalities for First Iteration Demo with the IA)  
 
 1. /inventory/add	-->add a new inventory to the game  
 	a. request method: POST  
