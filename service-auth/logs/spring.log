@@ -1,4 +1,12 @@
-2021-11-13 19:17:01.750  INFO 11328 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 1.8.0_101 on StevenPersonal with PID 11328 (started by Steven Huang in C:\Users\Steven Huang\Desktop\eclipse_workspace\service-auth)
-2021-11-13 19:17:01.758  INFO 11328 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
-2021-11-13 19:17:05.811 ERROR 11328 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2021-11-13 19:17:07.848  INFO 11328 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 6.862 seconds (JVM running for 8.675)
+2021-11-14 00:02:51.913  INFO 2784 --- [main] com.sangria.auth.ServiceAuthApplication  : Starting ServiceAuthApplication using Java 17 on LAPTOP-OAAERONV with PID 2784 (C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-auth\target\classes started by ASUS in C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-auth)
+2021-11-14 00:02:51.920  INFO 2784 --- [main] com.sangria.auth.ServiceAuthApplication  : The following profiles are active: dev
+2021-11-14 00:02:52.916  INFO 2784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-11-14 00:02:52.929  INFO 2784 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-14 00:02:52.929  INFO 2784 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-14 00:02:53.004  INFO 2784 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-11-14 00:02:53.004  INFO 2784 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1038 ms
+2021-11-14 00:02:53.918  INFO 2784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-11-14 00:02:53.930  INFO 2784 --- [main] com.sangria.auth.ServiceAuthApplication  : Started ServiceAuthApplication in 2.421 seconds (JVM running for 2.727)
+2021-11-14 00:03:49.404  INFO 2784 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-14 00:03:49.405  INFO 2784 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-14 00:03:49.406  INFO 2784 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
