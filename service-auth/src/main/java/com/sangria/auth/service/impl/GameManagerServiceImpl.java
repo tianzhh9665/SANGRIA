@@ -45,7 +45,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public ResponseDTO register(ManagerRegDTO dto) {
-		
+		//check if the username already exists
 		GameManagerDO managerSearch = new GameManagerDO();
 		managerSearch.setUsername(dto.getUsername());
 		List<GameManagerDO> managerSearchResult = gameManagerMapper.selectList(new QueryWrapper<>(managerSearch));
@@ -53,7 +53,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 			return new ResponseDTO(500, "ERROR: username already exists, please choose another one", null);
 		}
 		
-		
+		//check if the gameName already exists
 		String gameName = dto.getGameName();
 		GameDO gameSearch = new GameDO();
 		gameSearch.setName(gameName);
@@ -62,7 +62,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 			return new ResponseDTO(500, "ERROR: The game you want to register already had a manager", null);
 		}
 		
-		
+		//create new managerDO and insert
 		String managerUuid = CommonUtils.generateUniqueId("MGR", 3);
 		String gameUuid = CommonUtils.generateUniqueId("GAME", 3);
 		
@@ -84,7 +84,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 		if(gameManagerMapper.insert(manager) <= 0) {
 			return new ResponseDTO(500,"ERROR: Creating Manager Failed!", null);
 		}
-		
+		//create new gameDO and insert
 		GameDO game = new GameDO();
 		game.setUuid(gameUuid);
 		game.setName(dto.getGameName());
@@ -102,6 +102,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public ResponseDTO login(ManagerLoginDTO dto) {
+		//check if the username already exists
 		GameManagerDO managerSearch = new GameManagerDO();
 		managerSearch.setUsername(dto.getUsername());
 		List<GameManagerDO> managerSearchResult = gameManagerMapper.selectList(new QueryWrapper<>(managerSearch));
@@ -111,7 +112,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 		if(managerSearchResult != null && managerSearchResult.size() > 1) {
 			return new ResponseDTO(500, "ERROR: more that one manager with username: " + dto.getUsername() + " , please contact system admin", null);
 		}
-		
+		//check if that manager already logged in
 		GameManagerDO manager = managerSearchResult.get(0);
 		if(StringUtils.isNotEmpty(manager.getToken())) {
 			return new ResponseDTO(500, "ERROR: manager " + dto.getUsername() + " already logged in", null);
@@ -121,6 +122,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 		if(!encryptedPass.equals(manager.getPassword())) {
 			return new ResponseDTO(500, "ERROR: incorrect password, please try again", null);
 		}
+		//assign token to the user and insert login infomation
 		String token = UUID.randomUUID().toString().replace("-","");
 		manager.setToken(token);
 		manager.setModifiedTime(CommonUtils.getTimeNow());
