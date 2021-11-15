@@ -1,0 +1,173 @@
+{
+	"id": "02046cad-910b-4180-92cd-d4885da9a8b7",
+	"name": "service-auth test",
+	"timestamp": "2021-11-15T20:54:49.561Z",
+	"collection_id": "18323420-77484e1c-dd6f-4df6-8411-e482bfc26209",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 5,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "9a73a13e-f07f-48a0-bdd3-34f3c18b0676",
+			"name": "register",
+			"url": "http://35.196.112.19:8091/auth/gameManager/register",
+			"time": 116,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"test passed with code 200": true
+			},
+			"testPassFailCounts": {
+				"test passed with code 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				116
+			],
+			"allTests": [
+				{
+					"test passed with code 200": true
+				}
+			]
+		},
+		{
+			"id": "98b1f43d-b878-46f8-8aa5-6b87559ddfeb",
+			"name": "login",
+			"url": "http://35.196.112.19:8091/auth/gameManager/login",
+			"time": 61,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"test passed with code 200": true
+			},
+			"testPassFailCounts": {
+				"test passed with code 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				61
+			],
+			"allTests": [
+				{
+					"test passed with code 200": true
+				}
+			]
+		},
+		{
+			"id": "f76bc434-c809-48d2-8576-a3a02a04015c",
+			"name": "info",
+			"url": "http://35.196.112.19:8091/auth/gameManager/info?token=80e467ebcb3a47faa2367589768814bb",
+			"time": 60,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"test passed with code 200": true
+			},
+			"testPassFailCounts": {
+				"test passed with code 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				60
+			],
+			"allTests": [
+				{
+					"test passed with code 200": true
+				}
+			]
+		},
+		{
+			"id": "3a60ff42-680a-4a5a-953f-e23a3ee9d05f",
+			"name": "delete",
+			"url": "http://35.196.112.19:8091/auth/gameManager/delete",
+			"time": 83,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"test passed with code 200": true
+			},
+			"testPassFailCounts": {
+				"test passed with code 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				83
+			],
+			"allTests": [
+				{
+					"test passed with code 200": true
+				}
+			]
+		},
+		{
+			"id": "c0dc36df-e740-4e2b-abd3-4692f56601e5",
+			"name": "logoff",
+			"url": "http://35.196.112.19:8091/auth/gameManager/logout",
+			"time": 50,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"test passed with code 200": true
+			},
+			"testPassFailCounts": {
+				"test passed with code 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				50
+			],
+			"allTests": [
+				{
+					"test passed with code 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 370,
+	"collection": {
+		"requests": [
+			{
+				"id": "9a73a13e-f07f-48a0-bdd3-34f3c18b0676",
+				"method": "POST"
+			},
+			{
+				"id": "98b1f43d-b878-46f8-8aa5-6b87559ddfeb",
+				"method": "POST"
+			},
+			{
+				"id": "f76bc434-c809-48d2-8576-a3a02a04015c",
+				"method": "GET"
+			},
+			{
+				"id": "3a60ff42-680a-4a5a-953f-e23a3ee9d05f",
+				"method": "POST"
+			},
+			{
+				"id": "c0dc36df-e740-4e2b-abd3-4692f56601e5",
+				"method": "POST"
+			}
+		]
+	}
+}
