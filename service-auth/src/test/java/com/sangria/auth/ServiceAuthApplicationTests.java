@@ -160,5 +160,42 @@ class ServiceAuthApplicationTests {
         Assert.assertEquals(500, result.getCode());
 
     }
+	
+	@Test
+	void testLogout() {
+		// setup new test manager user
+		ManagerRegDTO dto = new ManagerRegDTO();
+		String testUsername = CommonUtils.generateUniqueId("testUsername", 1);
+		String testPassword = CommonUtils.generateUniqueId("testPassword", 1);
+		String testGamename = CommonUtils.generateUniqueId("testGamename", 1);
+        dto.setUsername(testUsername);
+        dto.setPassword(testPassword);
+        dto.setGameName(testGamename);
+        ResponseDTO result = gameManagerService.register(dto);
+        Assert.assertEquals(200, result.getCode());
+        
+        ManagerLoginDTO login = new ManagerLoginDTO();
+        login.setUsername(testUsername);
+        login.setPassword(testPassword);
+        result = gameManagerService.login(login);
+        Assert.assertEquals(200, result.getCode());
+
+        GameManagerDO managerSearch = new GameManagerDO();
+        managerSearch.setUsername(login.getUsername());
+        GameManagerDO manager = gameManagerMapper.selectOne(new QueryWrapper<>(managerSearch));
+        
+        //test logout success case
+        String token = manager.getToken();
+        ManagerDeleteDTO logoutDTO = new ManagerDeleteDTO();
+        logoutDTO.setToken(token);
+        result = gameManagerService.logout(logoutDTO.getToken());
+        Assert.assertEquals(200, result.getCode());
+        
+        //test logout fail case
+        ManagerDeleteDTO logoutFail = new ManagerDeleteDTO();
+        logoutFail.setToken("wrong token");
+        result = gameManagerService.logout(logoutFail.getToken());
+        Assert.assertEquals(500, result.getCode());
+	}
 
 }
