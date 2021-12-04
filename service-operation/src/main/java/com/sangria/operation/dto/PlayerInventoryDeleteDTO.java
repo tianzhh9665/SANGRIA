@@ -6,6 +6,6 @@ import lombok.Data;
 public class PlayerInventoryDeleteDTO {
 
     String token;
-    String playerInventoryId;
+    String playerId;
 
 }
