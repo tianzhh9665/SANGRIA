@@ -219,6 +219,12 @@ public class GameManagerServiceImpl implements GameManagerService{
 
 		JSONObject resultJSON = new JSONObject();
 		resultJSON.put("managerInfo", manager);
+
+		JSONObject noPwdJson = resultJSON.getJSONObject("managerInfo");
+		noPwdJson.remove("password");
+		resultJSON.remove("managerInfo");
+		resultJSON.put("managerInfo", noPwdJson);
+
 		resultJSON.put("gameInfo", game);
 		resultJSON.put("inventoryInfo", inventory);
 
