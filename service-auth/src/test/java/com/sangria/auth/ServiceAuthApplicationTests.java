@@ -1,6 +1,7 @@
 package com.sangria.auth;
 
 import java.util.Random;
+import java.util.List;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sangria.auth.dao.GameManagerMapper;
@@ -15,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.sangria.auth.dto.ManagerLoginDTO;
 import com.sangria.auth.dto.ManagerRegDTO;
+import com.sangria.auth.dto.ManagerDeleteDTO;
 import com.sangria.auth.dto.ResponseDTO;
 import com.sangria.auth.service.GameManagerService;
 import com.sangria.auth.utils.CommonUtils;
@@ -116,5 +118,84 @@ class ServiceAuthApplicationTests {
         Assert.assertEquals(500, result.getCode());
 
     }
+
+    @Test
+    void testDelete() {
+        //test delete success
+        ManagerRegDTO dto = new ManagerRegDTO();
+        String testUsername = CommonUtils.generateUniqueId("testUsername", 1);
+        String testPassword = CommonUtils.generateUniqueId("testPassword", 1);
+        String testGamename = CommonUtils.generateUniqueId("testGamename", 1);
+        dto.setUsername(testUsername);
+        dto.setPassword(testPassword);
+        dto.setGameName(testGamename);
+        ResponseDTO result = gameManagerService.register(dto);
+        Assert.assertEquals(200, result.getCode());
+
+        ManagerLoginDTO login = new ManagerLoginDTO();
+        login.setUsername(testUsername);
+        login.setPassword(testPassword);
+        result = gameManagerService.login(login);
+        Assert.assertEquals(200, result.getCode());
+        Assert.assertNotNull(result.getData());
+
+        GameManagerDO managerSearch = new GameManagerDO();
+        managerSearch.setUsername(login.getUsername());
+        List<GameManagerDO> managerBeforeDelete = gameManagerMapper.selectList(new QueryWrapper<>(managerSearch));
+        Assert.assertEquals(1, managerBeforeDelete.size());
+
+        String token = managerBeforeDelete.get(0).getToken();
+        ManagerDeleteDTO deleteDTO = new ManagerDeleteDTO();
+        deleteDTO.setToken(token);
+        result = gameManagerService.delete(deleteDTO);
+        Assert.assertEquals(200, result.getCode());
+
+        List<GameManagerDO> managerAfterDelete = gameManagerMapper.selectList(new QueryWrapper<>(managerSearch));
+        Assert.assertEquals(0, managerAfterDelete.size());
+
+        //test delete fail
+        ManagerDeleteDTO deleteFail = new ManagerDeleteDTO();
+        deleteFail.setToken("fake");
+        result = gameManagerService.delete(deleteFail);
+        Assert.assertEquals(500, result.getCode());
+
+    }
+	
+	@Test
+	void testLogout() {
+		// setup new test manager user
+		ManagerRegDTO dto = new ManagerRegDTO();
+		String testUsername = CommonUtils.generateUniqueId("testUsername", 1);
+		String testPassword = CommonUtils.generateUniqueId("testPassword", 1);
+		String testGamename = CommonUtils.generateUniqueId("testGamename", 1);
+        dto.setUsername(testUsername);
+        dto.setPassword(testPassword);
+        dto.setGameName(testGamename);
+        ResponseDTO result = gameManagerService.register(dto);
+        Assert.assertEquals(200, result.getCode());
+        
+        ManagerLoginDTO login = new ManagerLoginDTO();
+        login.setUsername(testUsername);
+        login.setPassword(testPassword);
+        result = gameManagerService.login(login);
+        Assert.assertEquals(200, result.getCode());
+
+        GameManagerDO managerSearch = new GameManagerDO();
+        managerSearch.setUsername(login.getUsername());
+        GameManagerDO manager = gameManagerMapper.selectOne(new QueryWrapper<>(managerSearch));
+        
+        //test logout success case
+        String token = manager.getToken();
+        ManagerDeleteDTO logoutDTO = new ManagerDeleteDTO();
+        logoutDTO.setToken(token);
+        result = gameManagerService.logout(logoutDTO.getToken());
+        Assert.assertEquals(200, result.getCode());
+        
+        //test logout fail case
+        ManagerDeleteDTO logoutFail = new ManagerDeleteDTO();
+        logoutFail.setToken("wrong token");
+        result = gameManagerService.logout(logoutFail.getToken());
+        Assert.assertEquals(500, result.getCode());
+	}
 
 }
