@@ -56,4 +56,24 @@ public class PlayerController extends BaseController{
 
         return playerService.unfreeze(dto);
     }
+
+    /**
+	 * delete a player
+	 * @param dto
+	 * @return
+	 */
+	@PostMapping(value = "/deletePlayer")
+	public ResponseDTO deletePlayer(@RequestBody PlayerDeleteDTO dto) {
+		String token = dto.getToken();
+		String inventoryId = dto.getPlayerId();
+		if(StringUtils.isBlank(token)) {
+			return renderFail("ERROR: authentication failed, token can not be empty");
+		}
+		if(StringUtils.isBlank(inventoryId)) {
+			return renderFail("ERROR: inventoryId can not be empty");
+		}
+
+		return playerService.deletePlayer(dto);
+	}
+
 }

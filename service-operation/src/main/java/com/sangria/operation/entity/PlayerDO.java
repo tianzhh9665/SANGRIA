@@ -23,7 +23,7 @@ public class PlayerDO {
 
     private Long balance;
 
-    private int status;
+    private String status;
 
     private String createTime;
 

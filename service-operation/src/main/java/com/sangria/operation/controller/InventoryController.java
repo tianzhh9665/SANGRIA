@@ -1,16 +1,10 @@
 package com.sangria.operation.controller;
 
+import com.sangria.operation.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.sangria.operation.dto.InventoryAddDTO;
-import com.sangria.operation.dto.InventoryClearDTO;
-import com.sangria.operation.dto.ResponseDTO;
 import com.sangria.operation.service.InventoryService;
 /**
  * 
@@ -67,11 +61,11 @@ public class InventoryController extends BaseController{
 		if(StringUtils.isBlank(inventoryId)) {
 			return renderFail("ERROR: inventoryId can not be empty");
 		}
-		
-		
+
+
 		return inventoryService.clear(dto);
 	}
-	
+
 //	@PostMapping(value = "/remove")
 //	public ResponseDTO remove() {
 //		return null;
