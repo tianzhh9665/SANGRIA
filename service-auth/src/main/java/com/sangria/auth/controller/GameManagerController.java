@@ -14,11 +14,14 @@ import com.sangria.auth.dto.ManagerLoginDTO;
 import com.sangria.auth.dto.ManagerRegDTO;
 import com.sangria.auth.dto.ResponseDTO;
 import com.sangria.auth.service.GameManagerService;
+
+import io.swagger.annotations.Api;
 /**
  * 
  * @author Steven Huang
  *
  */
+@Api(tags = "Game Manager Module")
 @RestController
 @RequestMapping("/gameManager")
 public class GameManagerController extends BaseController{

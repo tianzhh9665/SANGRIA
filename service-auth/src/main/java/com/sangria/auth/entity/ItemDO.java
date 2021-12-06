@@ -19,15 +19,19 @@ public class ItemDO {
 	
 	private String name;
 	
-	private String type;
+	private Integer type;
+	
+	private Integer price;
+	
+	private String ingredients;
+	
+	private String description;
 	
 	private String inventoryUuid;
 	
 	private String createTime;
 	
 	private String modifiedTime;
-	
-	private String attributes;
 
 }
 

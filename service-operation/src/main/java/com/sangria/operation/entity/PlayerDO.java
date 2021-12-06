@@ -21,7 +21,7 @@ public class PlayerDO {
 
     private String gameInventoryUuid;
 
-    private Long balance;
+    private Integer balance;
 
     private String status;
 

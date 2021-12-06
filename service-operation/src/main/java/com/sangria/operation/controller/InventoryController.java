@@ -6,11 +6,14 @@ import org.springframework.web.bind.annotation.*;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.sangria.operation.service.InventoryService;
+
+import io.swagger.annotations.Api;
 /**
  * 
  * @author Steven Huang
  *
  */
+@Api(tags = "Inventory Management Module")
 @RestController
 @RequestMapping("/inventory")
 public class InventoryController extends BaseController{
@@ -66,13 +69,4 @@ public class InventoryController extends BaseController{
 		return inventoryService.clear(dto);
 	}
 
-//	@PostMapping(value = "/remove")
-//	public ResponseDTO remove() {
-//		return null;
-//	}
-//	
-//	@PostMapping(value = "/merge")
-//	public ResponseDTO merge() {
-//		return null;
-//	}
 }

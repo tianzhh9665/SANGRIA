@@ -21,7 +21,7 @@ public class PlayerInventoryDO {
 
     private String itemUuid;
 
-    private Long amount;
+    private Integer amount;
 
     private String createTime;
 
