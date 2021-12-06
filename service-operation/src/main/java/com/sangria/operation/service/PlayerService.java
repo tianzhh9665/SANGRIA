@@ -1,13 +1,7 @@
 package com.sangria.operation.service;
 
+import com.sangria.operation.dto.*;
 import org.springframework.web.bind.annotation.RequestBody;
-
-import com.sangria.operation.dto.PlayerAddDTO;
-import com.sangria.operation.dto.PlayerDeleteDTO;
-import com.sangria.operation.dto.PlayerFreezeDTO;
-import com.sangria.operation.dto.PlayerTradeRequestDTO;
-import com.sangria.operation.dto.PlayerUnfreezeDTO;
-import com.sangria.operation.dto.ResponseDTO;
 
 public interface PlayerService {
 
@@ -18,5 +12,9 @@ public interface PlayerService {
     ResponseDTO add(PlayerAddDTO dto);
     ResponseDTO info(String playerUuid, String token);
     ResponseDTO trade(PlayerTradeRequestDTO dto);
+
+    ResponseDTO removeMoney(PlayerRemoveMoneyDTO dto);
+    ResponseDTO buyItemSys(PlayerBuyItemSysDTO dto);
+    ResponseDTO sellItemSys(PlayerSellItemSysDTO dto);
 
 }
