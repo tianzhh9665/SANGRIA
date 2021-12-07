@@ -3,8 +3,6 @@ Team Sangria Team Assignment REPO
 
 Team members: Zhiyuan Lin(zl2989), Zoe Cui(qc2292), Linyu Li(ll3465), Tianzhi Huang(th2888)
 
-UPDATED BY TIANZHI HUANG ON 12/05/2021:
-
 Swagger:  
 1. Local:  
 	Service-auth: http://localhost:8091/auth/swagger-ui.html  
