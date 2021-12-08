@@ -255,4 +255,5 @@ public class GameManagerServiceImpl implements GameManagerService{
 			return new ResponseDTO(501, "ERROR: logout failed with Exception thrown", null);
 		}
 	}
+
 }
