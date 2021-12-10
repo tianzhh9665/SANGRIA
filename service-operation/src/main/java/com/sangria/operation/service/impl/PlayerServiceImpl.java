@@ -36,6 +36,9 @@ public class PlayerServiceImpl implements PlayerService {
 	@Resource
 	private ItemMapper itemMapper;
 
+	@Resource
+	private GameMapper gameMapper;
+
 	@Override
     @Transactional(rollbackFor = Exception.class)
     public ResponseDTO add(PlayerAddDTO dto) {
@@ -148,14 +151,14 @@ public class PlayerServiceImpl implements PlayerService {
         PlayerDO playerSearch = new PlayerDO();
         playerSearch.setUuid(dto.getPlayerId());
         playerSearch.setGameUuid(gameUuid);
-        playerSearch.setStatus("1");
+        playerSearch.setStatus(PlayerStatusEnum.NORMAL.getStatus());
 
         PlayerDO player = playerMapper.selectOne(new QueryWrapper<>(playerSearch));
         if (player == null) {
             return new ResponseDTO(500, "ERROR: the player has already been frozen or there is no qualified player", null);
         }
 
-        player.setStatus("2");
+        player.setStatus(PlayerStatusEnum.FROZEN.getStatus());
 
         playerMapper.updateById(player);
 
@@ -185,14 +188,14 @@ public class PlayerServiceImpl implements PlayerService {
         PlayerDO playerSearch = new PlayerDO();
         playerSearch.setUuid(dto.getPlayerId());
         playerSearch.setGameUuid(gameUuid);
-        playerSearch.setStatus("2");
+        playerSearch.setStatus(PlayerStatusEnum.FROZEN.getStatus());
 
         PlayerDO player = playerMapper.selectOne(new QueryWrapper<>(playerSearch));
         if (player == null) {
             return new ResponseDTO(500, "ERROR: the player has already been unfrozen or there is no qualified player", null);
         }
 
-        player.setStatus("1");
+        player.setStatus(PlayerStatusEnum.NORMAL.getStatus());
 
         playerMapper.updateById(player);
 

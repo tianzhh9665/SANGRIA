@@ -7,6 +7,5 @@ public class PlayerUnfreezeDTO {
 
     String token;
     String playerId;
-    int status;
 
 }

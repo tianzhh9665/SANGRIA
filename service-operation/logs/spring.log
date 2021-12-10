@@ -206,3 +206,414 @@
 2021-12-06 11:28:47.289  INFO 981 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
 2021-12-06 11:30:05.021  INFO 981 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-12-06 11:30:05.038  INFO 981 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-06 15:04:01.206  INFO 73436 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_291 on victordembp.dyn.nyp.org with PID 73436 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-06 15:04:01.209  INFO 73436 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-06 15:04:02.364  INFO 73436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-06 15:04:02.369  INFO 73436 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-06 15:04:02.370  INFO 73436 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-06 15:04:02.415  INFO 73436 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-06 15:04:02.415  INFO 73436 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1168 ms
+2021-12-06 15:04:03.279  INFO 73436 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-06 15:04:03.554  INFO 73436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-06 15:04:03.556  INFO 73436 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-06 15:04:03.567  INFO 73436 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-06 15:04:03.591  INFO 73436 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-06 15:04:03.705  INFO 73436 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-06 15:04:03.707  INFO 73436 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-06 15:04:03.713  INFO 73436 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-06 15:04:03.721  INFO 73436 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-06 15:04:03.747  INFO 73436 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 2.884 seconds (JVM running for 3.465)
+2021-12-06 15:04:56.700  INFO 73445 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_291 on victordembp.dyn.nyp.org with PID 73445 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-06 15:04:56.703  INFO 73445 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-06 15:04:57.629  INFO 73445 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-06 15:04:57.635  INFO 73445 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-06 15:04:57.636  INFO 73445 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-06 15:04:57.698  INFO 73445 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-06 15:04:57.698  INFO 73445 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 935 ms
+2021-12-06 15:04:58.362  INFO 73445 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-06 15:04:58.514  INFO 73445 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-06 15:04:58.515  INFO 73445 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-06 15:04:58.523  INFO 73445 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-06 15:04:58.538  INFO 73445 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-06 15:04:58.657  INFO 73445 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-06 15:04:58.659  INFO 73445 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-06 15:04:58.665  INFO 73445 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-06 15:04:58.672  INFO 73445 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-06 15:04:58.697  INFO 73445 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 2.386 seconds (JVM running for 2.924)
+2021-12-06 15:06:41.455  INFO 73445 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-06 15:06:41.457  INFO 73445 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-06 15:06:41.465  INFO 73445 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2021-12-06 15:06:41.638  INFO 73445 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-06 15:06:42.465  INFO 73445 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-06 15:13:40.566  INFO 73445 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-06 15:13:40.577  INFO 73445 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-06 15:13:44.911  INFO 73499 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_291 on victordembp.dyn.nyp.org with PID 73499 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-06 15:13:44.913  INFO 73499 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-06 15:13:45.972  INFO 73499 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-06 15:13:45.978  INFO 73499 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-06 15:13:45.978  INFO 73499 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-06 15:13:46.018  INFO 73499 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-06 15:13:46.018  INFO 73499 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1074 ms
+2021-12-06 15:13:46.583  INFO 73499 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-06 15:13:46.756  INFO 73499 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-06 15:13:46.760  INFO 73499 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-06 15:13:46.771  INFO 73499 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-06 15:13:46.792  INFO 73499 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-06 15:13:46.902  INFO 73499 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-06 15:13:46.903  INFO 73499 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-06 15:13:46.908  INFO 73499 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-06 15:13:46.914  INFO 73499 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-06 15:13:46.935  INFO 73499 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 2.345 seconds (JVM running for 2.842)
+2021-12-06 15:13:59.171  INFO 73499 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-06 15:13:59.172  INFO 73499 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-06 15:13:59.173  INFO 73499 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-06 15:13:59.287  INFO 73499 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-06 15:14:00.289  INFO 73499 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-06 15:14:21.948  INFO 73499 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-06 15:14:21.959  INFO 73499 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-06 15:14:26.488  INFO 73506 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_291 on victordembp.dyn.nyp.org with PID 73506 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-06 15:14:26.490  INFO 73506 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-06 15:14:27.335  INFO 73506 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-06 15:14:27.340  INFO 73506 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-06 15:14:27.340  INFO 73506 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-06 15:14:27.382  INFO 73506 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-06 15:14:27.382  INFO 73506 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 861 ms
+2021-12-06 15:14:28.040  INFO 73506 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-06 15:14:28.219  INFO 73506 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-06 15:14:28.220  INFO 73506 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-06 15:14:28.229  INFO 73506 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-06 15:14:28.248  INFO 73506 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-06 15:14:28.373  INFO 73506 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-06 15:14:28.375  INFO 73506 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-06 15:14:28.383  INFO 73506 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-06 15:14:28.391  INFO 73506 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-06 15:14:28.420  INFO 73506 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 2.246 seconds (JVM running for 2.724)
+2021-12-06 15:14:30.448  INFO 73506 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-06 15:14:30.448  INFO 73506 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-06 15:14:30.449  INFO 73506 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-06 15:14:30.548  INFO 73506 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-06 15:14:31.222  INFO 73506 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-06 15:14:31.379 ERROR 73506 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/operation] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.sangria.operation.service.impl.PlayerServiceImpl.unfreeze(PlayerServiceImpl.java:199) ~[classes/:na]
+	at com.sangria.operation.service.impl.PlayerServiceImpl$$FastClassBySpringCGLIB$$846245e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.12.jar:5.3.12]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689) ~[spring-aop-5.3.12.jar:5.3.12]
+	at com.sangria.operation.service.impl.PlayerServiceImpl$$EnhancerBySpringCGLIB$$de5cea19.unfreeze(<generated>) ~[classes/:na]
+	at com.sangria.operation.controller.PlayerController.unfreeze(PlayerController.java:90) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
+
+2021-12-06 15:23:52.711  INFO 73506 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-06 15:23:52.723  INFO 73506 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-06 15:23:57.421  INFO 73557 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_291 on victordembp.dyn.nyp.org with PID 73557 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-06 15:23:57.424  INFO 73557 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-06 15:23:58.620  INFO 73557 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-06 15:23:58.626  INFO 73557 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-06 15:23:58.626  INFO 73557 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-06 15:23:58.691  INFO 73557 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-06 15:23:58.692  INFO 73557 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1211 ms
+2021-12-06 15:23:59.316  INFO 73557 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-06 15:23:59.477  INFO 73557 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-06 15:23:59.478  INFO 73557 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-06 15:23:59.486  INFO 73557 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-06 15:23:59.503  INFO 73557 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-06 15:23:59.600  INFO 73557 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-06 15:23:59.601  INFO 73557 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-06 15:23:59.608  INFO 73557 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-06 15:23:59.616  INFO 73557 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-06 15:23:59.638  INFO 73557 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 2.693 seconds (JVM running for 3.377)
+2021-12-06 15:24:03.111  INFO 73557 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-06 15:24:03.111  INFO 73557 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-06 15:24:03.113  INFO 73557 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-06 15:24:03.231  INFO 73557 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-06 15:24:03.949  INFO 73557 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-06 15:24:04.115 ERROR 73557 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/operation] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.sangria.operation.service.impl.PlayerServiceImpl.unfreeze(PlayerServiceImpl.java:199) ~[classes/:na]
+	at com.sangria.operation.service.impl.PlayerServiceImpl$$FastClassBySpringCGLIB$$846245e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.12.jar:5.3.12]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689) ~[spring-aop-5.3.12.jar:5.3.12]
+	at com.sangria.operation.service.impl.PlayerServiceImpl$$EnhancerBySpringCGLIB$$de5cea19.unfreeze(<generated>) ~[classes/:na]
+	at com.sangria.operation.controller.PlayerController.unfreeze(PlayerController.java:90) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
+
+2021-12-06 15:27:57.454  INFO 73557 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-06 15:27:57.461  INFO 73557 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-06 15:28:01.831  INFO 73575 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_291 on victordembp.dyn.nyp.org with PID 73575 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-06 15:28:01.833  INFO 73575 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-06 15:28:02.759  INFO 73575 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-06 15:28:02.765  INFO 73575 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-06 15:28:02.765  INFO 73575 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-06 15:28:02.824  INFO 73575 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-06 15:28:02.824  INFO 73575 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 958 ms
+2021-12-06 15:28:03.580  INFO 73575 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-06 15:28:03.803  INFO 73575 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-06 15:28:03.804  INFO 73575 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-06 15:28:03.817  INFO 73575 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-06 15:28:03.842  INFO 73575 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-06 15:28:03.947  INFO 73575 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-06 15:28:03.949  INFO 73575 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-06 15:28:03.955  INFO 73575 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-06 15:28:03.961  INFO 73575 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-06 15:28:03.984  INFO 73575 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 2.622 seconds (JVM running for 4.27)
+2021-12-06 15:28:06.682  INFO 73575 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-06 15:28:06.682  INFO 73575 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-06 15:28:06.684  INFO 73575 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-06 15:28:06.821  INFO 73575 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-06 15:28:07.578  INFO 73575 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-06 15:29:33.111  WARN 73575 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m25s429ms).
+2021-12-06 15:29:33.139 ERROR 73575 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/operation] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.sangria.operation.service.impl.PlayerServiceImpl.unfreeze(PlayerServiceImpl.java:199) ~[classes/:na]
+	at com.sangria.operation.service.impl.PlayerServiceImpl$$FastClassBySpringCGLIB$$846245e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.12.jar:5.3.12]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689) ~[spring-aop-5.3.12.jar:5.3.12]
+	at com.sangria.operation.service.impl.PlayerServiceImpl$$EnhancerBySpringCGLIB$$140b63d6.unfreeze(<generated>) ~[classes/:na]
+	at com.sangria.operation.controller.PlayerController.unfreeze(PlayerController.java:90) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.12.jar:5.3.12]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.54.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.12.jar:5.3.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.54.jar:9.0.54]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
+
+2021-12-06 15:29:33.283  INFO 73575 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-06 15:29:33.535  INFO 73575 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-06 15:29:49.445  INFO 73589 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_291 on victordembp.dyn.nyp.org with PID 73589 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-06 15:29:49.449  INFO 73589 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-06 15:29:50.476  INFO 73589 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-06 15:29:50.481  INFO 73589 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-06 15:29:50.482  INFO 73589 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-06 15:29:50.526  INFO 73589 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-06 15:29:50.526  INFO 73589 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1019 ms
+2021-12-06 15:29:51.103  INFO 73589 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-06 15:29:51.273  INFO 73589 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-06 15:29:51.274  INFO 73589 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-06 15:29:51.284  INFO 73589 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-06 15:29:51.301  INFO 73589 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-06 15:29:51.393  INFO 73589 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-06 15:29:51.395  INFO 73589 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-06 15:29:51.400  INFO 73589 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-06 15:29:51.406  INFO 73589 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-06 15:29:51.427  INFO 73589 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 2.354 seconds (JVM running for 2.89)
+2021-12-06 15:29:53.417  INFO 73589 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-06 15:29:53.418  INFO 73589 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-06 15:29:53.419  INFO 73589 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-06 15:29:53.542  INFO 73589 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-06 15:29:54.234  INFO 73589 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-06 15:30:26.107  INFO 73589 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-06 15:30:26.115  INFO 73589 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-06 15:30:30.349  INFO 73610 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_291 on victordembp.dyn.nyp.org with PID 73610 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-06 15:30:30.352  INFO 73610 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-06 15:30:31.202  INFO 73610 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-06 15:30:31.206  INFO 73610 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-06 15:30:31.206  INFO 73610 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-06 15:30:31.243  INFO 73610 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-06 15:30:31.243  INFO 73610 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 859 ms
+2021-12-06 15:30:31.881  INFO 73610 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-06 15:30:32.035  INFO 73610 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-06 15:30:32.036  INFO 73610 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-06 15:30:32.043  INFO 73610 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-06 15:30:32.059  INFO 73610 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-06 15:30:32.181  INFO 73610 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-06 15:30:32.183  INFO 73610 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-06 15:30:32.189  INFO 73610 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-06 15:30:32.196  INFO 73610 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-06 15:30:32.218  INFO 73610 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 2.183 seconds (JVM running for 2.647)
+2021-12-06 15:30:37.092  INFO 73610 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-06 15:30:37.092  INFO 73610 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-06 15:30:37.093  INFO 73610 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-06 15:30:37.201  INFO 73610 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-06 15:30:37.907  INFO 73610 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-06 15:31:00.590  INFO 73610 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-06 15:31:00.598  INFO 73610 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-06 15:31:04.904  INFO 73620 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 1.8.0_291 on victordembp.dyn.nyp.org with PID 73620 (/Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation/target/classes started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-06 15:31:04.906  INFO 73620 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-06 15:31:05.913  INFO 73620 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-06 15:31:05.920  INFO 73620 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-06 15:31:05.920  INFO 73620 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-06 15:31:05.967  INFO 73620 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-06 15:31:05.967  INFO 73620 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1029 ms
+2021-12-06 15:31:06.780  INFO 73620 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-06 15:31:07.001  INFO 73620 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-06 15:31:07.002  INFO 73620 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-06 15:31:07.015  INFO 73620 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-06 15:31:07.038  INFO 73620 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-06 15:31:07.143  INFO 73620 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-06 15:31:07.144  INFO 73620 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-06 15:31:07.149  INFO 73620 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-06 15:31:07.155  INFO 73620 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-06 15:31:07.176  INFO 73620 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 2.587 seconds (JVM running for 3.02)
+2021-12-06 15:31:18.623  INFO 73620 --- [http-nio-8092-exec-1] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-06 15:31:18.624  INFO 73620 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-06 15:31:18.625  INFO 73620 --- [http-nio-8092-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-06 15:31:18.741  INFO 73620 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-06 15:31:19.459  INFO 73620 --- [http-nio-8092-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-06 15:37:20.791  INFO 73620 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-06 15:37:20.800  INFO 73620 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-06 16:43:22.661  INFO 74061 --- [main] c.s.o.ServiceOperationApplicationTests   : Starting ServiceOperationApplicationTests using Java 1.8.0_291 on victordembp.dyn.nyp.org with PID 74061 (started by victor in /Users/victor/workspace/columbia/W4156/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-06 16:43:22.662  INFO 74061 --- [main] c.s.o.ServiceOperationApplicationTests   : The following profiles are active: dev
+2021-12-06 16:43:24.151  INFO 74061 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-06 16:43:24.164  INFO 74061 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-06 16:43:24.165  INFO 74061 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-06 16:43:24.296  INFO 74061 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-06 16:43:24.297  INFO 74061 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1595 ms
+2021-12-06 16:43:25.634  INFO 74061 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-06 16:43:26.231  INFO 74061 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-06 16:43:26.232  INFO 74061 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-06 16:43:26.261  INFO 74061 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-06 16:43:26.295  INFO 74061 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-06 16:43:26.482  INFO 74061 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-06 16:43:26.484  INFO 74061 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-06 16:43:26.494  INFO 74061 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-06 16:43:26.508  INFO 74061 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-06 16:43:26.550  INFO 74061 --- [main] c.s.o.ServiceOperationApplicationTests   : Started ServiceOperationApplicationTests in 4.359 seconds (JVM running for 5.441)
+2021-12-06 16:43:26.840  INFO 74061 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-06 16:43:27.660  INFO 74061 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-06 16:43:27.803  INFO 74061 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-06 16:43:28.083  INFO 74061 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
