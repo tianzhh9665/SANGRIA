@@ -39,6 +39,7 @@ Run:
 		e. on the VM, run "nohup java -jar service-auth-0.0.1-SNAPSHOT.jar &"  
 		
 Test:
+
 	Unit Test:  
 		In IDE:  
 			a. all test cases/code are written in src/test/java/com/sangria/auth(operation)/ServiceAuth(Operation)ApplicationTests.java  
