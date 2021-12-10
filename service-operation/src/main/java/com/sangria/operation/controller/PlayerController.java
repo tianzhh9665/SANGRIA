@@ -57,6 +57,7 @@ public class PlayerController extends BaseController{
      * @param dto
      * @return
      */
+	@ApiOperation(value = "Freeze a player, then the player can not do anything")
     @PostMapping(value = "/freeze")
     public ResponseDTO freeze(@RequestBody PlayerFreezeDTO dto) {
         String token = dto.getToken();
@@ -76,6 +77,7 @@ public class PlayerController extends BaseController{
      * @param dto
      * @return
      */
+	@ApiOperation(value = "Unfreeze a player, then the player's status becomes normal")
     @PostMapping(value = "/unfreeze")
     public ResponseDTO unfreeze(@RequestBody PlayerUnfreezeDTO dto) {
         String token = dto.getToken();
@@ -95,6 +97,7 @@ public class PlayerController extends BaseController{
 	 * @param dto
 	 * @return
 	 */
+	@ApiOperation(value = "Manager deletes a player")
 	@PostMapping(value = "/deletePlayer")
 	public ResponseDTO deletePlayer(@RequestBody PlayerDeleteDTO dto) {
 		String token = dto.getToken();
