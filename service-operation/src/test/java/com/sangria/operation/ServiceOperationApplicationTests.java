@@ -3,6 +3,10 @@ package com.sangria.operation;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sangria.operation.Enum.PlayerStatusEnum;
+import com.sangria.operation.dao.PlayerMapper;
+import com.sangria.operation.dto.*;
+import com.sangria.operation.entity.PlayerDO;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +15,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sangria.operation.Enum.PlayerTradeTypeEnum;
 import com.sangria.operation.dao.GameManagerMapper;
-import com.sangria.operation.dto.ItemMakeDTO;
-import com.sangria.operation.dto.PlayerAddDTO;
-import com.sangria.operation.dto.PlayerTradeRequestDTO;
 import com.sangria.operation.entity.GameManagerDO;
 import com.sangria.operation.service.InventoryService;
 import com.sangria.operation.service.ItemService;
@@ -35,9 +36,145 @@ class ServiceOperationApplicationTests {
 	
 	@Autowired
 	private GameManagerMapper gameManagerMapper;
+
+	@Autowired
+	private PlayerMapper playerMapper;
 	
 	String testUsername = "tianzhh";
 	String testInventory = "INV20211205224845599";
+	String testFreezePlayerId = "testFreeze";
+	String testUnfreezePlayerId = "testUnfreeze";
+	String testDeletePlayerId = "testDelete";
+	String testManagerId = "testManager";
+
+	@Test
+	void testFreeze() {
+		// test success freeze
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+
+		PlayerFreezeDTO freezeDTO = new PlayerFreezeDTO();
+		freezeDTO.setToken(testToken);
+		freezeDTO.setPlayerId(testFreezePlayerId);
+
+		PlayerDO player = new PlayerDO();
+		player.setUuid(testFreezePlayerId);
+		String status = playerMapper.selectOne(new QueryWrapper<>(player)).getStatus();
+
+		if (status.equals(PlayerStatusEnum.FROZEN.getStatus())) {
+			player.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+			playerMapper.updateById(player);
+		}
+
+		Assert.assertEquals(200, playerService.freeze(freezeDTO).getCode());
+
+		// test invalid token
+		freezeDTO = new PlayerFreezeDTO();
+		freezeDTO.setToken("fakeToken");
+		freezeDTO.setPlayerId(testFreezePlayerId);
+		Assert.assertEquals(500, playerService.freeze(freezeDTO).getCode());
+
+		// test invalid playerId
+		freezeDTO = new PlayerFreezeDTO();
+		freezeDTO.setToken(testToken);
+		freezeDTO.setPlayerId("fakePlayerId");
+		Assert.assertEquals(500, playerService.freeze(freezeDTO).getCode());
+
+		// test freeze player who has been already freezed
+		freezeDTO = new PlayerFreezeDTO();
+		freezeDTO.setToken(testToken);
+		freezeDTO.setPlayerId(testFreezePlayerId);
+		Assert.assertEquals(500, playerService.freeze(freezeDTO).getCode());
+	}
+
+	@Test
+	void testUnfreeze() {
+		// test success unfreeze
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+
+		PlayerUnfreezeDTO unfreezeDTO = new PlayerUnfreezeDTO();
+		unfreezeDTO.setToken(testToken);
+		unfreezeDTO.setPlayerId(testUnfreezePlayerId);
+
+		PlayerDO player = new PlayerDO();
+		player.setUuid(testUnfreezePlayerId);
+		String status = playerMapper.selectOne(new QueryWrapper<>(player)).getStatus();
+
+		if (status.equals(PlayerStatusEnum.NORMAL.getStatus())) {
+			player.setStatus(PlayerStatusEnum.FROZEN.getStatus());
+			playerMapper.updateById(player);
+		}
+
+		Assert.assertEquals(200, playerService.unfreeze(unfreezeDTO).getCode());
+
+		// test invalid token
+		unfreezeDTO = new PlayerUnfreezeDTO();
+		unfreezeDTO.setToken("fakeToken");
+		unfreezeDTO.setPlayerId(testFreezePlayerId);
+		Assert.assertEquals(500, playerService.unfreeze(unfreezeDTO).getCode());
+
+		// test invalid playerId
+		unfreezeDTO = new PlayerUnfreezeDTO();
+		unfreezeDTO.setToken(testToken);
+		unfreezeDTO.setPlayerId("fakePlayerId");
+		Assert.assertEquals(500, playerService.unfreeze(unfreezeDTO).getCode());
+
+		// test freeze player who has been already freezed
+		unfreezeDTO = new PlayerUnfreezeDTO();
+		unfreezeDTO.setToken(testToken);
+		unfreezeDTO.setPlayerId(testUnfreezePlayerId);
+		Assert.assertEquals(500, playerService.unfreeze(unfreezeDTO).getCode());
+	}
+
+	@Test
+	void testDeletePlayer() {
+		// test success delete
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+
+		PlayerDeleteDTO deleteDTO = new PlayerDeleteDTO();
+		deleteDTO.setToken(testToken);
+		deleteDTO.setPlayerId(testDeletePlayerId);
+
+		PlayerDO player = new PlayerDO();
+		player.setUuid(testDeletePlayerId);
+		String gameUuid = playerMapper.selectOne(new QueryWrapper<>(player)).getGameUuid();
+		String inventoryUuid = playerMapper.selectOne(new QueryWrapper<>(player)).getGameInventoryUuid();
+		int balance = playerMapper.selectOne(new QueryWrapper<>(player)).getBalance();
+		String status = playerMapper.selectOne(new QueryWrapper<>(player)).getStatus();
+
+		Assert.assertEquals(200, playerService.deletePlayer(deleteDTO).getCode());
+
+		player = new PlayerDO();
+		player.setUuid(testDeletePlayerId);
+		player.setGameUuid(gameUuid);
+		player.setGameInventoryUuid(inventoryUuid);
+		player.setBalance(balance);
+		player.setStatus(status);
+
+		playerMapper.insert(player);
+
+		// test invalid token
+		deleteDTO = new PlayerDeleteDTO();
+		deleteDTO.setPlayerId(testDeletePlayerId);
+		deleteDTO.setToken("fakeToken");
+		Assert.assertEquals(500, playerService.deletePlayer(deleteDTO).getCode());
+
+		// test manager does not have game
+		manager = new GameManagerDO();
+		manager.setUuid(testManagerId);
+		String token = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+
+		deleteDTO = new PlayerDeleteDTO();
+		deleteDTO.setToken(token);
+		deleteDTO.setPlayerId("no game");
+		Assert.assertEquals(500, playerService.deletePlayer(deleteDTO).getCode());
+
+	}
 
 	@Test
 	void testPlayerAdd() {
