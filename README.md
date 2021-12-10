@@ -36,7 +36,7 @@ Run:
 		b. right-click on the project folder --> run as --> maven install  
 		c. upload the service-auth-0.0.1-SNAPSHOT.jar(or service-operation-0.0.1-SNAPSHOT.jar) file in the src/target/ to the VM  
 		d. have java, maven, MySQL installed on the VM  
-		e. on the VM, run "nohup java -jar service-auth-0.0.1-SNAPSHOT.jar &"  
+		e. on the VM, run "nohup java -jar service-auth(operation)-0.0.1-SNAPSHOT.jar &"  
 		
 Test:
 
