@@ -1,79 +1,18 @@
-# COMSW4156-TEAM-SANGRIA-REPO
-Team Sangria Team Assignment REPO
-
+# COMSW4156-TEAM-SANGRIA-TEAM-ASSIGNMENT-REPO
 Team members: Zhiyuan Lin(zl2989), Zoe Cui(qc2292), Linyu Li(ll3465), Tianzhi Huang(th2888)
 
-UPDATED BY TIANZHI HUANG ON 12/05/2021:
+Client and Service APIs:  
 
-Swagger:  
-1. Local:  
-	Service-auth: http://localhost:8091/auth/swagger-ui.html  
-	Service-operation: http://localhost:8092/operation/swagger-ui.html  
-2. Server:  
+We are using Swagger to denote our implemented Client and Service APIs and following are the links:  
+
+Swagger:    
+1. Client:  
+	Service-client: http://35.196.112.19:8093/client/swagger-ui.html  
+2. Service:  
 	Service-auth: http://35.196.112.19:8091/auth/swagger-ui.html  
 	Service-operation: http://35.196.112.19:8092/operation/swagger-ui.html  
 
-
-Service-auth APIs:
-
-1. /gameManager/register	-->game manager registration  
-	a. request method: POST  
-	b. parameters: username(required), password(required), gameName(required)  
-	c. return: JSON Object with code 200 --> success, 500 --> failed with corresponding error message.  
-
-2. /gameManager/login		-->game manager login  
-	a. request method: POST  
-	b. parameters: username(required), password(required)  
-	c. return JSON Object with code 200 data token --> success, 500 --> failed with corresponding error message.  
-
-3. /gameManager/token		-->token authentication  
-	a. request method: GET  
-	b. parameters: token(required)  
-	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.  
-	
-4. /gameManager/info -->manager info, game info and inventory info  
-	a. request method: GET  
-	b. parameters: token(required)  
-	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.
-	
-5. /gameManager/delete -->delete game manager and its corresponding game, inventories and items  
-	a. request method: POST  
-	b. parameters: token(required)  
-	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.
-	
-6. /gameManager/logout -->game manager logout  
-	a. request method: POST  
-	b. parameters: token(required)  
-	c. return JSON Object with code 200 --> success, 500 --> failed with corresponsing error message.  
-
-
-Service-operation APIs:   
-(please consider only Service-auth as the official submission for Assignment T3 First Iteration, service-operation is still under development and it is here for the purpose of providing some functionalities for First Iteration Demo with the IA)  
-
-1. /inventory/add	-->add a new inventory to the game  
-	a. request method: POST  
-	b. parameters: token(required)  
-	c. return: JSON Object with code 200 --> success, 500 --> failed with corresponding error message.   
-2. /inventory/info	-->query inventory info  
-	a. request method: GET  
-	b. parameters: token(required), inventoryId(optional, if presents, meaning query a specific iventory info, otherwise query all inventory info in the game)  
-	c. return: JSON Object with code 200 --> success with inventory info in data, 500 --> failed with corresponding error message. 
-3. /inventory/clear	-->clear a inventory  
-	a. request method: POST   
-	b. parameters: token(required), inventoryId(required)  
-	c. return: JSON Object with code 200 --> success, 500 --> failed with corresponding error message.   
-4. /item/add	-->add a item to a inventory  
-	a. request method: POST   
-	b. parameters: token(required), name(required), inventoryId(required), type(required), attributes(optional)  
-	c. return: JSON Object with code 200 --> success, 500 --> failed with corresponding error message.   
-5. /item/info	-->query a item's info  
-	a. request method: GET   
-	b. parameters: token(required), itemId(required)  
-	c. return: JSON Object with code 200 --> success with item info in data, 500 --> failed with corresponding error message.   
-
-... more to come
-
-How to build, run, and test the project:
+How to build, run, and test the project:  
 
 Build:  
 
@@ -100,17 +39,19 @@ Run:
 		e. on the VM, run "nohup java -jar service-auth-0.0.1-SNAPSHOT.jar &"  
 		
 Test:
-
 	Unit Test:  
-		a. all test cases/code are written in src/test/java/com/sangria/auth(operation)/ServiceAuth(Operation)ApplicationTests.java  
-		b. run the .java as Junit Test(right-click on the file --> run as --> Junit Test)  
+		In IDE:  
+			a. all test cases/code are written in src/test/java/com/sangria/auth(operation)/ServiceAuth(Operation)ApplicationTests.java  
+			b. run the .java as Junit Test(right-click on the file --> run as --> Junit Test)  
+		In Linux:
+			javac -cp .:service-operation(auth)-0.0.1-SNAPSHOT.jar org.junit.runner.JUnitCore service-operation(auth)/src/test/java/com/sangria/operation(auth)/ServiceOperation(Auth)ApplicationTests.java  
 		
 	Test via Postman:  
 		a. have the project deployed and run on the vm as described above  
 		b. in the Postman, send requests to the endpoints: e.g. 35.196.112.19/auth/gameManager/login with parameters  
 		
-Style Checker:  
-	The style checker we used is CheckStyle Plug-in, which is a eclipse software that is built-in in the IDE. it can be activated by right-click the file --> check --> activate checkstyle, and can be downloaded in the eclipse marketplace. It generates no report and the result can not be redirected to a file since it will show the check result directly in the IDE interface.  
+Style Checker and Static Bug Finder:  
+	We are using the SonarCloud as the style checker and static bug finder during the process of CI using Github Action  
 
 Postman Test Result:  
 	Postman Test result is included in the service-auth test.postman_test_run.json file.
