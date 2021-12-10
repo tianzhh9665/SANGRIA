@@ -271,19 +271,29 @@ public class ItemServiceImpl implements ItemService{
 				}
 			}
 		}
-		
-		playerInv = new PlayerInventoryDO();
-		playerInv.setPlayerUuid(dto.getPlayerUuid());
-		playerInv.setUuid(CommonUtils.generateUniqueId("PINV", 3));
-		playerInv.setItemUuid(dto.getItemUuid());
-		playerInv.setAmount(dto.getAmount());
-		playerInv.setCreateTime(CommonUtils.getTimeNow());
-		playerInv.setModifiedTime(CommonUtils.getTimeNow());
-		
-		if(playerInventoryMapper.insert(playerInv) <= 0) {
-			return new ResponseDTO(500, "ERROR: insert new item failed", null);
+		boolean found = false;
+		for(PlayerInventoryDO inv: playerInvList) {
+			if(inv.getItemUuid().equals(dto.getItemUuid())) {
+				found = true;
+				inv.setAmount(inv.getAmount().intValue() + dto.getAmount().intValue());
+				if(playerInventoryMapper.updateById(inv) <= 0) {
+					return new ResponseDTO(500, "ERROR: update item amount failed", null);
+				}
+			}
 		}
-		
+		if(!found) {
+			playerInv = new PlayerInventoryDO();
+			playerInv.setPlayerUuid(dto.getPlayerUuid());
+			playerInv.setUuid(CommonUtils.generateUniqueId("PINV", 3));
+			playerInv.setItemUuid(dto.getItemUuid());
+			playerInv.setAmount(dto.getAmount());
+			playerInv.setCreateTime(CommonUtils.getTimeNow());
+			playerInv.setModifiedTime(CommonUtils.getTimeNow());
+			
+			if(playerInventoryMapper.insert(playerInv) <= 0) {
+				return new ResponseDTO(500, "ERROR: insert new item failed", null);
+			}
+		}
 		return new ResponseDTO(200, "item make success", null);
 	}
 }

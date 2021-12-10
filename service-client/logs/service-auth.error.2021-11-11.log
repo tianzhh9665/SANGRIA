@@ -1,0 +1,1 @@
+2021-11-11 12:26:04 [main] ERROR org.apache.catalina.core.AprLifecycleListener - An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]

@@ -9,14 +9,19 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sangria.work</groupId>
-	<artifactId>service-operation</artifactId>
+	<artifactId>service-client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>service-operation</name>
+	<name>service-client</name>
 	<properties>
 		<java.version>1.8</java.version>
 		<skipTests>true</skipTests>
 	</properties>
 	<dependencies>
+		<dependency>
+      		<groupId>org.apache.httpcomponents</groupId>
+      		<artifactId>httpclient</artifactId>
+      		<version>4.5.6</version>
+  		</dependency>
 		<dependency>
       		<groupId>io.springfox</groupId>
       		<artifactId>springfox-swagger2</artifactId>
