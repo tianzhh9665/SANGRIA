@@ -78,7 +78,7 @@ public class AuthController extends BaseController{
 		return result;
 	}
 	
-	@ApiOperation(value = "Query game manager and its managed game infomation")
+	@ApiOperation(value = "Query game manager and its managed game information")
 	@GetMapping(value = "/info")
 	public JSONObject info(String token) {
 		String requestUrlHead = "http://" + IP + ":" + port + "/" + context + "/";

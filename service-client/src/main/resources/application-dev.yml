@@ -37,7 +37,16 @@ Service:
       info: gameManager/info
       delete: gameManager/delete
       logout: gameManager/logout
-      
+  operation:
+    port: 8092
+    context: operation
+    apis:
+      freeze: /player/freeze
+      info: /player/info
+      removeMoney: /player/removeMoney
+      sellIntemSys: /player/sellItemSys
+      trade: /player/trade
+      unfreeze: /player/unfreeze
     
     
           
