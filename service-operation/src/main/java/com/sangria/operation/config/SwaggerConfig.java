@@ -25,7 +25,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
                 .title("Sangria Game Inventory Management Service")
-                .description("Sangeria Game Inventory Management Service First Iteration")
+                .description("Sangria Game Inventory Management Service First Iteration")
                 .version("1.0")
                 .build();
     }
