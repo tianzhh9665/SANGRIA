@@ -101,7 +101,7 @@ public class GameManagerController extends BaseController{
 	 * @param token
 	 * @return ResponseDTO
 	 */
-	@ApiOperation(value = "Query game manager and its managed game infomation")
+	@ApiOperation(value = "Query game manager and its managed game information")
 	@GetMapping(value = "/info")
 	public ResponseDTO info(String token) {
 
