@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sangria.operation.Enum.PlayerStatusEnum;
+import com.sangria.operation.dao.ItemMapper;
+import com.sangria.operation.dao.PlayerInventoryMapper;
 import com.sangria.operation.dao.PlayerMapper;
 import com.sangria.operation.dto.*;
+import com.sangria.operation.entity.ItemDO;
 import com.sangria.operation.entity.PlayerDO;
+import com.sangria.operation.entity.PlayerInventoryDO;
+import com.sangria.operation.utils.CommonUtils;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +24,8 @@ import com.sangria.operation.entity.GameManagerDO;
 import com.sangria.operation.service.InventoryService;
 import com.sangria.operation.service.ItemService;
 import com.sangria.operation.service.PlayerService;
+
+import javax.annotation.Resource;
 
 @SpringBootTest(classes = ServiceOperationApplication.class,
 		webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
@@ -40,12 +47,21 @@ class ServiceOperationApplicationTests {
 	@Autowired
 	private PlayerMapper playerMapper;
 
+	@Resource
+	private PlayerInventoryMapper playerInventoryMapper;
+
+	@Resource
+	private ItemMapper itemMapper;
+
 	String testUsername = "tianzhh";
 	String testInventory = "INV20211205224845599";
 	String testFreezePlayerId = "testFreeze";
 	String testUnfreezePlayerId = "testUnfreeze";
 	String testDeletePlayerId = "testDelete";
 	String testManagerId = "testManager";
+	String testPlayerUuid = "PLAYER2021120523161171613";
+	String testItemUuid = "ITEM2021120522492419219";
+	String testItemUuidAnotherInventory = "ITEM2021120810532211189";
 
 	@Test
 	void testFreeze() {
@@ -316,6 +332,326 @@ class ServiceOperationApplicationTests {
 		tradeDTO.setPlayer2ItemList(itemList);
 
 		Assert.assertEquals(500, playerService.trade(tradeDTO).getCode());
+	}
+
+	@Test
+	void testPlayerRemoveMoney() {
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String playerUuid = testPlayerUuid;
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+		Integer amount = 100;
+		Integer testBalance = 1000;
+
+		// record player balance and status information, and replace it with test values
+		PlayerDO playerSearchDO = new PlayerDO();
+		playerSearchDO.setUuid(playerUuid);
+		PlayerDO playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertNotEquals(playerDO, null);
+
+		String playerStatus = playerDO.getStatus();
+		Integer balance = playerDO.getBalance();
+		playerDO.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+		playerDO.setBalance(testBalance);
+		Integer code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player balance and status", code >= 0);
+
+		// initialize removeMoneyDTO
+		PlayerRemoveMoneyDTO removeMoneyDTO = new PlayerRemoveMoneyDTO();
+		removeMoneyDTO.setToken(testToken);
+		removeMoneyDTO.setPlayerUuid(playerUuid);
+		removeMoneyDTO.setAmount(amount);
+
+		// invalid token
+		String testTokenInvalid = "invalidToken";
+		removeMoneyDTO.setToken(testTokenInvalid);
+		Assert.assertEquals(500, playerService.removeMoney(removeMoneyDTO).getCode());
+		removeMoneyDTO.setToken(testToken);
+
+		// non-existing player
+		String playerUuidInvalid = "PLAYER2021120523161171612";
+		removeMoneyDTO.setPlayerUuid(playerUuidInvalid);
+		Assert.assertEquals(500, playerService.removeMoney(removeMoneyDTO).getCode());
+		removeMoneyDTO.setPlayerUuid(playerUuid);
+
+		// frozen player
+		playerDO.setStatus(PlayerStatusEnum.FROZEN.getStatus());
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to frozen", code >= 0);
+		Assert.assertEquals(500, playerService.removeMoney(removeMoneyDTO).getCode());
+		playerDO.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to normal", code >= 0);
+
+		// insufficient money
+		removeMoneyDTO.setAmount(testBalance+1);
+		Assert.assertEquals(500, playerService.removeMoney(removeMoneyDTO).getCode());
+		removeMoneyDTO.setAmount(amount);
+
+		// happy path
+		Assert.assertEquals(200, playerService.removeMoney(removeMoneyDTO).getCode());
+
+		// check the amount after removal
+		playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertNotEquals(playerDO, null);
+		Assert.assertTrue(playerDO.getBalance() == testBalance-amount);
+
+		// restore player information before test
+		playerDO.setStatus(playerStatus);
+		playerDO.setBalance(balance);
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: restore player balance and status", code >= 0);
+
+	}
+
+	@Test
+	void testPlayerBuyItemSys() {
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String playerUuid = testPlayerUuid;
+		String itemUuid = testItemUuid;
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+
+		// get item price
+		ItemDO itemSearch = new ItemDO();
+		itemSearch.setUuid(itemUuid);
+		ItemDO item = itemMapper.selectOne(new QueryWrapper<>(itemSearch));
+		Assert.assertNotEquals(item, null);
+		Integer price = item.getPrice();
+		Assert.assertTrue("item price must be positive", price > 0);
+
+		Integer itemAmount = 10;
+		Integer itemAmountTooMany = 30;
+		Integer testBalance = price*20;
+
+		// record player balance and status information, and replace it with test values
+		PlayerDO playerSearchDO = new PlayerDO();
+		playerSearchDO.setUuid(playerUuid);
+		PlayerDO playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertNotEquals(playerDO, null);
+
+		String oldPlayerStatus = playerDO.getStatus();
+		Integer oldBalance = playerDO.getBalance();
+		playerDO.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+		playerDO.setBalance(testBalance);
+		Integer code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player balance and status", code >= 0);
+
+		// initialize buyItemSysDTO
+		PlayerBuyItemSysDTO buyItemSysDTO = new PlayerBuyItemSysDTO();
+		buyItemSysDTO.setToken(testToken);
+		buyItemSysDTO.setPlayerUuid(playerUuid);
+		buyItemSysDTO.setAmount(itemAmount);
+		buyItemSysDTO.setItemUuid(itemUuid);
+
+		// invalid token
+		String testTokenInvalid = "invalidToken";
+		buyItemSysDTO.setToken(testTokenInvalid);
+		Assert.assertEquals(500, playerService.buyItemSys(buyItemSysDTO).getCode());
+		buyItemSysDTO.setToken(testToken);
+
+		// non-existing item
+		String itemUuidInvalid = "invalidItem";
+		buyItemSysDTO.setItemUuid(itemUuidInvalid);
+		Assert.assertEquals(500, playerService.buyItemSys(buyItemSysDTO).getCode());
+		buyItemSysDTO.setItemUuid(itemUuid);
+
+		// non-existing player
+		String playerUuidInvalid = "PLAYER2021120523161171612";
+		buyItemSysDTO.setPlayerUuid(playerUuidInvalid);
+		Assert.assertEquals(500, playerService.buyItemSys(buyItemSysDTO).getCode());
+		buyItemSysDTO.setPlayerUuid(playerUuid);
+
+		// frozen player
+		playerDO.setStatus(PlayerStatusEnum.FROZEN.getStatus());
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to frozen", code >= 0);
+		Assert.assertEquals(500, playerService.buyItemSys(buyItemSysDTO).getCode());
+		playerDO.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to normal", code >= 0);
+
+		// item from another inventory of the same game
+		String anotherItemUuid = testItemUuidAnotherInventory;
+		buyItemSysDTO.setItemUuid(anotherItemUuid);
+		Assert.assertEquals(500, playerService.buyItemSys(buyItemSysDTO).getCode());
+		buyItemSysDTO.setItemUuid(itemUuid);
+
+		// insufficient money
+		buyItemSysDTO.setAmount(itemAmountTooMany);
+		Assert.assertEquals(500, playerService.buyItemSys(buyItemSysDTO).getCode());
+		buyItemSysDTO.setAmount(itemAmount);
+
+		// record player inventory information
+		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();
+		playerInventorySearch.setPlayerUuid(playerUuid);
+		playerInventorySearch.setItemUuid(itemUuid);
+		PlayerInventoryDO oldPlayerInventory = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		if (oldPlayerInventory != null) {
+			playerInventoryMapper.deleteById(oldPlayerInventory);
+		}
+
+		// player does not have any item yet
+		Assert.assertEquals(200, playerService.buyItemSys(buyItemSysDTO).getCode());
+		PlayerInventoryDO playerInventoryDO = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		Assert.assertNotEquals(playerInventoryDO, null);
+		Assert.assertTrue(playerInventoryDO.getAmount() == itemAmount);
+
+		playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertNotEquals(playerDO, null);
+		Assert.assertTrue(playerDO.getBalance() == testBalance-itemAmount*price);
+
+		// player already have some amount of this item
+		Assert.assertEquals(200, playerService.buyItemSys(buyItemSysDTO).getCode());
+		playerInventoryDO = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		Assert.assertNotEquals(playerInventoryDO, null);
+		Assert.assertTrue(playerInventoryDO.getAmount() == 2*itemAmount);
+
+		playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertNotEquals(playerDO, null);
+		Assert.assertTrue(playerDO.getBalance() == testBalance-2*itemAmount*price);
+
+		// restore player inventory information
+		playerInventoryMapper.deleteById(playerInventoryDO);
+		if (oldPlayerInventory != null) {
+			playerInventoryMapper.insert(oldPlayerInventory);
+		}
+
+		// restore player information before test
+		playerDO.setStatus(oldPlayerStatus);
+		playerDO.setBalance(oldBalance);
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: restore player balance and status", code >= 0);
+
+	}
+
+	@Test
+	void testPlayerSellItemSys() {
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String playerUuid = testPlayerUuid;
+		String itemUuid = testItemUuid;
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+
+		// get item price
+		ItemDO itemSearch = new ItemDO();
+		itemSearch.setUuid(itemUuid);
+		ItemDO item = itemMapper.selectOne(new QueryWrapper<>(itemSearch));
+		Assert.assertNotEquals(item, null);
+		Integer price = item.getPrice();
+		Assert.assertTrue("item price must be positive", price > 0);
+
+		Integer itemAmount = 20;
+		Integer sellAmount = 10;
+		Integer sellAmountTooMany = 30;
+
+		// record player balance and status information, and replace it with test values
+		PlayerDO playerSearchDO = new PlayerDO();
+		playerSearchDO.setUuid(playerUuid);
+		PlayerDO playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertTrue(playerDO != null);
+
+		String oldPlayerStatus = playerDO.getStatus();
+		Integer oldBalance = playerDO.getBalance();
+		playerDO.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+		Integer code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: initialize player status to normal", code >= 0);
+
+		// initialize buyItemSysDTO
+		PlayerSellItemSysDTO sellItemSysDTO = new PlayerSellItemSysDTO();
+		sellItemSysDTO.setToken(testToken);
+		sellItemSysDTO.setPlayerUuid(playerUuid);
+		sellItemSysDTO.setAmount(sellAmount);
+		sellItemSysDTO.setItemUuid(itemUuid);
+
+		// invalid token
+		String testTokenInvalid = "invalidToken";
+		sellItemSysDTO.setToken(testTokenInvalid);
+		Assert.assertEquals(500, playerService.sellItemSys(sellItemSysDTO).getCode());
+		sellItemSysDTO.setToken(testToken);
+
+		// non-existing item
+		String itemUuidInvalid = "invalidItem";
+		sellItemSysDTO.setItemUuid(itemUuidInvalid);
+		Assert.assertEquals(500, playerService.sellItemSys(sellItemSysDTO).getCode());
+		sellItemSysDTO.setItemUuid(itemUuid);
+
+		// non-existing player
+		String playerUuidInvalid = "PLAYER2021120523161171612";
+		sellItemSysDTO.setPlayerUuid(playerUuidInvalid);
+		Assert.assertEquals(500, playerService.sellItemSys(sellItemSysDTO).getCode());
+		sellItemSysDTO.setPlayerUuid(playerUuid);
+
+		// frozen player
+		playerDO.setStatus(PlayerStatusEnum.FROZEN.getStatus());
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to frozen", code >= 0);
+		Assert.assertEquals(500, playerService.sellItemSys(sellItemSysDTO).getCode());
+		playerDO.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to normal", code >= 0);
+
+		// item from another inventory of the same game
+		String anotherItemUuid = testItemUuidAnotherInventory;
+		sellItemSysDTO.setItemUuid(anotherItemUuid);
+		Assert.assertEquals(500, playerService.sellItemSys(sellItemSysDTO).getCode());
+		sellItemSysDTO.setItemUuid(itemUuid);
+
+		// record player inventory information
+		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();
+		playerInventorySearch.setPlayerUuid(playerUuid);
+		playerInventorySearch.setItemUuid(itemUuid);
+		PlayerInventoryDO oldPlayerInventory = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		if (oldPlayerInventory != null) {
+			playerInventoryMapper.deleteById(oldPlayerInventory);
+		}
+
+		PlayerInventoryDO playerInventory = new PlayerInventoryDO();
+		playerInventory.setPlayerUuid(playerUuid);
+		playerInventory.setItemUuid(itemUuid);
+		playerInventory.setUuid(CommonUtils.generateUniqueId("PINV", 3));
+		playerInventory.setCreateTime(CommonUtils.getTimeNow());
+		playerInventory.setModifiedTime(CommonUtils.getTimeNow());
+		playerInventory.setAmount(itemAmount);
+		code = playerInventoryMapper.insert(playerInventory);
+		Assert.assertTrue(code > 0);
+
+		// sell amount exceeds item amount
+		sellItemSysDTO.setAmount(sellAmountTooMany);
+		Assert.assertEquals(500, playerService.sellItemSys(sellItemSysDTO).getCode());
+		sellItemSysDTO.setAmount(sellAmount);
+
+		// player sell some items
+		Assert.assertEquals(200, playerService.sellItemSys(sellItemSysDTO).getCode());
+		PlayerInventoryDO playerInventoryDO = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		Assert.assertTrue(playerInventoryDO != null);
+		Assert.assertTrue(playerInventoryDO.getAmount() == itemAmount-sellAmount);
+
+		playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertTrue(playerDO != null);
+		Assert.assertTrue(playerDO.getBalance() == oldBalance+price*sellAmount);
+
+		// player sell all items
+		Assert.assertEquals(200, playerService.sellItemSys(sellItemSysDTO).getCode());
+		playerInventoryDO = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		Assert.assertTrue(playerInventoryDO == null);
+
+		playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertTrue(playerDO != null);
+		Assert.assertTrue(playerDO.getBalance() == oldBalance+2*price*sellAmount);
+
+		// restore player inventory information
+		playerInventoryMapper.deleteById(playerInventoryDO);
+		if (oldPlayerInventory != null) {
+			playerInventoryMapper.insert(oldPlayerInventory);
+		}
+
+		// restore player information before test
+		playerDO.setStatus(oldPlayerStatus);
+		playerDO.setBalance(oldBalance);
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: restore player balance and status", code >= 0);
+
 	}
 
 }
