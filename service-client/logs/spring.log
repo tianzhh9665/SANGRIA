@@ -1,105 +1,62 @@
-2021-12-10 00:00:04.386  INFO 14092 --- [http-nio-8093-exec-1] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-10 00:00:04.392  INFO 14092 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-10 00:00:04.395  INFO 14092 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2021-12-10 00:02:41.726  INFO 10964 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 1.8.0_101 on StevenPersonal with PID 10964 (C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client)
-2021-12-10 00:02:41.729  INFO 10964 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
-2021-12-10 00:02:43.120 ERROR 10964 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2021-12-10 00:02:44.031  INFO 10964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
-2021-12-10 00:02:44.044  INFO 10964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-10 00:02:44.045  INFO 10964 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-12-10 00:02:44.157  INFO 10964 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
-2021-12-10 00:02:44.158  INFO 10964 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2369 ms
-2021-12-10 00:02:44.722  INFO 10964 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-12-10 00:02:46.926  INFO 10964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path '/client'
-2021-12-10 00:02:46.928  INFO 10964 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-12-10 00:02:46.967  INFO 10964 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-12-10 00:02:47.008  INFO 10964 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-12-10 00:02:47.217  INFO 10964 --- [main] c.s.client.ServiceClientApplication      : Started ServiceClientApplication in 6.134 seconds (JVM running for 6.696)
-2021-12-10 00:02:52.124  INFO 10964 --- [http-nio-8093-exec-1] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-10 00:02:52.124  INFO 10964 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-10 00:02:52.126  INFO 10964 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-12-10 00:04:55.572  INFO 4884 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 1.8.0_101 on StevenPersonal with PID 4884 (C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client)
-2021-12-10 00:04:55.575  INFO 4884 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
-2021-12-10 00:04:57.008 ERROR 4884 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2021-12-10 00:04:57.917  INFO 4884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
-2021-12-10 00:04:57.931  INFO 4884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-10 00:04:57.931  INFO 4884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-12-10 00:04:58.046  INFO 4884 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
-2021-12-10 00:04:58.046  INFO 4884 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2408 ms
-2021-12-10 00:04:58.609  INFO 4884 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-12-10 00:05:00.841  INFO 4884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path '/client'
-2021-12-10 00:05:00.843  INFO 4884 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-12-10 00:05:00.878  INFO 4884 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-12-10 00:05:00.922  INFO 4884 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-12-10 00:05:01.149  INFO 4884 --- [main] c.s.client.ServiceClientApplication      : Started ServiceClientApplication in 6.216 seconds (JVM running for 6.766)
-2021-12-10 00:05:05.328  INFO 4884 --- [http-nio-8093-exec-1] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-10 00:05:05.329  INFO 4884 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-10 00:05:05.330  INFO 4884 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2021-12-10 00:06:49.564  INFO 2940 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 1.8.0_101 on StevenPersonal with PID 2940 (C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client)
-2021-12-10 00:06:49.567  INFO 2940 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
-2021-12-10 00:06:51.141 ERROR 2940 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2021-12-10 00:06:52.162  INFO 2940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
-2021-12-10 00:06:52.179  INFO 2940 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-10 00:06:52.179  INFO 2940 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-12-10 00:06:52.305  INFO 2940 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
-2021-12-10 00:06:52.306  INFO 2940 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2646 ms
-2021-12-10 00:06:52.860  INFO 2940 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-12-10 00:06:55.133  INFO 2940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path '/client'
-2021-12-10 00:06:55.135  INFO 2940 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-12-10 00:06:55.175  INFO 2940 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-12-10 00:06:55.219  INFO 2940 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-12-10 00:06:55.417  INFO 2940 --- [main] c.s.client.ServiceClientApplication      : Started ServiceClientApplication in 6.518 seconds (JVM running for 7.085)
-2021-12-10 00:07:05.422  INFO 2940 --- [http-nio-8093-exec-1] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-10 00:07:05.423  INFO 2940 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-10 00:07:05.424  INFO 2940 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-12-10 00:09:07.892  INFO 2348 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 1.8.0_101 on StevenPersonal with PID 2348 (C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client)
-2021-12-10 00:09:07.895  INFO 2348 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
-2021-12-10 00:09:09.337 ERROR 2348 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2021-12-10 00:09:10.247  INFO 2348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
-2021-12-10 00:09:10.260  INFO 2348 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-10 00:09:10.261  INFO 2348 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-12-10 00:09:10.371  INFO 2348 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
-2021-12-10 00:09:10.372  INFO 2348 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2418 ms
-2021-12-10 00:09:10.946  INFO 2348 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-12-10 00:09:13.151  INFO 2348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path '/client'
-2021-12-10 00:09:13.152  INFO 2348 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-12-10 00:09:13.185  INFO 2348 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-12-10 00:09:13.231  INFO 2348 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-12-10 00:09:13.463  INFO 2348 --- [main] c.s.client.ServiceClientApplication      : Started ServiceClientApplication in 6.228 seconds (JVM running for 6.787)
-2021-12-10 00:09:18.298  INFO 2348 --- [http-nio-8093-exec-1] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-10 00:09:18.299  INFO 2348 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-10 00:09:18.300  INFO 2348 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2021-12-10 00:12:06.932  INFO 14744 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 1.8.0_101 on StevenPersonal with PID 14744 (C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client)
-2021-12-10 00:12:06.936  INFO 14744 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
-2021-12-10 00:12:08.365 ERROR 14744 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2021-12-10 00:12:09.278  INFO 14744 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
-2021-12-10 00:12:09.292  INFO 14744 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-10 00:12:09.292  INFO 14744 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-12-10 00:12:09.398  INFO 14744 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
-2021-12-10 00:12:09.399  INFO 14744 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2401 ms
-2021-12-10 00:12:09.974  INFO 14744 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-12-10 00:12:12.214  INFO 14744 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path '/client'
-2021-12-10 00:12:12.216  INFO 14744 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-12-10 00:12:12.255  INFO 14744 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-12-10 00:12:12.302  INFO 14744 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-12-10 00:12:12.522  INFO 14744 --- [main] c.s.client.ServiceClientApplication      : Started ServiceClientApplication in 6.236 seconds (JVM running for 6.785)
-2021-12-10 00:12:18.490  INFO 14744 --- [http-nio-8093-exec-1] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-10 00:12:18.490  INFO 14744 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-10 00:12:18.492  INFO 14744 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-12-10 00:14:55.372  INFO 12792 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 1.8.0_101 on StevenPersonal with PID 12792 (C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client\target\classes started by Steven Huang in C:\Users\Steven Huang\Desktop\Columbia Fall 2021\COMSW4156\COMSW4156-TEAM-SANGRIA-REPO\service-client)
-2021-12-10 00:14:55.377  INFO 12792 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
-2021-12-10 00:14:57.078 ERROR 12792 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.10] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
-2021-12-10 00:14:58.093  INFO 12792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
-2021-12-10 00:14:58.107  INFO 12792 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-10 00:14:58.107  INFO 12792 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-12-10 00:14:58.213  INFO 12792 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
-2021-12-10 00:14:58.214  INFO 12792 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2769 ms
-2021-12-10 00:14:58.800  INFO 12792 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-12-10 00:15:00.988  INFO 12792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path '/client'
-2021-12-10 00:15:00.990  INFO 12792 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-12-10 00:15:01.031  INFO 12792 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-12-10 00:15:01.076  INFO 12792 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-12-10 00:15:01.304  INFO 12792 --- [main] c.s.client.ServiceClientApplication      : Started ServiceClientApplication in 6.686 seconds (JVM running for 7.245)
-2021-12-10 00:15:10.142  INFO 12792 --- [http-nio-8093-exec-1] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-10 00:15:10.143  INFO 12792 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-10 00:15:10.145  INFO 12792 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-11 09:43:16.746  INFO 2201 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 13 on ZhiyuansMacBook with PID 2201 (/Users/jyyzlzy/Documents/columbia_courses/4156/team/repo2/COMSW4156-TEAM-SANGRIA-REPO/service-client/target/classes started by jyyzlzy in /Users/jyyzlzy/Documents/columbia_courses/4156/team/repo2/COMSW4156-TEAM-SANGRIA-REPO/service-client)
+2021-12-11 09:43:16.772  INFO 2201 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
+2021-12-11 09:43:21.276  INFO 2201 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
+2021-12-11 09:43:21.296  INFO 2201 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-11 09:43:21.296  INFO 2201 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-11 09:43:21.430  INFO 2201 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
+2021-12-11 09:43:21.430  INFO 2201 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4337 ms
+2021-12-11 09:43:22.169  INFO 2201 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-11 09:43:23.528  INFO 2201 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path '/client'
+2021-12-11 09:43:23.530  INFO 2201 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-11 09:43:23.555  INFO 2201 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-11 09:43:23.589  INFO 2201 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-11 09:43:23.876  INFO 2201 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-11 09:43:23.962  INFO 2201 --- [main] c.s.client.ServiceClientApplication      : Started ServiceClientApplication in 10.5 seconds (JVM running for 13.12)
+2021-12-11 09:44:08.647  INFO 2211 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 13 on ZhiyuansMacBook with PID 2211 (/Users/jyyzlzy/Documents/columbia_courses/4156/team/repo2/COMSW4156-TEAM-SANGRIA-REPO/service-client/target/classes started by jyyzlzy in /Users/jyyzlzy/Documents/columbia_courses/4156/team/repo2/COMSW4156-TEAM-SANGRIA-REPO/service-client)
+2021-12-11 09:44:08.678  INFO 2211 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
+2021-12-11 09:44:11.522  INFO 2211 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
+2021-12-11 09:44:11.540  INFO 2211 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-11 09:44:11.541  INFO 2211 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-11 09:44:11.691  INFO 2211 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
+2021-12-11 09:44:11.692  INFO 2211 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2852 ms
+2021-12-11 09:44:11.871  WARN 2211 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'operationController': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'Service.operation.apis.sellItemSys' in value "${Service.operation.apis.sellItemSys}"
+2021-12-11 09:44:11.878  INFO 2211 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-12-11 09:44:11.917  INFO 2211 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-11 09:44:11.958 ERROR 2211 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'operationController': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'Service.operation.apis.sellItemSys' in value "${Service.operation.apis.sellItemSys}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.12.jar:5.3.12]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.12.jar:5.3.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.5.6.jar:2.5.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-2.5.6.jar:2.5.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-2.5.6.jar:2.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338) ~[spring-boot-2.5.6.jar:2.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-2.5.6.jar:2.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332) ~[spring-boot-2.5.6.jar:2.5.6]
+	at com.sangria.client.ServiceClientApplication.main(ServiceClientApplication.java:11) ~[classes/:na]
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'Service.operation.apis.sellItemSys' in value "${Service.operation.apis.sellItemSys}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180) ~[spring-core-5.3.12.jar:5.3.12]
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126) ~[spring-core-5.3.12.jar:5.3.12]
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239) ~[spring-core-5.3.12.jar:5.3.12]
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210) ~[spring-core-5.3.12.jar:5.3.12]
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175) ~[spring-context-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1321) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.12.jar:5.3.12]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.12.jar:5.3.12]
+	... 17 common frames omitted
+
