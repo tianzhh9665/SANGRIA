@@ -16,5 +16,9 @@ public interface PlayerService {
     ResponseDTO removeMoney(PlayerRemoveMoneyDTO dto);
     ResponseDTO buyItemSys(PlayerBuyItemSysDTO dto);
     ResponseDTO sellItemSys(PlayerSellItemSysDTO dto);
+    
+    ResponseDTO addMoney(PlayerAddMoneyDTO dto);
+    ResponseDTO addItem(PlayerItemDTO dto);
+    ResponseDTO removeItem(PlayerItemDTO dto);
 
 }

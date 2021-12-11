@@ -926,4 +926,233 @@ public class PlayerServiceImpl implements PlayerService {
 	}
 
 
+	@Override
+	@Transactional(rollbackFor = Exception.class, isolation = Isolation.SERIALIZABLE)
+	public ResponseDTO addMoney(PlayerAddMoneyDTO dto) {
+
+		// token verification
+		String token = dto.getToken();
+		GameManagerDO manager = new GameManagerDO();
+		manager.setToken(token);
+
+		List<GameManagerDO> managerList = gameManagerMapper.selectList(new QueryWrapper<>(manager));
+		if(managerList == null || managerList.size() == 0) {
+			return new ResponseDTO(500, "ERROR: token is not valid, please login first", null);
+		}
+		if(managerList != null && managerList.size() > 1) {
+			return new ResponseDTO(500, "ERROR: more than one manager found, please try again later", null);
+		}
+
+		manager = managerList.get(0);
+		String gameUuid = manager.getGameUuid();
+		if(StringUtils.isBlank(gameUuid)) {
+			return new ResponseDTO(500, "ERROR: this manager has not created a game yet", null);
+		}
+
+		// player search
+		PlayerDO playerSearch = new PlayerDO();
+		playerSearch.setUuid(dto.getPlayerUuid());
+		playerSearch.setGameUuid(gameUuid);
+
+		PlayerDO player = playerMapper.selectOne(new QueryWrapper<>(playerSearch));
+		if (player == null) {
+			return new ResponseDTO(500, "ERROR: the player does not exist", null);
+		}
+		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {
+			return new ResponseDTO(500, "ERROR: the player is frozen", null);
+		}
+
+		// edit money
+		Integer balance = player.getBalance();
+		Integer amount = dto.getAmount();
+
+		player.setModifiedTime(CommonUtils.getTimeNow());
+		player.setBalance(balance+amount);
+
+		if(playerMapper.updateById(player) < 0) {
+			return new ResponseDTO(500, "ERROR: failed to update database, please try again later", null);
+		}
+
+		return new ResponseDTO(200, "money added successfully", null);
+	}
+	
+	@Override
+	@Transactional(rollbackFor = Exception.class, isolation = Isolation.SERIALIZABLE)
+	public ResponseDTO addItem(PlayerItemDTO dto) {
+
+		// token verification
+		String token = dto.getToken();
+		GameManagerDO manager = new GameManagerDO();
+		manager.setToken(token);
+
+		List<GameManagerDO> managerList = gameManagerMapper.selectList(new QueryWrapper<>(manager));
+		if(managerList == null || managerList.size() == 0) {
+			return new ResponseDTO(500, "ERROR: token is not valid, please login first", null);
+		}
+		if(managerList != null && managerList.size() > 1) {
+			return new ResponseDTO(500, "ERROR: more than one manager found, please try again later", null);
+		}
+
+		manager = managerList.get(0);
+		String gameUuid = manager.getGameUuid();
+		if(StringUtils.isBlank(gameUuid)) {
+			return new ResponseDTO(500, "ERROR: this manager has not created a game yet", null);
+		}
+
+		// player search
+		PlayerDO playerSearch = new PlayerDO();
+		playerSearch.setUuid(dto.getPlayerUuid());
+		playerSearch.setGameUuid(gameUuid);
+
+		PlayerDO player = playerMapper.selectOne(new QueryWrapper<>(playerSearch));
+		if (player == null) {
+			return new ResponseDTO(500, "ERROR: the player does not exist", null);
+		}
+		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {
+			return new ResponseDTO(500, "ERROR: the player is frozen", null);
+		}
+
+		// item search
+		ItemDO itemSearch = new ItemDO();
+		String itemUuid = dto.getItemUuid();
+		itemSearch.setUuid(itemUuid);
+		ItemDO item = itemMapper.selectOne(new QueryWrapper<>(itemSearch));
+		if (item == null) {
+			return new ResponseDTO(500, "ERROR: item does not exist", null);
+		}
+		
+		// inventory search
+		String inventoryUuid = item.getInventoryUuid();
+		InventoryDO inventorySearch = new InventoryDO();
+		inventorySearch.setUuid(inventoryUuid);
+		inventorySearch.setGameUuid(gameUuid);
+		InventoryDO inventory = inventoryMapper.selectOne(new QueryWrapper<>(inventorySearch));
+		if (inventory == null) {
+			return new ResponseDTO(500, "ERROR: inventory does not exist", null);
+		}
+		String playerInventoryUuid = player.getGameInventoryUuid();
+		if (!inventoryUuid.equals(playerInventoryUuid)) {
+			return new ResponseDTO(500, "ERROR: item does not belong to the player's game inventory", null);
+		}
+		
+		// edit item quantity
+		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();
+		playerInventorySearch.setPlayerUuid(dto.getPlayerUuid());
+		playerInventorySearch.setItemUuid(itemUuid);
+
+		boolean needToCreate = false;
+		PlayerInventoryDO playerInventory = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		Integer resultAmount = dto.getAmount();
+		if (playerInventory == null) {
+			// if the item is not already in the inventory, create one
+			playerInventory = new PlayerInventoryDO();
+			playerInventory.setPlayerUuid(dto.getPlayerUuid());
+			playerInventory.setItemUuid(itemUuid);
+			playerInventory.setUuid(CommonUtils.generateUniqueId("PINV", 3));
+			playerInventory.setCreateTime(CommonUtils.getTimeNow());
+			needToCreate = true;
+		} else {
+			// if the item is already in the inventory, add to amount
+			resultAmount += playerInventory.getAmount();
+		}
+		playerInventory.setModifiedTime(CommonUtils.getTimeNow());
+		playerInventory.setAmount(resultAmount);
+
+		if (needToCreate) {
+			if (playerInventoryMapper.insert(playerInventory) < 0) {
+				return new ResponseDTO(500, "ERROR: failed to insert new item into database, please try again later",
+						null);
+			}
+		} else {
+			if (playerInventoryMapper.updateById(playerInventory) < 0) {
+				return new ResponseDTO(500, "ERROR: failed to update database, please try again later", null);
+			}
+		}
+			
+		return new ResponseDTO(200, "item added successfully", null);
+	}
+
+	@Override
+	public ResponseDTO removeItem(PlayerItemDTO dto) {
+
+		// token verification
+		String token = dto.getToken();
+		GameManagerDO manager = new GameManagerDO();
+		manager.setToken(token);
+
+		List<GameManagerDO> managerList = gameManagerMapper.selectList(new QueryWrapper<>(manager));
+		if(managerList == null || managerList.size() == 0) {
+			return new ResponseDTO(500, "ERROR: token is not valid, please login first", null);
+		}
+		if(managerList != null && managerList.size() > 1) {
+			return new ResponseDTO(500, "ERROR: more than one manager found, please try again later", null);
+		}
+
+		manager = managerList.get(0);
+		String gameUuid = manager.getGameUuid();
+		if(StringUtils.isBlank(gameUuid)) {
+			return new ResponseDTO(500, "ERROR: this manager has not created a game yet", null);
+		}
+		
+		// player search
+		PlayerDO playerSearch = new PlayerDO();
+		String playerUuid = dto.getPlayerUuid();
+		playerSearch.setUuid(playerUuid);
+		playerSearch.setGameUuid(gameUuid);
+
+		PlayerDO player = playerMapper.selectOne(new QueryWrapper<>(playerSearch));
+		if (player == null) {
+			return new ResponseDTO(500, "ERROR: the player does not exist", null);
+		}
+		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {
+			return new ResponseDTO(500, "ERROR: the player is frozen", null);
+		}
+
+		// item search
+		ItemDO itemSearch = new ItemDO();
+		String itemUuid = dto.getItemUuid();
+		itemSearch.setUuid(itemUuid);
+		ItemDO item = itemMapper.selectOne(new QueryWrapper<>(itemSearch));
+		if (item == null) {
+			return new ResponseDTO(500, "ERROR: item does not exist", null);
+		}
+		
+		// inventory search
+		String inventoryUuid = item.getInventoryUuid();
+		InventoryDO inventorySearch = new InventoryDO();
+		inventorySearch.setUuid(inventoryUuid);
+		inventorySearch.setGameUuid(gameUuid);
+		InventoryDO inventory = inventoryMapper.selectOne(new QueryWrapper<>(inventorySearch));
+		if (inventory == null) {
+			return new ResponseDTO(500, "ERROR: inventory does not exist", null);
+		}
+		String playerInventoryUuid = player.getGameInventoryUuid();
+		if (!inventoryUuid.equals(playerInventoryUuid)) {
+			return new ResponseDTO(500, "ERROR: item does not belong to the player's game inventory", null);
+		}
+
+		// edit item quantity
+		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();
+		playerInventorySearch.setPlayerUuid(playerUuid);
+		playerInventorySearch.setItemUuid(itemUuid);
+
+		PlayerInventoryDO playerInventory = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		if (playerInventory == null) {
+			return new ResponseDTO(500, "ERROR: player does not have the item", null);
+		}
+
+		Integer currentAmount = playerInventory.getAmount();
+		Integer amount = dto.getAmount();
+		if (currentAmount < amount) {
+			return new ResponseDTO(500, "ERROR: no enough item to remove", null);
+		}
+
+		playerInventory.setModifiedTime(CommonUtils.getTimeNow());
+		playerInventory.setAmount(currentAmount-amount);
+		if(playerInventoryMapper.updateById(playerInventory) < 0) {
+			return new ResponseDTO(500, "ERROR: failed to update database, please try again later", null);
+		}
+
+		return new ResponseDTO(200, "items removed successfully", null);
+	}
 }

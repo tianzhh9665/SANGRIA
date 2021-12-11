@@ -249,4 +249,96 @@ public class PlayerController extends BaseController{
 	}
 
 
+	/**
+	 * add money for a player
+	 * @param dto
+	 * @return
+	 */
+	@ApiOperation(value = "add money for a player")
+	@PostMapping(value = "/addMoney")
+	public ResponseDTO addMoney(@RequestBody PlayerAddMoneyDTO dto) {
+		String token = dto.getToken();
+		String playerUuid = dto.getPlayerUuid();
+		if(StringUtils.isBlank(token)) {
+			return renderFail("ERROR: authentication failed, token cannot be empty");
+		}
+		if(StringUtils.isBlank(playerUuid)) {
+			return renderFail("ERROR: playerUuid cannot be empty");
+		}
+		Integer amount = dto.getAmount();
+		if(amount == null) {
+			return renderFail("ERROR: amount is missing");
+		}
+		if(amount < 0) {
+			return renderFail("ERROR: amount has to be non-negative");
+		}
+
+		return playerService.addMoney(dto);
+	}
+	
+	/**
+	 * add item for a player
+	 * @param dto
+	 * @return
+	 */
+	@ApiOperation(value = "add item for a player")
+	@PostMapping(value = "/addItem")
+	public ResponseDTO addItem(@RequestBody PlayerItemDTO dto) {
+		String token = dto.getToken();
+		String playerUuid = dto.getPlayerUuid();
+		String itemUuid = dto.getItemUuid();
+		
+		if(StringUtils.isBlank(token)) {
+			return renderFail("ERROR: authentication failed, token cannot be empty");
+		}
+		if(StringUtils.isBlank(playerUuid)) {
+			return renderFail("ERROR: playerUuid cannot be empty");
+		}
+		if(StringUtils.isBlank(itemUuid)) {
+			return renderFail("ERROR: itemUuid cannot be empty");
+		}
+		Integer amount = dto.getAmount();
+		if(amount == null) {
+			return renderFail("ERROR: amount is missing");
+		}
+		if(amount < 0) {
+			return renderFail("ERROR: amount has to be non-negative");
+		}
+
+		return playerService.addItem(dto);
+	}
+	
+	/**
+	 * add item for a player
+	 * @param dto
+	 * @return
+	 */
+	@ApiOperation(value = "remove item for a player")
+	@PostMapping(value = "/removeItem")
+	public ResponseDTO removeItem(@RequestBody PlayerItemDTO dto) {
+		String token = dto.getToken();
+		String playerUuid = dto.getPlayerUuid();
+		String itemUuid = dto.getItemUuid();
+		
+		if(StringUtils.isBlank(token)) {
+			return renderFail("ERROR: authentication failed, token cannot be empty");
+		}
+		if(StringUtils.isBlank(playerUuid)) {
+			return renderFail("ERROR: playerUuid cannot be empty");
+		}
+		if(StringUtils.isBlank(itemUuid)) {
+			return renderFail("ERROR: itemUuid cannot be empty");
+		}
+		Integer amount = dto.getAmount();
+		if(amount == null) {
+			return renderFail("ERROR: amount is missing");
+		}
+		if(amount < 0) {
+			return renderFail("ERROR: amount has to be non-negative");
+		}
+
+		return playerService.removeItem(dto);
+	}
+	
+	
 }
