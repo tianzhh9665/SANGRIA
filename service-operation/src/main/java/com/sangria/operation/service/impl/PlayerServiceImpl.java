@@ -793,6 +793,9 @@ public class PlayerServiceImpl implements PlayerService {
 		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {
 			return new ResponseDTO(500, "ERROR: the player is frozen", null);
 		}
+		if (player.getGameInventoryUuid().equals(inventoryUuid) == false) {
+			return new ResponseDTO(500, "ERROR: player cannot operate on this inventory", null);
+		}
 
 		// edit balance
 		Integer balance = player.getBalance();
@@ -823,13 +826,18 @@ public class PlayerServiceImpl implements PlayerService {
 			playerInventory.setItemUuid(itemUuid);
 			playerInventory.setUuid(CommonUtils.generateUniqueId("PINV", 3));
 			playerInventory.setCreateTime(CommonUtils.getTimeNow());
+			playerInventory.setModifiedTime(CommonUtils.getTimeNow());
+			playerInventory.setAmount(resultAmount);
+			if(playerInventoryMapper.insert(playerInventory) <= 0) {
+				return new ResponseDTO(500, "ERROR: failed to insert playerInventory", null);
+			}
 		} else {
 			resultAmount += playerInventory.getAmount();
-		}
-		playerInventory.setModifiedTime(CommonUtils.getTimeNow());
-		playerInventory.setAmount(resultAmount);
-		if(playerInventoryMapper.updateById(playerInventory) < 0) {
-			return new ResponseDTO(500, "ERROR: failed to update database, please try again later", null);
+			playerInventory.setModifiedTime(CommonUtils.getTimeNow());
+			playerInventory.setAmount(resultAmount);
+			if(playerInventoryMapper.updateById(playerInventory) < 0) {
+				return new ResponseDTO(500, "ERROR: failed to update database, please try again later", null);
+			}
 		}
 
 		return new ResponseDTO(200, "items bought successfully", null);
@@ -890,6 +898,9 @@ public class PlayerServiceImpl implements PlayerService {
 		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {
 			return new ResponseDTO(500, "ERROR: the player is frozen", null);
 		}
+		if (player.getGameInventoryUuid().equals(inventoryUuid) == false) {
+			return new ResponseDTO(500, "ERROR: player cannot operate on this inventory", null);
+		}
 
 		// edit item quantity
 		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();
@@ -907,10 +918,16 @@ public class PlayerServiceImpl implements PlayerService {
 			return new ResponseDTO(500, "ERROR: no enough item to sell", null);
 		}
 
-		playerInventory.setModifiedTime(CommonUtils.getTimeNow());
-		playerInventory.setAmount(currentAmount-amount);
-		if(playerInventoryMapper.updateById(playerInventory) < 0) {
-			return new ResponseDTO(500, "ERROR: failed to update database, please try again later", null);
+		if (currentAmount == amount) {
+			if(playerInventoryMapper.deleteById(playerInventory) < 0) {
+				return new ResponseDTO(500, "ERROR: failed to delete item from playerInventory, please try again later", null);
+			}
+		} else {
+			playerInventory.setModifiedTime(CommonUtils.getTimeNow());
+			playerInventory.setAmount(currentAmount-amount);
+			if(playerInventoryMapper.updateById(playerInventory) < 0) {
+				return new ResponseDTO(500, "ERROR: failed to update item quantity in playerInventory, please try again later", null);
+			}
 		}
 
 		// edit balance
