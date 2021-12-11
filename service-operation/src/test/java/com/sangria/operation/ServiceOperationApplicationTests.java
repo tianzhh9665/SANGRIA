@@ -74,9 +74,10 @@ class ServiceOperationApplicationTests {
 		freezeDTO.setToken(testToken);
 		freezeDTO.setPlayerId(testFreezePlayerId);
 
-		PlayerDO player = new PlayerDO();
-		player.setUuid(testFreezePlayerId);
-		String status = playerMapper.selectOne(new QueryWrapper<>(player)).getStatus();
+		PlayerDO playerSearch = new PlayerDO();
+		playerSearch.setUuid(testFreezePlayerId);
+		PlayerDO player = playerMapper.selectOne(new QueryWrapper<>(playerSearch));
+		String status = player.getStatus();
 
 		if (status.equals(PlayerStatusEnum.FROZEN.getStatus())) {
 			player.setStatus(PlayerStatusEnum.NORMAL.getStatus());
@@ -115,9 +116,10 @@ class ServiceOperationApplicationTests {
 		unfreezeDTO.setToken(testToken);
 		unfreezeDTO.setPlayerId(testUnfreezePlayerId);
 
-		PlayerDO player = new PlayerDO();
-		player.setUuid(testUnfreezePlayerId);
-		String status = playerMapper.selectOne(new QueryWrapper<>(player)).getStatus();
+		PlayerDO playerSearch = new PlayerDO();
+		playerSearch.setUuid(testUnfreezePlayerId);
+		PlayerDO player = playerMapper.selectOne(new QueryWrapper<>(playerSearch));
+		String status = player.getStatus();
 
 		if (status.equals(PlayerStatusEnum.NORMAL.getStatus())) {
 			player.setStatus(PlayerStatusEnum.FROZEN.getStatus());
