@@ -959,15 +959,8 @@ public class PlayerServiceImpl implements PlayerService {
 		if(managerList == null || managerList.size() == 0) {
 			return new ResponseDTO(500, "ERROR: token is not valid, please login first", null);
 		}
-		if(managerList != null && managerList.size() > 1) {
-			return new ResponseDTO(500, "ERROR: more than one manager found, please try again later", null);
-		}
-
 		manager = managerList.get(0);
 		String gameUuid = manager.getGameUuid();
-		if(StringUtils.isBlank(gameUuid)) {
-			return new ResponseDTO(500, "ERROR: this manager has not created a game yet", null);
-		}
 
 		// player search
 		PlayerDO playerSearch = new PlayerDO();
@@ -1009,15 +1002,8 @@ public class PlayerServiceImpl implements PlayerService {
 		if(managerList == null || managerList.size() == 0) {
 			return new ResponseDTO(500, "ERROR: token is not valid, please login first", null);
 		}
-		if(managerList != null && managerList.size() > 1) {
-			return new ResponseDTO(500, "ERROR: more than one manager found, please try again later", null);
-		}
-
 		manager = managerList.get(0);
 		String gameUuid = manager.getGameUuid();
-		if(StringUtils.isBlank(gameUuid)) {
-			return new ResponseDTO(500, "ERROR: this manager has not created a game yet", null);
-		}
 
 		// player search
 		PlayerDO playerSearch = new PlayerDO();
@@ -1104,15 +1090,8 @@ public class PlayerServiceImpl implements PlayerService {
 		if(managerList == null || managerList.size() == 0) {
 			return new ResponseDTO(500, "ERROR: token is not valid, please login first", null);
 		}
-		if(managerList != null && managerList.size() > 1) {
-			return new ResponseDTO(500, "ERROR: more than one manager found, please try again later", null);
-		}
-
 		manager = managerList.get(0);
 		String gameUuid = manager.getGameUuid();
-		if(StringUtils.isBlank(gameUuid)) {
-			return new ResponseDTO(500, "ERROR: this manager has not created a game yet", null);
-		}
 		
 		// player search
 		PlayerDO playerSearch = new PlayerDO();
@@ -1164,11 +1143,17 @@ public class PlayerServiceImpl implements PlayerService {
 		Integer currentAmount = playerInventory.getAmount();
 		Integer amount = dto.getAmount();
 		if (currentAmount < amount) {
-			return new ResponseDTO(500, "ERROR: no enough item to remove", null);
+			return new ResponseDTO(500, "ERROR: not enough item to remove", null);
 		}
 
 		playerInventory.setModifiedTime(CommonUtils.getTimeNow());
 		playerInventory.setAmount(currentAmount-amount);
+		
+		//if the item does not exist anymore after this method, delete this entry from database
+		if(playerInventory.getAmount()==0) {
+			playerInventoryMapper.deleteById(playerInventory);
+		}
+		
 		if(playerInventoryMapper.updateById(playerInventory) < 0) {
 			return new ResponseDTO(500, "ERROR: failed to update database, please try again later", null);
 		}

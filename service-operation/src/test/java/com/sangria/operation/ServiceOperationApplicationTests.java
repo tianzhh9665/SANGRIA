@@ -651,7 +651,259 @@ class ServiceOperationApplicationTests {
 		playerDO.setBalance(oldBalance);
 		code = playerMapper.updateById(playerDO);
 		Assert.assertTrue("database operation: restore player balance and status", code >= 0);
+	}
+	
+	
+
+	@Test
+	void testMoneyAdd() {
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String playerUuid = testPlayerUuid;
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+		Integer amount = 100;
+		Integer testBalance = 1000;
+
+		// record player balance and status information, and replace it with test values
+		PlayerDO playerSearchDO = new PlayerDO();
+		playerSearchDO.setUuid(playerUuid);
+		PlayerDO playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertNotEquals(playerDO, null);
+
+		String playerStatus = playerDO.getStatus();
+		Integer balance = playerDO.getBalance();
+		playerDO.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+		playerDO.setBalance(testBalance);
+		Integer code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player balance and status", code >= 0);
+
+		// initialize addMoneyDTO
+		PlayerAddMoneyDTO addMoneyDTO = new PlayerAddMoneyDTO();
+		addMoneyDTO.setToken(testToken);
+		addMoneyDTO.setPlayerUuid(playerUuid);
+		addMoneyDTO.setAmount(amount);
+
+		// invalid token
+		String testTokenInvalid = "fakeeeeeeeeeeeeeeeeeeeeeee";
+		addMoneyDTO.setToken(testTokenInvalid);
+		Assert.assertEquals(500, playerService.addMoney(addMoneyDTO).getCode());
+		addMoneyDTO.setToken(testToken);
+
+		// non-existing player
+		String playerUuidInvalid = "fakekekekekekkk";
+		addMoneyDTO.setPlayerUuid(playerUuidInvalid);
+		Assert.assertEquals(500, playerService.addMoney(addMoneyDTO).getCode());
+		addMoneyDTO.setPlayerUuid(playerUuid);
+
+		// frozen player
+		playerDO.setStatus(PlayerStatusEnum.FROZEN.getStatus());
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to frozen", code >= 0);
+		Assert.assertEquals(500, playerService.addMoney(addMoneyDTO).getCode());
+		playerDO.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to normal", code >= 0);
+
+		// happy path
+		Assert.assertEquals(200, playerService.addMoney(addMoneyDTO).getCode());
+
+		// check the amount after adding
+		playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertNotEquals(playerDO, null);
+		Assert.assertTrue(playerDO.getBalance() == testBalance+amount);
+
+		// restore player information before test
+		playerDO.setStatus(playerStatus);
+		playerDO.setBalance(balance);
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: restore player balance and status", code >= 0);
 
 	}
 
+	@Test
+	void testItemAdd() {
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String playerUuid = testPlayerUuid;
+		String itemUuid = testItemUuid;
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+
+		// item search
+		ItemDO itemSearch = new ItemDO();
+		itemSearch.setUuid(itemUuid);
+		ItemDO item = itemMapper.selectOne(new QueryWrapper<>(itemSearch));
+		Assert.assertNotEquals(item, null);
+
+		Integer itemAmount = 10;
+
+		// player search
+		PlayerDO playerSearchDO = new PlayerDO();
+		playerSearchDO.setUuid(playerUuid);
+		PlayerDO playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertNotEquals(playerDO, null);
+
+		// initialize PlayerItemDTO
+		PlayerItemDTO playerItemDTO = new PlayerItemDTO();
+		playerItemDTO.setToken(testToken);
+		playerItemDTO.setPlayerUuid(playerUuid);
+		playerItemDTO.setAmount(itemAmount);
+		playerItemDTO.setItemUuid(itemUuid);
+
+		// invalid token
+		String testTokenInvalid = "thismustnotberightwhatsoever";
+		playerItemDTO.setToken(testTokenInvalid);
+		Assert.assertEquals(500, playerService.addItem(playerItemDTO).getCode());
+		playerItemDTO.setToken(testToken);
+
+		// non-existing player
+		String playerUuidInvalid = "andIdoNoTExiStttTtTT";
+		playerItemDTO.setPlayerUuid(playerUuidInvalid);
+		Assert.assertEquals(500, playerService.addItem(playerItemDTO).getCode());
+		playerItemDTO.setPlayerUuid(playerUuid);
+
+		// frozen player
+		playerDO.setStatus(PlayerStatusEnum.FROZEN.getStatus());
+		Integer code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to frozen", code >= 0);
+		Assert.assertEquals(500, playerService.addItem(playerItemDTO).getCode());
+		playerDO.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to normal", code >= 0);
+		
+		// non-existing item
+		String itemUuidInvalid = "elixirthatfixeseverythingjustsimplydoesnotexist40004";
+		playerItemDTO.setItemUuid(itemUuidInvalid);
+		Assert.assertEquals(500, playerService.addItem(playerItemDTO).getCode());
+		playerItemDTO.setItemUuid(itemUuid);
+		
+		// item from another inventory of the same game
+		String anotherItemUuid = testItemUuidAnotherInventory;
+		playerItemDTO.setItemUuid(anotherItemUuid);
+		Assert.assertEquals(500, playerService.addItem(playerItemDTO).getCode());
+		playerItemDTO.setItemUuid(itemUuid);
+
+		// record player inventory information
+		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();
+		playerInventorySearch.setPlayerUuid(playerUuid);
+		playerInventorySearch.setItemUuid(itemUuid);
+		PlayerInventoryDO oldPlayerInventory = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		if (oldPlayerInventory != null) {
+			playerInventoryMapper.deleteById(oldPlayerInventory);
+		}
+
+		// the item is not already in the inventory, need to create first
+		Assert.assertEquals(200, playerService.addItem(playerItemDTO).getCode());
+		PlayerInventoryDO playerInventoryDO = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		Assert.assertNotEquals(playerInventoryDO, null);
+		Assert.assertTrue(playerInventoryDO.getAmount() == itemAmount);
+
+		// player already have the item
+		Assert.assertEquals(200, playerService.addItem(playerItemDTO).getCode());
+		playerInventoryDO = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		Assert.assertNotEquals(playerInventoryDO, null);
+		Assert.assertTrue(playerInventoryDO.getAmount() == 2*itemAmount);
+
+		// restore player inventory information
+		playerInventoryMapper.deleteById(playerInventoryDO);
+		if (oldPlayerInventory != null) {
+			playerInventoryMapper.insert(oldPlayerInventory);
+		}
+	}
+
+	@Test
+	void testItemRemove() {
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String playerUuid = testPlayerUuid;
+		String itemUuid = testItemUuid;
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+
+		// item search
+		ItemDO itemSearch = new ItemDO();
+		itemSearch.setUuid(itemUuid);
+		ItemDO item = itemMapper.selectOne(new QueryWrapper<>(itemSearch));
+		Assert.assertNotEquals(item, null);
+
+		Integer itemAmount = 10;
+		Integer itemStartWith = 100;
+		Integer itemTooMany = 1000;
+
+		// player search
+		PlayerDO playerSearchDO = new PlayerDO();
+		playerSearchDO.setUuid(playerUuid);
+		PlayerDO playerDO = playerMapper.selectOne(new QueryWrapper<>(playerSearchDO));
+		Assert.assertNotEquals(playerDO, null);
+
+		// initialize PlayerItemDTO
+		PlayerItemDTO playerItemDTO = new PlayerItemDTO();
+		playerItemDTO.setToken(testToken);
+		playerItemDTO.setPlayerUuid(playerUuid);
+		playerItemDTO.setAmount(itemAmount);
+		playerItemDTO.setItemUuid(itemUuid);
+
+		// invalid token
+		String testTokenInvalid = "thismustnotberightwhatsoever";
+		playerItemDTO.setToken(testTokenInvalid);
+		Assert.assertEquals(500, playerService.removeItem(playerItemDTO).getCode());
+		playerItemDTO.setToken(testToken);
+
+		// non-existing player
+		String playerUuidInvalid = "andIdoNoTExiStttTtTT";
+		playerItemDTO.setPlayerUuid(playerUuidInvalid);
+		Assert.assertEquals(500, playerService.removeItem(playerItemDTO).getCode());
+		playerItemDTO.setPlayerUuid(playerUuid);
+
+		// frozen player
+		playerDO.setStatus(PlayerStatusEnum.FROZEN.getStatus());
+		Integer code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to frozen", code >= 0);
+		Assert.assertEquals(500, playerService.removeItem(playerItemDTO).getCode());
+		playerDO.setStatus(PlayerStatusEnum.NORMAL.getStatus());
+		code = playerMapper.updateById(playerDO);
+		Assert.assertTrue("database operation: change player status to normal", code >= 0);
+		
+		// non-existing item
+		String itemUuidInvalid = "elixirthatfixeseverythingjustsimplydoesnotexist40004";
+		playerItemDTO.setItemUuid(itemUuidInvalid);
+		Assert.assertEquals(500, playerService.removeItem(playerItemDTO).getCode());
+		playerItemDTO.setItemUuid(itemUuid);
+		
+		// item from another inventory of the same game
+		String anotherItemUuid = testItemUuidAnotherInventory;
+		playerItemDTO.setItemUuid(anotherItemUuid);
+		Assert.assertEquals(500, playerService.addItem(playerItemDTO).getCode());
+		playerItemDTO.setItemUuid(itemUuid);
+
+		// record player inventory information
+		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();
+		playerInventorySearch.setPlayerUuid(playerUuid);
+		playerInventorySearch.setItemUuid(itemUuid);
+		PlayerInventoryDO oldPlayerInventory = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		if (oldPlayerInventory != null) {
+			playerInventoryMapper.deleteById(oldPlayerInventory);
+		}
+
+		// the player does not have the item, nothing to delete
+		Assert.assertEquals(500, playerService.removeItem(playerItemDTO).getCode());
+
+		// player have the item but not enough for the removal
+		playerItemDTO.setAmount(itemTooMany);
+		Assert.assertEquals(500, playerService.removeItem(playerItemDTO).getCode());
+		
+		// happy path remove
+		playerItemDTO.setAmount(itemStartWith);
+		playerService.addItem(playerItemDTO);
+		playerItemDTO.setAmount(itemAmount);
+		Assert.assertEquals(200, playerService.removeItem(playerItemDTO).getCode());
+		PlayerInventoryDO playerInventoryDO = playerInventoryMapper.selectOne(new QueryWrapper<>(playerInventorySearch));
+		Assert.assertNotEquals(playerInventoryDO, null);
+		Assert.assertTrue(playerInventoryDO.getAmount() == itemStartWith-itemAmount);
+		
+		// restore player inventory information
+		playerInventoryMapper.deleteById(playerInventoryDO);
+		if (oldPlayerInventory != null) {
+			playerInventoryMapper.insert(oldPlayerInventory);
+		}
+	}
+	
 }
