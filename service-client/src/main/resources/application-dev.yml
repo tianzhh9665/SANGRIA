@@ -47,6 +47,14 @@ Service:
       sellIntemSys: /player/sellItemSys
       trade: /player/trade
       unfreeze: /player/unfreeze
+      buyItemSys: /player/buyItemSys
+      deletePlayer: /player/deletePlayer
+      inventoryAdd: /inventory/add
+      inventoryClear: /inventory/clear
+      inventoryInfo: /inventory/info
+      itemAdd: /item/add
+      itemInfo: /item/info
+      itemMake: /item/make
     
     
           
