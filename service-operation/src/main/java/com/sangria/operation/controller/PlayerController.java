@@ -167,7 +167,7 @@ public class PlayerController extends BaseController{
 	 * @param dto
 	 * @return
 	 */
-	@ApiOperation(value = "handle removing money from a player")
+	@ApiOperation(value = "reduce a player's money")
 	@PostMapping(value = "/removeMoney")
 	public ResponseDTO removeMoney(@RequestBody PlayerRemoveMoneyDTO dto) {
 		String token = dto.getToken();
@@ -194,7 +194,7 @@ public class PlayerController extends BaseController{
 	 * @param dto
 	 * @return
 	 */
-	@ApiOperation(value = "handle player buying item from system")
+	@ApiOperation(value = "a player buys item using money")
 	@PostMapping(value = "/buyItemSys")
 	public ResponseDTO buyItemSys(@RequestBody PlayerBuyItemSysDTO dto) {
 		String token = dto.getToken();
@@ -225,7 +225,7 @@ public class PlayerController extends BaseController{
 	 * @param dto
 	 * @return
 	 */
-	@ApiOperation(value = "handle player selling item to system")
+	@ApiOperation(value = "a player sells item and get money")
 	@PostMapping(value = "/sellItemSys")
 	public ResponseDTO sellItemSys(@RequestBody PlayerSellItemSysDTO dto) {
 		String token = dto.getToken();
