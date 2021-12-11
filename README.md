@@ -1,6 +1,8 @@
 # COMSW4156-TEAM-SANGRIA-TEAM-ASSIGNMENT-REPO
 Team members: Zhiyuan Lin(zl2989), Zoe Cui(qc2292), Linyu Li(ll3465), Tianzhi Huang(th2888)
 
+Build Status: ![Build Status](https://github.com/tianzhh9665/COMSW4156-TEAM-SANGRIA-REPO/actions/workflows/ci.yml/badge.svg)
+
 Client and Service APIs:  
 
 We are using Swagger to denote our implemented Client and Service APIs and following are the links:  
