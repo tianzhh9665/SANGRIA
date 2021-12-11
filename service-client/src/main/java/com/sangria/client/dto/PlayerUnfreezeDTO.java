@@ -1,4 +1,4 @@
-package com.sangria.operation.dto;
+package com.sangria.client.dto;
 
 import lombok.Data;
 
@@ -7,5 +7,6 @@ public class PlayerUnfreezeDTO {
 
     String token;
     String playerId;
+    int status;
 
 }

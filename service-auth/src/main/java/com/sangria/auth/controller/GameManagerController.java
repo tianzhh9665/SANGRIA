@@ -16,6 +16,7 @@ import com.sangria.auth.dto.ResponseDTO;
 import com.sangria.auth.service.GameManagerService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 /**
  * 
  * @author Steven Huang
@@ -34,6 +35,7 @@ public class GameManagerController extends BaseController{
 	 * @param dto
 	 * @return ResponseDTO
 	 */
+	@ApiOperation(value = "Register a new game Manager")
 	@PostMapping(value = "/register")
 	public ResponseDTO register(@RequestBody ManagerRegDTO dto) {
 		
@@ -64,6 +66,7 @@ public class GameManagerController extends BaseController{
 	 * @param dto
 	 * @return ResponseDTO
 	 */
+	@ApiOperation(value = "Game manager login")
 	@PostMapping(value = "/login")
 	public ResponseDTO login(@RequestBody ManagerLoginDTO dto) {
 		
@@ -98,6 +101,7 @@ public class GameManagerController extends BaseController{
 	 * @param token
 	 * @return ResponseDTO
 	 */
+	@ApiOperation(value = "Query game manager and its managed game information")
 	@GetMapping(value = "/info")
 	public ResponseDTO info(String token) {
 
@@ -114,6 +118,7 @@ public class GameManagerController extends BaseController{
 	 * @param dto
 	 * @return ResponseDTO
 	 */
+	@ApiOperation(value = "Game manager delete")
 	@PostMapping(value = "/delete")
 	public ResponseDTO delete(@RequestBody ManagerDeleteDTO dto) {
 
@@ -130,6 +135,7 @@ public class GameManagerController extends BaseController{
 	 * @param dto
 	 * @return ResponseDTO
 	 */
+	@ApiOperation(value = "Game manager logout")
 	@PostMapping(value = "/logout")
 	public ResponseDTO logout(@RequestBody ManagerDeleteDTO dto) {
 

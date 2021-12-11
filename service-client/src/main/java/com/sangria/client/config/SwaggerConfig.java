@@ -1,4 +1,4 @@
-package com.sangria.operation.config;
+package com.sangria.client.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,8 +24,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-                .title("Sangria Game Inventory Management Service")
-                .description("Sangria Game Inventory Management Service First Iteration")
+                .title("Sangria Game Inventory Client")
+                .description("Sangria Game Inventory Client First Iteration")
                 .version("1.0")
                 .build();
     }

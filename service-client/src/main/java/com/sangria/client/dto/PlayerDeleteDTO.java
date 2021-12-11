@@ -1,9 +1,9 @@
-package com.sangria.operation.dto;
+package com.sangria.client.dto;
 
 import lombok.Data;
 
 @Data
-public class PlayerUnfreezeDTO {
+public class PlayerDeleteDTO {
 
     String token;
     String playerId;
