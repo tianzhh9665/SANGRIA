@@ -81,7 +81,7 @@ class ServiceOperationApplicationTests {
 
 		if (status.equals(PlayerStatusEnum.FROZEN.getStatus())) {
 			player.setStatus(PlayerStatusEnum.NORMAL.getStatus());
-			playerMapper.updateById(player);
+			//playerMapper.updateById(player);
 		}
 
 		Assert.assertEquals(200, playerService.freeze(freezeDTO).getCode());
