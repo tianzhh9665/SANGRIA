@@ -23,15 +23,9 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
-        distribution: 'adopt'
-        cache: maven
-    - name: Build auth with Maven
-      run: mvn -B package --file service-auth/pom.xml
     - name: Test auth with Maven
-      run: mvn -B test --file service-auth/pom.xml
-    - name: Build operation with Maven
-      run: mvn -B package --file service-operation/pom.xml
+      run: mvn clean test --file service-auth/pom.xml -DskipTests=false
     - name: Test operation with Maven
-      run: mvn -B test --file service-operation/pom.xml
+      run: mvn clean test --file service-operation/pom.xml -DskipTests=false
       
     
