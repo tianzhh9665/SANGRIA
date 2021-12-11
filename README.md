@@ -1,7 +1,6 @@
 # COMSW4156-TEAM-SANGRIA-TEAM-ASSIGNMENT-REPO
 Build Status: ![Build Status](https://github.com/tianzhh9665/COMSW4156-TEAM-SANGRIA-REPO/actions/workflows/ci.yml/badge.svg)
 
-
 Team members: Zhiyuan Lin(zl2989), Zoe Cui(qc2292), Linyu Li(ll3465), Tianzhi Huang(th2888)
 
 Client and Service APIs:  
