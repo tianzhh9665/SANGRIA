@@ -1,6 +1,6 @@
 # CI for Sangria team project
 
-name: Sangria CI
+name: SangriaBuildAndTest
 
 on:
   push:
