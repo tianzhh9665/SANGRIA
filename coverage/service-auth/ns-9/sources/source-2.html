@@ -1,0 +1,87 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > GameManagerMapper</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sangria.auth.dao</a>
+</div>
+
+<h1>Coverage Summary for Class: GameManagerMapper (com.sangria.auth.dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">GameManagerMapper</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.sangria.auth.dao;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import org.apache.ibatis.annotations.Mapper;
+<i class="no-highlight">4</i>&nbsp;import org.apache.ibatis.annotations.Param;
+<i class="no-highlight">5</i>&nbsp;import org.springframework.stereotype.Component;
+<i class="no-highlight">6</i>&nbsp;
+<i class="no-highlight">7</i>&nbsp;import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+<i class="no-highlight">8</i>&nbsp;import com.sangria.auth.entity.GameManagerDO;
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;@Mapper
+<i class="no-highlight">11</i>&nbsp;@Component
+<i class="no-highlight">12</i>&nbsp;public interface GameManagerMapper extends BaseMapper&lt;GameManagerDO&gt; {
+<i class="no-highlight">13</i>&nbsp;	
+<i class="no-highlight">14</i>&nbsp;	// customized SQL update to set token value to null
+<i class="no-highlight">15</i>&nbsp;	int updateLogout(@Param(&quot;token&quot;) String token);
+<i class="no-highlight">16</i>&nbsp;	
+<i class="no-highlight">17</i>&nbsp;
+<i class="no-highlight">18</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-12-11 22:51</div>
+</div>
+</body>
+</html>
