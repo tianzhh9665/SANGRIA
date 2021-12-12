@@ -65,8 +65,9 @@ Style Checker and Static Bug Finder:
 	
 Coverage Test:
 	Coverage is computed by the Junit coverage and the report could be found here:  
+	Note: Because of the design issues of the service development framework we chosen (SpringBoot), there are many parts of the codes in the project which may not be reached by the coverage test, e.g. controller(which is just the entrance of the in comming requests), unused utils.java, dtos, daos, entities(which are used during the implementation but will not be reached by the coverage test). Hence, we are focusing on enchancing our test coverage on xxServiceImpl.java, which is the place for nearly all the codes of logic implementation. Overcall, we achieved 81% on service-operation's xxServiceImpl.java files and 80.9% on service-auth's. 
 	
 	Service-auth: coverage/service-auth/index.html  
 	Service-operation: coverage/service-operation/index.html  
 	
-	Note: Because of the design issues of the service development framework we chosen (SpringBoot), there are many parts of the codes in the project which may not be reached by the coverage test, e.g. controller(which is just the entrance of the in comming requests), unused utils.java, dtos, daos, entities(which are used during the implementation but will not be reached by the coverage test). Hence, we are focusing on enchancing our test coverage on *ServiceImpl.java, which is the place for nearly all the codes of logic implementation. Overcall, we achieved 81% on service-operation's *ServiceImpl.java files and 80.9% on service-auth's.
+	
