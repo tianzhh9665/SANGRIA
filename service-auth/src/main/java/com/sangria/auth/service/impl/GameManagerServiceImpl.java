@@ -132,7 +132,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 		
 		return new ResponseDTO(200,"Login Success", token);
 	}
-	
+	/*
 	@Override
 	public ResponseDTO verifyToken(String token) {
 		try {
@@ -146,7 +146,7 @@ public class GameManagerServiceImpl implements GameManagerService{
 		}catch(Exception e) {
 			return new ResponseDTO(501, "ERROR: token verification failed with Exception thrown", null);
 		}
-	}
+	}*/
 	
 	@Override
 	public ResponseDTO delete(ManagerDeleteDTO dto) {

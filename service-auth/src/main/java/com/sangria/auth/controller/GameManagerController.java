@@ -85,6 +85,7 @@ public class GameManagerController extends BaseController{
 	 * @param token
 	 * @return ResponseDTO
 	 */
+	/*
 	@GetMapping(value = "/token")
 	public ResponseDTO token(String token) {
 		
@@ -94,7 +95,7 @@ public class GameManagerController extends BaseController{
 		
 		ResponseDTO result = gameManagerService.verifyToken(token);
 		return result;
-	}
+	}*/
 
 	/**
 	 * return the manager info, game info, inventory info according to the token

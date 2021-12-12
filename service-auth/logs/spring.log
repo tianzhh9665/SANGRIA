@@ -15,3 +15,37 @@
 2021-12-08 12:30:05.967  INFO 6788 --- [http-nio-8091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-12-08 12:30:05.968  INFO 6788 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2021-12-08 12:30:05.971  INFO 6788 --- [http-nio-8091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-11 22:41:33.445  INFO 3694 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 13 on ZhiyuansMacBook with PID 3694 (started by jyyzlzy in /Users/jyyzlzy/Documents/columbia_courses/4156/team/repo1/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
+2021-12-11 22:41:33.448  INFO 3694 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-12-11 22:41:37.133  INFO 3694 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-12-11 22:41:37.159  INFO 3694 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-11 22:41:37.161  INFO 3694 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-11 22:41:37.367  INFO 3694 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-12-11 22:41:37.367  INFO 3694 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3867 ms
+2021-12-11 22:41:40.187  INFO 3694 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-11 22:41:41.344  INFO 3694 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-12-11 22:41:41.346  INFO 3694 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-11 22:41:41.387  INFO 3694 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-11 22:41:41.470  INFO 3694 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-11 22:41:41.905  INFO 3694 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 9.613 seconds (JVM running for 13.606)
+2021-12-11 22:41:43.156  INFO 3694 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-11 22:41:44.613  INFO 3694 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-11 22:41:49.088  INFO 3694 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-11 22:41:49.155  INFO 3694 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-11 22:50:58.930  INFO 3730 --- [main] c.s.auth.ServiceAuthApplicationTests     : Starting ServiceAuthApplicationTests using Java 13 on ZhiyuansMacBook with PID 3730 (started by jyyzlzy in /Users/jyyzlzy/Documents/columbia_courses/4156/team/repo1/COMSW4156-TEAM-SANGRIA-REPO/service-auth)
+2021-12-11 22:50:58.933  INFO 3730 --- [main] c.s.auth.ServiceAuthApplicationTests     : The following profiles are active: dev
+2021-12-11 22:51:02.971  INFO 3730 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8091 (http)
+2021-12-11 22:51:02.998  INFO 3730 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-11 22:51:02.999  INFO 3730 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-11 22:51:03.172  INFO 3730 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/auth]   : Initializing Spring embedded WebApplicationContext
+2021-12-11 22:51:03.173  INFO 3730 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4173 ms
+2021-12-11 22:51:06.921  INFO 3730 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-11 22:51:08.170  INFO 3730 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8091 (http) with context path '/auth'
+2021-12-11 22:51:08.171  INFO 3730 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-11 22:51:08.221  INFO 3730 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-11 22:51:08.276  INFO 3730 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-11 22:51:08.703  INFO 3730 --- [main] c.s.auth.ServiceAuthApplicationTests     : Started ServiceAuthApplicationTests in 11.318 seconds (JVM running for 18.246)
+2021-12-11 22:51:09.764  INFO 3730 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-11 22:51:11.225  INFO 3730 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-11 22:51:15.655  INFO 3730 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-11 22:51:15.684  INFO 3730 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

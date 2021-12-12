@@ -11,7 +11,7 @@ public interface GameManagerService {
 	
 	ResponseDTO login(ManagerLoginDTO dto);
 	
-	ResponseDTO verifyToken(String token);
+	//ResponseDTO verifyToken(String token);
 	
 	ResponseDTO delete(ManagerDeleteDTO dto);
 	
