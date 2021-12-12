@@ -66,7 +66,7 @@ Style Checker and Static Bug Finder:
 	We are using the SonarCloud as the style checker and static bug finder during the process of CI using Github Action, and the report could be found here:  
 	
 	Service-auth: https://sonarcloud.io/summary/overall?id=jyyzlzy_COMSW4156-TEAM-SANGRIA-REPO  
-	Service-Operation: https://sonarcloud.io/project/security_hotspots?id=tianzhh9665_COMSW4156-TEAM-SANGRIA-REPO  
+	Service-Operation: https://sonarcloud.io/summary/overall?id=tianzhh9665_COMSW4156-TEAM-SANGRIA-REPO  
 	
 Coverage Test:  
 	Coverage is computed by the Junit coverage and the report could be found here:  
