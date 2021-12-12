@@ -1,0 +1,1284 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > PlayerServiceImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sangria.operation.service.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: PlayerServiceImpl (com.sangria.operation.service.impl)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PlayerServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    84%
+  </span>
+  <span class="absValue">
+    (598/712)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">PlayerServiceImpl$$EnhancerBySpringCGLIB$$3dc0532a</td>
+  </tr>
+  <tr>
+    <td class="name">PlayerServiceImpl$$EnhancerBySpringCGLIB$$3dc0532a$$FastClassBySpringCGLIB$$91b710a6</td>
+  </tr>
+  <tr>
+    <td class="name">PlayerServiceImpl$$FastClassBySpringCGLIB$$846245e</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    84%
+  </span>
+  <span class="absValue">
+    (598/712)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.sangria.operation.service.impl;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+<i class="no-highlight">4</i>&nbsp;import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+<i class="no-highlight">5</i>&nbsp;import com.sangria.operation.Enum.PlayerStatusEnum;
+<i class="no-highlight">6</i>&nbsp;import com.sangria.operation.Enum.PlayerTradeTypeEnum;
+<i class="no-highlight">7</i>&nbsp;import com.sangria.operation.Enum.PlayerTradeWayEnum;
+<i class="no-highlight">8</i>&nbsp;import com.sangria.operation.dao.*;
+<i class="no-highlight">9</i>&nbsp;import com.sangria.operation.dto.*;
+<i class="no-highlight">10</i>&nbsp;import com.sangria.operation.entity.*;
+<i class="no-highlight">11</i>&nbsp;import com.sangria.operation.service.PlayerService;
+<i class="no-highlight">12</i>&nbsp;import com.sangria.operation.utils.CommonUtils;
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;import org.springframework.stereotype.Service;
+<i class="no-highlight">15</i>&nbsp;import org.springframework.transaction.annotation.Isolation;
+<i class="no-highlight">16</i>&nbsp;import org.springframework.transaction.annotation.Transactional;
+<i class="no-highlight">17</i>&nbsp;
+<i class="no-highlight">18</i>&nbsp;import javax.annotation.Resource;
+<i class="no-highlight">19</i>&nbsp;import java.util.List;
+<i class="no-highlight">20</i>&nbsp;
+<i class="no-highlight">21</i>&nbsp;@Service
+<b class="fc"><i class="no-highlight">22</i>&nbsp;public class PlayerServiceImpl implements PlayerService {</b>
+<i class="no-highlight">23</i>&nbsp;
+<i class="no-highlight">24</i>&nbsp;    @Resource
+<i class="no-highlight">25</i>&nbsp;    private GameManagerMapper gameManagerMapper;
+<i class="no-highlight">26</i>&nbsp;
+<i class="no-highlight">27</i>&nbsp;    @Resource
+<i class="no-highlight">28</i>&nbsp;    private PlayerMapper playerMapper;
+<i class="no-highlight">29</i>&nbsp;    
+<i class="no-highlight">30</i>&nbsp;    @Resource
+<i class="no-highlight">31</i>&nbsp;    private InventoryMapper inventoryMapper;
+<i class="no-highlight">32</i>&nbsp;    
+<i class="no-highlight">33</i>&nbsp;    @Resource 
+<i class="no-highlight">34</i>&nbsp;    private PlayerInventoryMapper playerInventoryMapper;
+<i class="no-highlight">35</i>&nbsp;
+<i class="no-highlight">36</i>&nbsp;	@Resource
+<i class="no-highlight">37</i>&nbsp;	private ItemMapper itemMapper;
+<i class="no-highlight">38</i>&nbsp;
+<i class="no-highlight">39</i>&nbsp;	@Resource
+<i class="no-highlight">40</i>&nbsp;	private GameMapper gameMapper;
+<i class="no-highlight">41</i>&nbsp;
+<i class="no-highlight">42</i>&nbsp;	@Override
+<i class="no-highlight">43</i>&nbsp;    @Transactional(rollbackFor = Exception.class)
+<i class="no-highlight">44</i>&nbsp;    public ResponseDTO add(PlayerAddDTO dto) {
+<b class="fc"><i class="no-highlight">45</i>&nbsp;    	String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">46</i>&nbsp;        GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">47</i>&nbsp;        manager.setToken(token);</b>
+<i class="no-highlight">48</i>&nbsp;
+<b class="fc"><i class="no-highlight">49</i>&nbsp;        List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">50</i>&nbsp;        if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">51</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">52</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">53</i>&nbsp;        if(managerList != null &amp;&amp; managerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">54</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: more than one manager found, please try again later&quot;, null);</b>
+<i class="no-highlight">55</i>&nbsp;        }
+<i class="no-highlight">56</i>&nbsp;
+<b class="fc"><i class="no-highlight">57</i>&nbsp;        manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">58</i>&nbsp;        String gameUuid = manager.getGameUuid();</b>
+<b class="fc"><i class="no-highlight">59</i>&nbsp;        if(StringUtils.isBlank(gameUuid)) {</b>
+<b class="nc"><i class="no-highlight">60</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: this manager has not created a game yet&quot;, null);</b>
+<i class="no-highlight">61</i>&nbsp;        }
+<i class="no-highlight">62</i>&nbsp;        
+<b class="fc"><i class="no-highlight">63</i>&nbsp;        InventoryDO inventory = new InventoryDO();</b>
+<b class="fc"><i class="no-highlight">64</i>&nbsp;		inventory.setUuid(dto.getInventoryUuid());</b>
+<b class="fc"><i class="no-highlight">65</i>&nbsp;		inventory.setGameUuid(gameUuid);</b>
+<b class="fc"><i class="no-highlight">66</i>&nbsp;		List&lt;InventoryDO&gt; inventoryList = inventoryMapper.selectList(new QueryWrapper&lt;&gt;(inventory));</b>
+<b class="fc"><i class="no-highlight">67</i>&nbsp;		if(inventoryList == null || inventoryList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">68</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: can not find an inventory with inventoryID: &quot; + dto.getInventoryUuid() + &quot; under the game you registered&quot;, null);</b>
+<i class="no-highlight">69</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">70</i>&nbsp;		if(inventoryList != null &amp;&amp; inventoryList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">71</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: more than one inventory with inventoryID: &quot; + dto.getInventoryUuid() + &quot; found, please contact system admin&quot;, null);</b>
+<i class="no-highlight">72</i>&nbsp;		}
+<i class="no-highlight">73</i>&nbsp;		
+<b class="fc"><i class="no-highlight">74</i>&nbsp;		inventory = inventoryList.get(0);</b>
+<i class="no-highlight">75</i>&nbsp;		
+<b class="fc"><i class="no-highlight">76</i>&nbsp;		PlayerDO player = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">77</i>&nbsp;		String playerUuid = CommonUtils.generateUniqueId(&quot;PLAYER&quot;, 3);</b>
+<b class="fc"><i class="no-highlight">78</i>&nbsp;		player.setUuid(playerUuid);</b>
+<b class="fc"><i class="no-highlight">79</i>&nbsp;		player.setCreateTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">80</i>&nbsp;		player.setModifiedTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">81</i>&nbsp;		player.setStatus(PlayerStatusEnum.NORMAL.getStatus());</b>
+<b class="fc"><i class="no-highlight">82</i>&nbsp;		player.setBalance(0);</b>
+<b class="fc"><i class="no-highlight">83</i>&nbsp;		player.setGameUuid(gameUuid);</b>
+<b class="fc"><i class="no-highlight">84</i>&nbsp;		player.setGameInventoryUuid(dto.getInventoryUuid());</b>
+<i class="no-highlight">85</i>&nbsp;		
+<b class="fc"><i class="no-highlight">86</i>&nbsp;		if(playerMapper.insert(player) &lt;= 0) {</b>
+<b class="nc"><i class="no-highlight">87</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: add player failed&quot;, null);</b>
+<i class="no-highlight">88</i>&nbsp;		}
+<i class="no-highlight">89</i>&nbsp;		
+<b class="fc"><i class="no-highlight">90</i>&nbsp;		return new ResponseDTO(200, &quot;add player success&quot;, playerUuid);</b>
+<i class="no-highlight">91</i>&nbsp;    }
+<i class="no-highlight">92</i>&nbsp;
+<i class="no-highlight">93</i>&nbsp;    @Override
+<i class="no-highlight">94</i>&nbsp;    public ResponseDTO info(String playerUuid, String token) {
+<b class="fc"><i class="no-highlight">95</i>&nbsp;        GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">96</i>&nbsp;        manager.setToken(token);</b>
+<i class="no-highlight">97</i>&nbsp;
+<b class="fc"><i class="no-highlight">98</i>&nbsp;        List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">99</i>&nbsp;        if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">100</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">101</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">102</i>&nbsp;        if(managerList != null &amp;&amp; managerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">103</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: more than one manager found, please try again later&quot;, null);</b>
+<i class="no-highlight">104</i>&nbsp;        }
+<i class="no-highlight">105</i>&nbsp;
+<b class="fc"><i class="no-highlight">106</i>&nbsp;        manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">107</i>&nbsp;        String gameUuid = manager.getGameUuid();</b>
+<b class="fc"><i class="no-highlight">108</i>&nbsp;        if(StringUtils.isBlank(gameUuid)) {</b>
+<b class="nc"><i class="no-highlight">109</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: this manager has not created a game yet&quot;, null);</b>
+<i class="no-highlight">110</i>&nbsp;        }
+<i class="no-highlight">111</i>&nbsp;        
+<b class="fc"><i class="no-highlight">112</i>&nbsp;        PlayerDO player = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">113</i>&nbsp;        player.setUuid(playerUuid);</b>
+<b class="fc"><i class="no-highlight">114</i>&nbsp;        player.setGameUuid(gameUuid);</b>
+<b class="fc"><i class="no-highlight">115</i>&nbsp;        List&lt;PlayerDO&gt; playerList = playerMapper.selectList(new QueryWrapper&lt;&gt;(player));</b>
+<b class="fc"><i class="no-highlight">116</i>&nbsp;        if(playerList == null || playerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">117</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: can not find any player with playerUuid: &quot; + playerUuid + &quot; in the game with GameUuid: &quot; + gameUuid, null);</b>
+<i class="no-highlight">118</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">119</i>&nbsp;        if(managerList != null &amp;&amp; managerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">120</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: more than one player found with the same playerUuid, please try again later&quot;, null);</b>
+<i class="no-highlight">121</i>&nbsp;        }
+<i class="no-highlight">122</i>&nbsp;        
+<b class="fc"><i class="no-highlight">123</i>&nbsp;        player = playerList.get(0);</b>
+<b class="fc"><i class="no-highlight">124</i>&nbsp;        PlayerInfoReturnDTO returnDTO = CommonUtils.copyData(player, PlayerInfoReturnDTO.class);</b>
+<b class="fc"><i class="no-highlight">125</i>&nbsp;        returnDTO.setStatus(returnDTO.getStatus().equals(PlayerStatusEnum.NORMAL.getStatus()) ? PlayerStatusEnum.NORMAL.getMessage() : PlayerStatusEnum.FROZEN.getMessage());</b>
+<i class="no-highlight">126</i>&nbsp;        
+<b class="fc"><i class="no-highlight">127</i>&nbsp;        return new ResponseDTO(200, &quot;query player info success&quot;, returnDTO);</b>
+<i class="no-highlight">128</i>&nbsp;        
+<i class="no-highlight">129</i>&nbsp;    }
+<i class="no-highlight">130</i>&nbsp;    
+<i class="no-highlight">131</i>&nbsp;    @Override
+<i class="no-highlight">132</i>&nbsp;    public ResponseDTO freeze(PlayerFreezeDTO dto) {
+<b class="fc"><i class="no-highlight">133</i>&nbsp;        String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">134</i>&nbsp;        GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">135</i>&nbsp;        manager.setToken(token);</b>
+<i class="no-highlight">136</i>&nbsp;
+<b class="fc"><i class="no-highlight">137</i>&nbsp;        List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">138</i>&nbsp;        if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">139</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">140</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">141</i>&nbsp;        if(managerList != null &amp;&amp; managerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">142</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: more than one manager found, please try again later&quot;, null);</b>
+<i class="no-highlight">143</i>&nbsp;        }
+<i class="no-highlight">144</i>&nbsp;
+<b class="fc"><i class="no-highlight">145</i>&nbsp;        manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">146</i>&nbsp;        String gameUuid = manager.getGameUuid();</b>
+<b class="fc"><i class="no-highlight">147</i>&nbsp;        if(StringUtils.isBlank(gameUuid)) {</b>
+<b class="nc"><i class="no-highlight">148</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: this manager has not created a game yet&quot;, null);</b>
+<i class="no-highlight">149</i>&nbsp;        }
+<i class="no-highlight">150</i>&nbsp;
+<b class="fc"><i class="no-highlight">151</i>&nbsp;        PlayerDO playerSearch = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">152</i>&nbsp;        playerSearch.setUuid(dto.getPlayerId());</b>
+<b class="fc"><i class="no-highlight">153</i>&nbsp;        playerSearch.setGameUuid(gameUuid);</b>
+<b class="fc"><i class="no-highlight">154</i>&nbsp;        playerSearch.setStatus(PlayerStatusEnum.NORMAL.getStatus());</b>
+<i class="no-highlight">155</i>&nbsp;
+<b class="fc"><i class="no-highlight">156</i>&nbsp;        PlayerDO player = playerMapper.selectOne(new QueryWrapper&lt;&gt;(playerSearch));</b>
+<b class="fc"><i class="no-highlight">157</i>&nbsp;        if (player == null) {</b>
+<b class="fc"><i class="no-highlight">158</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: the player has already been frozen or there is no qualified player&quot;, null);</b>
+<i class="no-highlight">159</i>&nbsp;        }
+<i class="no-highlight">160</i>&nbsp;
+<b class="fc"><i class="no-highlight">161</i>&nbsp;        player.setStatus(PlayerStatusEnum.FROZEN.getStatus());</b>
+<i class="no-highlight">162</i>&nbsp;
+<b class="fc"><i class="no-highlight">163</i>&nbsp;        playerMapper.updateById(player);</b>
+<i class="no-highlight">164</i>&nbsp;
+<b class="fc"><i class="no-highlight">165</i>&nbsp;        return new ResponseDTO(200, &quot;player frozen successfully&quot;, null);</b>
+<i class="no-highlight">166</i>&nbsp;    }
+<i class="no-highlight">167</i>&nbsp;
+<i class="no-highlight">168</i>&nbsp;    @Override
+<i class="no-highlight">169</i>&nbsp;    public ResponseDTO unfreeze(PlayerUnfreezeDTO dto) {
+<b class="fc"><i class="no-highlight">170</i>&nbsp;        String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">171</i>&nbsp;        GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">172</i>&nbsp;        manager.setToken(token);</b>
+<i class="no-highlight">173</i>&nbsp;
+<b class="fc"><i class="no-highlight">174</i>&nbsp;        List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">175</i>&nbsp;        if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">176</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">177</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">178</i>&nbsp;        if(managerList != null &amp;&amp; managerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">179</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: more than one manager found, please try again later&quot;, null);</b>
+<i class="no-highlight">180</i>&nbsp;        }
+<i class="no-highlight">181</i>&nbsp;
+<b class="fc"><i class="no-highlight">182</i>&nbsp;        manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">183</i>&nbsp;        String gameUuid = manager.getGameUuid();</b>
+<b class="fc"><i class="no-highlight">184</i>&nbsp;        if(StringUtils.isBlank(gameUuid)) {</b>
+<b class="nc"><i class="no-highlight">185</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: this manager has not created a game yet&quot;, null);</b>
+<i class="no-highlight">186</i>&nbsp;        }
+<i class="no-highlight">187</i>&nbsp;
+<b class="fc"><i class="no-highlight">188</i>&nbsp;        PlayerDO playerSearch = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">189</i>&nbsp;        playerSearch.setUuid(dto.getPlayerId());</b>
+<b class="fc"><i class="no-highlight">190</i>&nbsp;        playerSearch.setGameUuid(gameUuid);</b>
+<b class="fc"><i class="no-highlight">191</i>&nbsp;        playerSearch.setStatus(PlayerStatusEnum.FROZEN.getStatus());</b>
+<i class="no-highlight">192</i>&nbsp;
+<b class="fc"><i class="no-highlight">193</i>&nbsp;        PlayerDO player = playerMapper.selectOne(new QueryWrapper&lt;&gt;(playerSearch));</b>
+<b class="fc"><i class="no-highlight">194</i>&nbsp;        if (player == null) {</b>
+<b class="fc"><i class="no-highlight">195</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: the player has already been unfrozen or there is no qualified player&quot;, null);</b>
+<i class="no-highlight">196</i>&nbsp;        }
+<i class="no-highlight">197</i>&nbsp;
+<b class="fc"><i class="no-highlight">198</i>&nbsp;        player.setStatus(PlayerStatusEnum.NORMAL.getStatus());</b>
+<i class="no-highlight">199</i>&nbsp;
+<b class="fc"><i class="no-highlight">200</i>&nbsp;        playerMapper.updateById(player);</b>
+<i class="no-highlight">201</i>&nbsp;
+<b class="fc"><i class="no-highlight">202</i>&nbsp;        return new ResponseDTO(200, &quot;player unfrozen successfully&quot;, null);</b>
+<i class="no-highlight">203</i>&nbsp;    }
+<i class="no-highlight">204</i>&nbsp;
+<i class="no-highlight">205</i>&nbsp;    @Override
+<i class="no-highlight">206</i>&nbsp;    public ResponseDTO deletePlayer(PlayerDeleteDTO dto){
+<b class="fc"><i class="no-highlight">207</i>&nbsp;        String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">208</i>&nbsp;        GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">209</i>&nbsp;        manager.setToken(token);</b>
+<i class="no-highlight">210</i>&nbsp;
+<b class="fc"><i class="no-highlight">211</i>&nbsp;        List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">212</i>&nbsp;        if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">213</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">214</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">215</i>&nbsp;        if(managerList != null &amp;&amp; managerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">216</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: more than one manager found, please try again later&quot;, null);</b>
+<i class="no-highlight">217</i>&nbsp;        }
+<i class="no-highlight">218</i>&nbsp;
+<b class="fc"><i class="no-highlight">219</i>&nbsp;        manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">220</i>&nbsp;        String gameUuid = manager.getGameUuid();</b>
+<b class="fc"><i class="no-highlight">221</i>&nbsp;        if(StringUtils.isBlank(gameUuid)) {</b>
+<b class="fc"><i class="no-highlight">222</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: this manager has not created a game yet&quot;, null);</b>
+<i class="no-highlight">223</i>&nbsp;        }
+<i class="no-highlight">224</i>&nbsp;
+<b class="fc"><i class="no-highlight">225</i>&nbsp;        PlayerDO playerDeleted = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">226</i>&nbsp;        playerDeleted.setUuid(dto.getPlayerId());</b>
+<b class="fc"><i class="no-highlight">227</i>&nbsp;        playerDeleted.setGameUuid(gameUuid);</b>
+<i class="no-highlight">228</i>&nbsp;
+<b class="fc"><i class="no-highlight">229</i>&nbsp;        List&lt;PlayerDO&gt; playerList = playerMapper.selectList(new QueryWrapper&lt;&gt;(playerDeleted));</b>
+<b class="fc"><i class="no-highlight">230</i>&nbsp;        if(playerList == null || playerList.size() == 0) {</b>
+<b class="nc"><i class="no-highlight">231</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: there is no qualified player, try again&quot;, null);</b>
+<i class="no-highlight">232</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">233</i>&nbsp;        if(playerList != null &amp;&amp; playerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">234</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: more than one player found, please try again later&quot;, null);</b>
+<i class="no-highlight">235</i>&nbsp;        }
+<i class="no-highlight">236</i>&nbsp;
+<b class="fc"><i class="no-highlight">237</i>&nbsp;        playerDeleted = playerList.get(0);</b>
+<i class="no-highlight">238</i>&nbsp;
+<b class="fc"><i class="no-highlight">239</i>&nbsp;        if(playerMapper.delete(new QueryWrapper&lt;&gt;(playerDeleted)) &lt;= 0) {</b>
+<b class="nc"><i class="no-highlight">240</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: no player has been deleted&quot;, null);</b>
+<i class="no-highlight">241</i>&nbsp;        }
+<i class="no-highlight">242</i>&nbsp;
+<b class="fc"><i class="no-highlight">243</i>&nbsp;        return new ResponseDTO(200, &quot;player has been deleted successfully&quot;, null);</b>
+<i class="no-highlight">244</i>&nbsp;    }
+<i class="no-highlight">245</i>&nbsp;    
+<i class="no-highlight">246</i>&nbsp;    @Override
+<i class="no-highlight">247</i>&nbsp;    @Transactional(rollbackFor = Exception.class, isolation = Isolation.SERIALIZABLE)
+<i class="no-highlight">248</i>&nbsp;    public ResponseDTO trade(PlayerTradeRequestDTO dto) {
+<b class="fc"><i class="no-highlight">249</i>&nbsp;    	String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">250</i>&nbsp;        GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">251</i>&nbsp;        manager.setToken(token);</b>
+<i class="no-highlight">252</i>&nbsp;
+<b class="fc"><i class="no-highlight">253</i>&nbsp;        List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">254</i>&nbsp;        if(managerList == null || managerList.size() == 0) {</b>
+<b class="nc"><i class="no-highlight">255</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">256</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">257</i>&nbsp;        if(managerList != null &amp;&amp; managerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">258</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: more than one manager found, please try again later&quot;, null);</b>
+<i class="no-highlight">259</i>&nbsp;        }
+<i class="no-highlight">260</i>&nbsp;
+<b class="fc"><i class="no-highlight">261</i>&nbsp;        manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">262</i>&nbsp;        String gameUuid = manager.getGameUuid();</b>
+<b class="fc"><i class="no-highlight">263</i>&nbsp;        if(StringUtils.isBlank(gameUuid)) {</b>
+<b class="nc"><i class="no-highlight">264</i>&nbsp;            return new ResponseDTO(500, &quot;ERROR: this manager has not created a game yet&quot;, null);</b>
+<i class="no-highlight">265</i>&nbsp;        }
+<i class="no-highlight">266</i>&nbsp;        
+<b class="fc"><i class="no-highlight">267</i>&nbsp;        if(dto.getType() == PlayerTradeTypeEnum.MONEY_TO_MONEY.getType()) {</b>
+<i class="no-highlight">268</i>&nbsp;        	
+<b class="fc"><i class="no-highlight">269</i>&nbsp;        	PlayerDO player =  new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">270</i>&nbsp;        	player.setUuid(dto.getPlayer1Uuid());</b>
+<b class="fc"><i class="no-highlight">271</i>&nbsp;        	PlayerDO player1 = playerMapper.selectOne(new QueryWrapper&lt;&gt;(player));</b>
+<b class="fc"><i class="no-highlight">272</i>&nbsp;        	if(player1 == null) {</b>
+<b class="nc"><i class="no-highlight">273</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: player 1 can not be found&quot;, null);</b>
+<i class="no-highlight">274</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">275</i>&nbsp;        	if(player1.getBalance().intValue() &lt; dto.getPlayer1Amount().intValue()) {</b>
+<b class="nc"><i class="no-highlight">276</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: insufficient balance for player 1&quot;, null);</b>
+<i class="no-highlight">277</i>&nbsp;        	}
+<i class="no-highlight">278</i>&nbsp;        	
+<b class="fc"><i class="no-highlight">279</i>&nbsp;        	player =  new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">280</i>&nbsp;        	player.setUuid(dto.getPlayer2Uuid());</b>
+<b class="fc"><i class="no-highlight">281</i>&nbsp;        	PlayerDO player2 = playerMapper.selectOne(new QueryWrapper&lt;&gt;(player));</b>
+<b class="fc"><i class="no-highlight">282</i>&nbsp;        	if(player2 == null) {</b>
+<b class="nc"><i class="no-highlight">283</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: player 2 can not be found&quot;, null);</b>
+<i class="no-highlight">284</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">285</i>&nbsp;        	if(player2.getBalance().intValue() &lt; dto.getPlayer2Amount().intValue()) {</b>
+<b class="fc"><i class="no-highlight">286</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: insufficient balance for player 2&quot;, null);</b>
+<i class="no-highlight">287</i>&nbsp;        	}
+<i class="no-highlight">288</i>&nbsp;        	
+<b class="fc"><i class="no-highlight">289</i>&nbsp;        	ResponseDTO p1Decrease = tradeMoney(dto.getPlayer1Uuid(),dto.getPlayer1Amount().intValue(),PlayerTradeWayEnum.DECREASE.getTradeWay());</b>
+<b class="fc"><i class="no-highlight">290</i>&nbsp;        	if(p1Decrease.getCode() != 200) {</b>
+<b class="nc"><i class="no-highlight">291</i>&nbsp;        		return p1Decrease;</b>
+<i class="no-highlight">292</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">293</i>&nbsp;        	ResponseDTO p1Increase = tradeMoney(dto.getPlayer1Uuid(),dto.getPlayer2Amount().intValue(),PlayerTradeWayEnum.INCREASE.getTradeWay());</b>
+<b class="fc"><i class="no-highlight">294</i>&nbsp;        	if(p1Decrease.getCode() != 200) {</b>
+<b class="nc"><i class="no-highlight">295</i>&nbsp;        		return p1Increase;</b>
+<i class="no-highlight">296</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">297</i>&nbsp;        	ResponseDTO p2Decrease = tradeMoney(dto.getPlayer2Uuid(),dto.getPlayer2Amount().intValue(),PlayerTradeWayEnum.DECREASE.getTradeWay());</b>
+<b class="fc"><i class="no-highlight">298</i>&nbsp;        	if(p1Decrease.getCode() != 200) {</b>
+<b class="nc"><i class="no-highlight">299</i>&nbsp;        		return p2Decrease;</b>
+<i class="no-highlight">300</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">301</i>&nbsp;        	ResponseDTO p2Increase = tradeMoney(dto.getPlayer2Uuid(),dto.getPlayer1Amount().intValue(),PlayerTradeWayEnum.INCREASE.getTradeWay());</b>
+<b class="fc"><i class="no-highlight">302</i>&nbsp;        	if(p1Decrease.getCode() != 200) {</b>
+<b class="nc"><i class="no-highlight">303</i>&nbsp;        		return p2Increase;</b>
+<i class="no-highlight">304</i>&nbsp;        	}
+<i class="no-highlight">305</i>&nbsp;        	
+<b class="fc"><i class="no-highlight">306</i>&nbsp;        	return new ResponseDTO(200, &quot;trade complete&quot;, null);</b>
+<b class="fc"><i class="no-highlight">307</i>&nbsp;        }else if(dto.getType() == PlayerTradeTypeEnum.MONEY_TO_ITEM.getType()) {</b>
+<b class="fc"><i class="no-highlight">308</i>&nbsp;        	PlayerDO player =  new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">309</i>&nbsp;        	player.setUuid(dto.getPlayer1Uuid());</b>
+<b class="fc"><i class="no-highlight">310</i>&nbsp;        	PlayerDO player1 = playerMapper.selectOne(new QueryWrapper&lt;&gt;(player));</b>
+<b class="fc"><i class="no-highlight">311</i>&nbsp;        	if(player1 == null) {</b>
+<b class="nc"><i class="no-highlight">312</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: player 1 can not be found&quot;, null);</b>
+<i class="no-highlight">313</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">314</i>&nbsp;        	if(player1.getBalance().intValue() &lt; dto.getPlayer1Amount().intValue()) {</b>
+<b class="nc"><i class="no-highlight">315</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: insufficient balance for player 1&quot;, null);</b>
+<i class="no-highlight">316</i>&nbsp;        	}
+<i class="no-highlight">317</i>&nbsp;        	
+<b class="fc"><i class="no-highlight">318</i>&nbsp;        	player =  new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">319</i>&nbsp;        	player.setUuid(dto.getPlayer2Uuid());</b>
+<b class="fc"><i class="no-highlight">320</i>&nbsp;        	PlayerDO player2 = playerMapper.selectOne(new QueryWrapper&lt;&gt;(player));</b>
+<b class="fc"><i class="no-highlight">321</i>&nbsp;        	if(player2 == null) {</b>
+<b class="nc"><i class="no-highlight">322</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: player 2 can not be found&quot;, null);</b>
+<i class="no-highlight">323</i>&nbsp;        	}
+<i class="no-highlight">324</i>&nbsp;        	
+<b class="fc"><i class="no-highlight">325</i>&nbsp;        	PlayerInventoryDO playerInv = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">326</i>&nbsp;    		playerInv.setPlayerUuid(player2.getUuid());</b>
+<b class="fc"><i class="no-highlight">327</i>&nbsp;    		List&lt;PlayerInventoryDO&gt; playerInvList = playerInventoryMapper.selectList(new QueryWrapper&lt;&gt;(playerInv));</b>
+<b class="fc"><i class="no-highlight">328</i>&nbsp;    		if(playerInvList == null || playerInvList.size() == 0) {</b>
+<b class="nc"><i class="no-highlight">329</i>&nbsp;    			return new ResponseDTO(500, &quot;ERROR: The player has no item in the inventory&quot;, null);</b>
+<i class="no-highlight">330</i>&nbsp;    		}
+<i class="no-highlight">331</i>&nbsp;    		
+<b class="fc"><i class="no-highlight">332</i>&nbsp;    		PlayerInventoryDO playerInv1 = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">333</i>&nbsp;    		playerInv1.setPlayerUuid(player1.getUuid());</b>
+<b class="fc"><i class="no-highlight">334</i>&nbsp;    		List&lt;PlayerInventoryDO&gt; playerInvList1 = playerInventoryMapper.selectList(new QueryWrapper&lt;&gt;(playerInv1));</b>
+<i class="no-highlight">335</i>&nbsp;    		
+<b class="fc"><i class="no-highlight">336</i>&nbsp;    		int sufficient = 0;</b>
+<b class="fc"><i class="no-highlight">337</i>&nbsp;    		List&lt;List&gt; tradeList= dto.getPlayer2ItemList();</b>
+<b class="fc"><i class="no-highlight">338</i>&nbsp;    		for(List tradeDetail : tradeList) {</b>
+<b class="fc"><i class="no-highlight">339</i>&nbsp;    			String itemID = (String)tradeDetail.get(0);</b>
+<b class="fc"><i class="no-highlight">340</i>&nbsp;    			int amount = (int)tradeDetail.get(1);</b>
+<i class="no-highlight">341</i>&nbsp;    			
+<b class="fc"><i class="no-highlight">342</i>&nbsp;    			for(PlayerInventoryDO inv : playerInvList) {</b>
+<b class="fc"><i class="no-highlight">343</i>&nbsp;    				if(inv.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">344</i>&nbsp;    					if(inv.getAmount().intValue() &gt;= amount) {</b>
+<b class="fc"><i class="no-highlight">345</i>&nbsp;    						sufficient +=1;</b>
+<i class="no-highlight">346</i>&nbsp;    					}else {
+<b class="fc"><i class="no-highlight">347</i>&nbsp;    						return new ResponseDTO(500, &quot;ERROR: insufficient ingredient: ItemUuid: &quot; + itemID + &quot;, required: &quot; + String.valueOf(amount) + &quot;, having: &quot; + String.valueOf(inv.getAmount()), null);</b>
+<i class="no-highlight">348</i>&nbsp;    					}
+<i class="no-highlight">349</i>&nbsp;    				}
+<b class="fc"><i class="no-highlight">350</i>&nbsp;    			}</b>
+<b class="fc"><i class="no-highlight">351</i>&nbsp;    		}</b>
+<b class="fc"><i class="no-highlight">352</i>&nbsp;    		if(sufficient != tradeList.size()) {</b>
+<b class="nc"><i class="no-highlight">353</i>&nbsp;    			return new ResponseDTO(500,&quot;insufficient items in the inventory to trade&quot;,null);</b>
+<i class="no-highlight">354</i>&nbsp;    		}
+<i class="no-highlight">355</i>&nbsp;    		
+<i class="no-highlight">356</i>&nbsp;    		//all check completed, start trading
+<b class="fc"><i class="no-highlight">357</i>&nbsp;    		ResponseDTO p1Decrease = tradeMoney(dto.getPlayer1Uuid(),dto.getPlayer1Amount().intValue(),PlayerTradeWayEnum.DECREASE.getTradeWay());</b>
+<b class="fc"><i class="no-highlight">358</i>&nbsp;        	if(p1Decrease.getCode() != 200) {</b>
+<b class="nc"><i class="no-highlight">359</i>&nbsp;        		return p1Decrease;</b>
+<i class="no-highlight">360</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">361</i>&nbsp;        	ResponseDTO p2Increase = tradeMoney(dto.getPlayer2Uuid(),dto.getPlayer1Amount().intValue(),PlayerTradeWayEnum.INCREASE.getTradeWay());</b>
+<b class="fc"><i class="no-highlight">362</i>&nbsp;        	if(p2Increase.getCode() != 200) {</b>
+<b class="nc"><i class="no-highlight">363</i>&nbsp;        		return p2Increase;</b>
+<i class="no-highlight">364</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">365</i>&nbsp;        	for(List tradeDetail : tradeList) {</b>
+<b class="fc"><i class="no-highlight">366</i>&nbsp;    			String itemID = (String)tradeDetail.get(0);</b>
+<b class="fc"><i class="no-highlight">367</i>&nbsp;    			int amount = (int)tradeDetail.get(1);</b>
+<i class="no-highlight">368</i>&nbsp;    			
+<b class="fc"><i class="no-highlight">369</i>&nbsp;    			for(PlayerInventoryDO inv : playerInvList) {</b>
+<b class="fc"><i class="no-highlight">370</i>&nbsp;    				if(inv.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">371</i>&nbsp;    					if(inv.getAmount().intValue() - amount == 0) {</b>
+<b class="nc"><i class="no-highlight">372</i>&nbsp;    						playerInventoryMapper.deleteById(inv);</b>
+<i class="no-highlight">373</i>&nbsp;    					}else {
+<b class="fc"><i class="no-highlight">374</i>&nbsp;    						inv.setAmount(inv.getAmount().intValue() - amount);</b>
+<b class="fc"><i class="no-highlight">375</i>&nbsp;        					playerInventoryMapper.updateById(inv);</b>
+<i class="no-highlight">376</i>&nbsp;    					}
+<i class="no-highlight">377</i>&nbsp;    					
+<b class="fc"><i class="no-highlight">378</i>&nbsp;    					boolean found = false;</b>
+<b class="fc"><i class="no-highlight">379</i>&nbsp;    					for(PlayerInventoryDO inv1 : playerInvList1) {</b>
+<b class="fc"><i class="no-highlight">380</i>&nbsp;    						if(inv1.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">381</i>&nbsp;    							found = true;</b>
+<b class="fc"><i class="no-highlight">382</i>&nbsp;    							inv1.setAmount(inv1.getAmount().intValue() + amount);</b>
+<b class="fc"><i class="no-highlight">383</i>&nbsp;    							playerInventoryMapper.updateById(inv1);</b>
+<i class="no-highlight">384</i>&nbsp;    						}
+<b class="fc"><i class="no-highlight">385</i>&nbsp;    					}</b>
+<i class="no-highlight">386</i>&nbsp;    					
+<b class="fc"><i class="no-highlight">387</i>&nbsp;    					if(!found) {</b>
+<b class="nc"><i class="no-highlight">388</i>&nbsp;        					PlayerInventoryDO p1Item = new PlayerInventoryDO();</b>
+<b class="nc"><i class="no-highlight">389</i>&nbsp;        					p1Item.setUuid(CommonUtils.generateUniqueId(&quot;PINV&quot;, 3));</b>
+<b class="nc"><i class="no-highlight">390</i>&nbsp;        					p1Item.setItemUuid(itemID);</b>
+<b class="nc"><i class="no-highlight">391</i>&nbsp;        					p1Item.setAmount(amount);</b>
+<b class="nc"><i class="no-highlight">392</i>&nbsp;        					p1Item.setPlayerUuid(dto.getPlayer1Uuid());</b>
+<b class="nc"><i class="no-highlight">393</i>&nbsp;        					p1Item.setCreateTime(CommonUtils.getTimeNow());</b>
+<b class="nc"><i class="no-highlight">394</i>&nbsp;        					p1Item.setModifiedTime(CommonUtils.getTimeNow());</b>
+<i class="no-highlight">395</i>&nbsp;        					
+<b class="nc"><i class="no-highlight">396</i>&nbsp;        					playerInventoryMapper.insert(p1Item);</b>
+<i class="no-highlight">397</i>&nbsp;    					}
+<i class="no-highlight">398</i>&nbsp;    				}
+<b class="fc"><i class="no-highlight">399</i>&nbsp;    			}</b>
+<b class="fc"><i class="no-highlight">400</i>&nbsp;    		}</b>
+<b class="fc"><i class="no-highlight">401</i>&nbsp;        	return new ResponseDTO(200, &quot;trade complete&quot;, null);</b>
+<b class="fc"><i class="no-highlight">402</i>&nbsp;        }else if(dto.getType() == PlayerTradeTypeEnum.ITEM_TO_MONEY.getType()) {</b>
+<b class="fc"><i class="no-highlight">403</i>&nbsp;        	PlayerDO player =  new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">404</i>&nbsp;        	player.setUuid(dto.getPlayer2Uuid());</b>
+<b class="fc"><i class="no-highlight">405</i>&nbsp;        	PlayerDO player2 = playerMapper.selectOne(new QueryWrapper&lt;&gt;(player));</b>
+<b class="fc"><i class="no-highlight">406</i>&nbsp;        	if(player2 == null) {</b>
+<b class="nc"><i class="no-highlight">407</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: player 2 can not be found&quot;, null);</b>
+<i class="no-highlight">408</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">409</i>&nbsp;        	if(player2.getBalance().intValue() &lt; dto.getPlayer2Amount().intValue()) {</b>
+<b class="nc"><i class="no-highlight">410</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: insufficient balance for player 2&quot;, null);</b>
+<i class="no-highlight">411</i>&nbsp;        	}
+<i class="no-highlight">412</i>&nbsp;        	
+<b class="fc"><i class="no-highlight">413</i>&nbsp;        	player =  new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">414</i>&nbsp;        	player.setUuid(dto.getPlayer1Uuid());</b>
+<b class="fc"><i class="no-highlight">415</i>&nbsp;        	PlayerDO player1 = playerMapper.selectOne(new QueryWrapper&lt;&gt;(player));</b>
+<b class="fc"><i class="no-highlight">416</i>&nbsp;        	if(player1 == null) {</b>
+<b class="nc"><i class="no-highlight">417</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: player 1 can not be found&quot;, null);</b>
+<i class="no-highlight">418</i>&nbsp;        	}
+<i class="no-highlight">419</i>&nbsp;        	
+<b class="fc"><i class="no-highlight">420</i>&nbsp;        	PlayerInventoryDO playerInv = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">421</i>&nbsp;    		playerInv.setPlayerUuid(player1.getUuid());</b>
+<b class="fc"><i class="no-highlight">422</i>&nbsp;    		List&lt;PlayerInventoryDO&gt; playerInvList = playerInventoryMapper.selectList(new QueryWrapper&lt;&gt;(playerInv));</b>
+<b class="fc"><i class="no-highlight">423</i>&nbsp;    		if(playerInvList == null || playerInvList.size() == 0) {</b>
+<b class="nc"><i class="no-highlight">424</i>&nbsp;    			return new ResponseDTO(500, &quot;ERROR: The player has no item in the inventory&quot;, null);</b>
+<i class="no-highlight">425</i>&nbsp;    		}
+<i class="no-highlight">426</i>&nbsp;    		
+<b class="fc"><i class="no-highlight">427</i>&nbsp;    		PlayerInventoryDO playerInv2 = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">428</i>&nbsp;    		playerInv2.setPlayerUuid(player2.getUuid());</b>
+<b class="fc"><i class="no-highlight">429</i>&nbsp;    		List&lt;PlayerInventoryDO&gt; playerInvList2 = playerInventoryMapper.selectList(new QueryWrapper&lt;&gt;(playerInv2));</b>
+<i class="no-highlight">430</i>&nbsp;    		
+<b class="fc"><i class="no-highlight">431</i>&nbsp;    		int sufficient = 0;</b>
+<b class="fc"><i class="no-highlight">432</i>&nbsp;    		List&lt;List&gt; tradeList= dto.getPlayer1ItemList();</b>
+<b class="fc"><i class="no-highlight">433</i>&nbsp;    		for(List tradeDetail : tradeList) {</b>
+<b class="fc"><i class="no-highlight">434</i>&nbsp;    			String itemID = (String)tradeDetail.get(0);</b>
+<b class="fc"><i class="no-highlight">435</i>&nbsp;    			int amount = (int)tradeDetail.get(1);</b>
+<i class="no-highlight">436</i>&nbsp;    			
+<b class="fc"><i class="no-highlight">437</i>&nbsp;    			for(PlayerInventoryDO inv : playerInvList) {</b>
+<b class="fc"><i class="no-highlight">438</i>&nbsp;    				if(inv.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">439</i>&nbsp;    					if(inv.getAmount().intValue() &gt;= amount) {</b>
+<b class="fc"><i class="no-highlight">440</i>&nbsp;    						sufficient +=1;</b>
+<i class="no-highlight">441</i>&nbsp;    					}else {
+<b class="fc"><i class="no-highlight">442</i>&nbsp;    						return new ResponseDTO(500, &quot;ERROR: insufficient ingredient: ItemUuid: &quot; + itemID + &quot;, required: &quot; + String.valueOf(amount) + &quot;, having: &quot; + String.valueOf(inv.getAmount()), null);</b>
+<i class="no-highlight">443</i>&nbsp;    					}
+<i class="no-highlight">444</i>&nbsp;    				}
+<b class="fc"><i class="no-highlight">445</i>&nbsp;    			}</b>
+<b class="fc"><i class="no-highlight">446</i>&nbsp;    		}</b>
+<b class="fc"><i class="no-highlight">447</i>&nbsp;    		if(sufficient != tradeList.size()) {</b>
+<b class="nc"><i class="no-highlight">448</i>&nbsp;    			return new ResponseDTO(500,&quot;insufficient items in the inventory to trade&quot;,null);</b>
+<i class="no-highlight">449</i>&nbsp;    		}
+<i class="no-highlight">450</i>&nbsp;    		
+<i class="no-highlight">451</i>&nbsp;    		//all check completed, start trading
+<b class="fc"><i class="no-highlight">452</i>&nbsp;    		ResponseDTO p2Decrease = tradeMoney(dto.getPlayer2Uuid(),dto.getPlayer2Amount().intValue(),PlayerTradeWayEnum.DECREASE.getTradeWay());</b>
+<b class="fc"><i class="no-highlight">453</i>&nbsp;        	if(p2Decrease.getCode() != 200) {</b>
+<b class="nc"><i class="no-highlight">454</i>&nbsp;        		return p2Decrease;</b>
+<i class="no-highlight">455</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">456</i>&nbsp;        	ResponseDTO p1Increase = tradeMoney(dto.getPlayer1Uuid(),dto.getPlayer2Amount().intValue(),PlayerTradeWayEnum.INCREASE.getTradeWay());</b>
+<b class="fc"><i class="no-highlight">457</i>&nbsp;        	if(p1Increase.getCode() != 200) {</b>
+<b class="nc"><i class="no-highlight">458</i>&nbsp;        		return p1Increase;</b>
+<i class="no-highlight">459</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">460</i>&nbsp;        	for(List tradeDetail : tradeList) {</b>
+<b class="fc"><i class="no-highlight">461</i>&nbsp;    			String itemID = (String)tradeDetail.get(0);</b>
+<b class="fc"><i class="no-highlight">462</i>&nbsp;    			int amount = (int)tradeDetail.get(1);</b>
+<i class="no-highlight">463</i>&nbsp;    			
+<b class="fc"><i class="no-highlight">464</i>&nbsp;    			for(PlayerInventoryDO inv : playerInvList) {</b>
+<b class="fc"><i class="no-highlight">465</i>&nbsp;    				if(inv.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">466</i>&nbsp;    					if(inv.getAmount().intValue() - amount == 0) {</b>
+<b class="nc"><i class="no-highlight">467</i>&nbsp;    						playerInventoryMapper.deleteById(inv);</b>
+<i class="no-highlight">468</i>&nbsp;    					}else {
+<b class="fc"><i class="no-highlight">469</i>&nbsp;    						inv.setAmount(inv.getAmount().intValue() - amount);</b>
+<b class="fc"><i class="no-highlight">470</i>&nbsp;        					playerInventoryMapper.updateById(inv);</b>
+<i class="no-highlight">471</i>&nbsp;    					}
+<i class="no-highlight">472</i>&nbsp;    					
+<b class="fc"><i class="no-highlight">473</i>&nbsp;    					boolean found = false;</b>
+<b class="fc"><i class="no-highlight">474</i>&nbsp;    					for(PlayerInventoryDO inv2 : playerInvList2) {</b>
+<b class="fc"><i class="no-highlight">475</i>&nbsp;    						if(inv2.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">476</i>&nbsp;    							found = true;</b>
+<b class="fc"><i class="no-highlight">477</i>&nbsp;    							inv2.setAmount(inv2.getAmount().intValue() + amount);</b>
+<b class="fc"><i class="no-highlight">478</i>&nbsp;    							playerInventoryMapper.updateById(inv2);</b>
+<i class="no-highlight">479</i>&nbsp;    						}
+<b class="fc"><i class="no-highlight">480</i>&nbsp;    					}</b>
+<i class="no-highlight">481</i>&nbsp;    					
+<b class="fc"><i class="no-highlight">482</i>&nbsp;    					if(!found) {</b>
+<b class="nc"><i class="no-highlight">483</i>&nbsp;        					PlayerInventoryDO p2Item = new PlayerInventoryDO();</b>
+<b class="nc"><i class="no-highlight">484</i>&nbsp;        					p2Item.setUuid(CommonUtils.generateUniqueId(&quot;PINV&quot;, 3));</b>
+<b class="nc"><i class="no-highlight">485</i>&nbsp;        					p2Item.setItemUuid(itemID);</b>
+<b class="nc"><i class="no-highlight">486</i>&nbsp;        					p2Item.setAmount(amount);</b>
+<b class="nc"><i class="no-highlight">487</i>&nbsp;        					p2Item.setPlayerUuid(dto.getPlayer2Uuid());</b>
+<b class="nc"><i class="no-highlight">488</i>&nbsp;        					p2Item.setCreateTime(CommonUtils.getTimeNow());</b>
+<b class="nc"><i class="no-highlight">489</i>&nbsp;        					p2Item.setModifiedTime(CommonUtils.getTimeNow());</b>
+<i class="no-highlight">490</i>&nbsp;        					
+<b class="nc"><i class="no-highlight">491</i>&nbsp;        					playerInventoryMapper.insert(p2Item);</b>
+<i class="no-highlight">492</i>&nbsp;    					}
+<i class="no-highlight">493</i>&nbsp;    				}
+<b class="fc"><i class="no-highlight">494</i>&nbsp;    			}</b>
+<b class="fc"><i class="no-highlight">495</i>&nbsp;    		}</b>
+<b class="fc"><i class="no-highlight">496</i>&nbsp;        	return new ResponseDTO(200, &quot;trade complete&quot;, null);</b>
+<i class="no-highlight">497</i>&nbsp;        	
+<b class="fc"><i class="no-highlight">498</i>&nbsp;        }else if(dto.getType() == PlayerTradeTypeEnum.ITEM_TO_ITEM.getType()) {</b>
+<b class="fc"><i class="no-highlight">499</i>&nbsp;        	PlayerDO player =  new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">500</i>&nbsp;        	player.setUuid(dto.getPlayer1Uuid());</b>
+<b class="fc"><i class="no-highlight">501</i>&nbsp;        	PlayerDO player1 = playerMapper.selectOne(new QueryWrapper&lt;&gt;(player));</b>
+<b class="fc"><i class="no-highlight">502</i>&nbsp;        	if(player1 == null) {</b>
+<b class="nc"><i class="no-highlight">503</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: player 1 can not be found&quot;, null);</b>
+<i class="no-highlight">504</i>&nbsp;        	}
+<i class="no-highlight">505</i>&nbsp;        	
+<b class="fc"><i class="no-highlight">506</i>&nbsp;        	player =  new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">507</i>&nbsp;        	player.setUuid(dto.getPlayer2Uuid());</b>
+<b class="fc"><i class="no-highlight">508</i>&nbsp;        	PlayerDO player2 = playerMapper.selectOne(new QueryWrapper&lt;&gt;(player));</b>
+<b class="fc"><i class="no-highlight">509</i>&nbsp;        	if(player2 == null) {</b>
+<b class="nc"><i class="no-highlight">510</i>&nbsp;        		return new ResponseDTO(500, &quot;ERROR: player 2 can not be found&quot;, null);</b>
+<i class="no-highlight">511</i>&nbsp;        	}
+<i class="no-highlight">512</i>&nbsp;        	
+<i class="no-highlight">513</i>&nbsp;        	//check player 1&#39;s inventory
+<b class="fc"><i class="no-highlight">514</i>&nbsp;        	PlayerInventoryDO playerInv = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">515</i>&nbsp;    		playerInv.setPlayerUuid(player1.getUuid());</b>
+<b class="fc"><i class="no-highlight">516</i>&nbsp;    		List&lt;PlayerInventoryDO&gt; playerInvList = playerInventoryMapper.selectList(new QueryWrapper&lt;&gt;(playerInv));</b>
+<b class="fc"><i class="no-highlight">517</i>&nbsp;    		if(playerInvList == null || playerInvList.size() == 0) {</b>
+<b class="nc"><i class="no-highlight">518</i>&nbsp;    			return new ResponseDTO(500, &quot;ERROR: The player has no item in the inventory&quot;, null);</b>
+<i class="no-highlight">519</i>&nbsp;    		}
+<b class="fc"><i class="no-highlight">520</i>&nbsp;    		int sufficient = 0;</b>
+<b class="fc"><i class="no-highlight">521</i>&nbsp;    		List&lt;List&gt; tradeList = dto.getPlayer1ItemList();</b>
+<b class="fc"><i class="no-highlight">522</i>&nbsp;    		for(List tradeDetail : tradeList) {</b>
+<b class="fc"><i class="no-highlight">523</i>&nbsp;    			String itemID = (String)tradeDetail.get(0);</b>
+<b class="fc"><i class="no-highlight">524</i>&nbsp;    			int amount = (int)tradeDetail.get(1);</b>
+<i class="no-highlight">525</i>&nbsp;    			
+<b class="fc"><i class="no-highlight">526</i>&nbsp;    			for(PlayerInventoryDO inv : playerInvList) {</b>
+<b class="fc"><i class="no-highlight">527</i>&nbsp;    				if(inv.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">528</i>&nbsp;    					if(inv.getAmount().intValue() &gt;= amount) {</b>
+<b class="fc"><i class="no-highlight">529</i>&nbsp;    						sufficient +=1;</b>
+<i class="no-highlight">530</i>&nbsp;    					}else {
+<b class="fc"><i class="no-highlight">531</i>&nbsp;    						return new ResponseDTO(500, &quot;ERROR: insufficient ingredient: ItemUuid: &quot; + itemID + &quot;, required: &quot; + String.valueOf(amount) + &quot;, having: &quot; + String.valueOf(inv.getAmount()), null);</b>
+<i class="no-highlight">532</i>&nbsp;    					}
+<i class="no-highlight">533</i>&nbsp;    				}
+<b class="fc"><i class="no-highlight">534</i>&nbsp;    			}</b>
+<b class="fc"><i class="no-highlight">535</i>&nbsp;    		}</b>
+<b class="fc"><i class="no-highlight">536</i>&nbsp;    		if(sufficient != tradeList.size()) {</b>
+<b class="nc"><i class="no-highlight">537</i>&nbsp;    			return new ResponseDTO(500,&quot;insufficient items in the inventory to trade&quot;,null);</b>
+<i class="no-highlight">538</i>&nbsp;    		}
+<i class="no-highlight">539</i>&nbsp;        	
+<i class="no-highlight">540</i>&nbsp;        	//check player 2&#39;s inventory
+<b class="fc"><i class="no-highlight">541</i>&nbsp;    		sufficient = 0;</b>
+<b class="fc"><i class="no-highlight">542</i>&nbsp;    		PlayerInventoryDO playerInv2 = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">543</i>&nbsp;    		playerInv2.setPlayerUuid(player2.getUuid());</b>
+<b class="fc"><i class="no-highlight">544</i>&nbsp;    		List&lt;PlayerInventoryDO&gt; playerInvList2 = playerInventoryMapper.selectList(new QueryWrapper&lt;&gt;(playerInv2));</b>
+<b class="fc"><i class="no-highlight">545</i>&nbsp;    		if(playerInvList2 == null || playerInvList2.size() == 0) {</b>
+<b class="nc"><i class="no-highlight">546</i>&nbsp;    			return new ResponseDTO(500, &quot;ERROR: The player has no item in the inventory&quot;, null);</b>
+<i class="no-highlight">547</i>&nbsp;    		}
+<i class="no-highlight">548</i>&nbsp;    		
+<b class="fc"><i class="no-highlight">549</i>&nbsp;    		List&lt;List&gt; tradeList2 = dto.getPlayer2ItemList();</b>
+<b class="fc"><i class="no-highlight">550</i>&nbsp;    		for(List tradeDetail : tradeList2) {</b>
+<b class="fc"><i class="no-highlight">551</i>&nbsp;    			String itemID = (String)tradeDetail.get(0);</b>
+<b class="fc"><i class="no-highlight">552</i>&nbsp;    			int amount = (int)tradeDetail.get(1);</b>
+<i class="no-highlight">553</i>&nbsp;    			
+<b class="fc"><i class="no-highlight">554</i>&nbsp;    			for(PlayerInventoryDO inv : playerInvList2) {</b>
+<b class="fc"><i class="no-highlight">555</i>&nbsp;    				if(inv.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">556</i>&nbsp;    					if(inv.getAmount().intValue() &gt;= amount) {</b>
+<b class="fc"><i class="no-highlight">557</i>&nbsp;    						sufficient +=1;</b>
+<i class="no-highlight">558</i>&nbsp;    					}else {
+<b class="nc"><i class="no-highlight">559</i>&nbsp;    						return new ResponseDTO(500, &quot;ERROR: insufficient ingredient: ItemUuid: &quot; + itemID + &quot;, required: &quot; + String.valueOf(amount) + &quot;, having: &quot; + String.valueOf(inv.getAmount()), null);</b>
+<i class="no-highlight">560</i>&nbsp;    					}
+<i class="no-highlight">561</i>&nbsp;    				}
+<b class="fc"><i class="no-highlight">562</i>&nbsp;    			}</b>
+<b class="fc"><i class="no-highlight">563</i>&nbsp;    		}</b>
+<b class="fc"><i class="no-highlight">564</i>&nbsp;    		if(sufficient != tradeList2.size()) {</b>
+<b class="nc"><i class="no-highlight">565</i>&nbsp;    			return new ResponseDTO(500,&quot;insufficient items in the inventory to trade&quot;,null);</b>
+<i class="no-highlight">566</i>&nbsp;    		}
+<i class="no-highlight">567</i>&nbsp;    		
+<i class="no-highlight">568</i>&nbsp;        	//remove from p1 add to p2
+<b class="fc"><i class="no-highlight">569</i>&nbsp;    		for(List tradeDetail : tradeList) {</b>
+<b class="fc"><i class="no-highlight">570</i>&nbsp;    			String itemID = (String)tradeDetail.get(0);</b>
+<b class="fc"><i class="no-highlight">571</i>&nbsp;    			int amount = (int)tradeDetail.get(1);</b>
+<i class="no-highlight">572</i>&nbsp;    			
+<b class="fc"><i class="no-highlight">573</i>&nbsp;    			for(PlayerInventoryDO inv : playerInvList) {</b>
+<b class="fc"><i class="no-highlight">574</i>&nbsp;    				if(inv.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">575</i>&nbsp;    					if(inv.getAmount().intValue() - amount == 0) {</b>
+<b class="nc"><i class="no-highlight">576</i>&nbsp;    						playerInventoryMapper.deleteById(inv);</b>
+<i class="no-highlight">577</i>&nbsp;    					}else {
+<b class="fc"><i class="no-highlight">578</i>&nbsp;        					inv.setAmount(inv.getAmount().intValue() - amount);</b>
+<b class="fc"><i class="no-highlight">579</i>&nbsp;        					playerInventoryMapper.updateById(inv);</b>
+<i class="no-highlight">580</i>&nbsp;    					}
+<i class="no-highlight">581</i>&nbsp;    					
+<b class="fc"><i class="no-highlight">582</i>&nbsp;    					boolean found = false;</b>
+<b class="fc"><i class="no-highlight">583</i>&nbsp;    					for(PlayerInventoryDO inv2 : playerInvList2) {</b>
+<b class="fc"><i class="no-highlight">584</i>&nbsp;    						if(inv2.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">585</i>&nbsp;    							found = true;</b>
+<b class="fc"><i class="no-highlight">586</i>&nbsp;    							inv2.setAmount(inv2.getAmount().intValue() + amount);</b>
+<b class="fc"><i class="no-highlight">587</i>&nbsp;    							playerInventoryMapper.updateById(inv2);</b>
+<i class="no-highlight">588</i>&nbsp;    						}
+<b class="fc"><i class="no-highlight">589</i>&nbsp;    					}</b>
+<i class="no-highlight">590</i>&nbsp;    					
+<b class="fc"><i class="no-highlight">591</i>&nbsp;    					if(!found) {</b>
+<b class="nc"><i class="no-highlight">592</i>&nbsp;        					PlayerInventoryDO p2Item = new PlayerInventoryDO();</b>
+<b class="nc"><i class="no-highlight">593</i>&nbsp;        					p2Item.setUuid(CommonUtils.generateUniqueId(&quot;PINV&quot;, 3));</b>
+<b class="nc"><i class="no-highlight">594</i>&nbsp;        					p2Item.setItemUuid(itemID);</b>
+<b class="nc"><i class="no-highlight">595</i>&nbsp;        					p2Item.setAmount(amount);</b>
+<b class="nc"><i class="no-highlight">596</i>&nbsp;        					p2Item.setPlayerUuid(dto.getPlayer2Uuid());</b>
+<b class="nc"><i class="no-highlight">597</i>&nbsp;        					p2Item.setCreateTime(CommonUtils.getTimeNow());</b>
+<b class="nc"><i class="no-highlight">598</i>&nbsp;        					p2Item.setModifiedTime(CommonUtils.getTimeNow());</b>
+<i class="no-highlight">599</i>&nbsp;        					
+<b class="nc"><i class="no-highlight">600</i>&nbsp;        					playerInventoryMapper.insert(p2Item);</b>
+<i class="no-highlight">601</i>&nbsp;    					}
+<i class="no-highlight">602</i>&nbsp;    				}
+<b class="fc"><i class="no-highlight">603</i>&nbsp;    			}</b>
+<b class="fc"><i class="no-highlight">604</i>&nbsp;    		}</b>
+<i class="no-highlight">605</i>&nbsp;        	
+<i class="no-highlight">606</i>&nbsp;        	//remove from p2 add to p1
+<b class="fc"><i class="no-highlight">607</i>&nbsp;    		for(List tradeDetail : tradeList2) {</b>
+<b class="fc"><i class="no-highlight">608</i>&nbsp;    			String itemID = (String)tradeDetail.get(0);</b>
+<b class="fc"><i class="no-highlight">609</i>&nbsp;    			int amount = (int)tradeDetail.get(1);</b>
+<i class="no-highlight">610</i>&nbsp;    			
+<b class="fc"><i class="no-highlight">611</i>&nbsp;    			for(PlayerInventoryDO inv : playerInvList2) {</b>
+<b class="fc"><i class="no-highlight">612</i>&nbsp;    				if(inv.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">613</i>&nbsp;    					if(inv.getAmount().intValue() - amount == 0) {</b>
+<b class="nc"><i class="no-highlight">614</i>&nbsp;    						playerInventoryMapper.deleteById(inv);</b>
+<i class="no-highlight">615</i>&nbsp;    					}else {
+<b class="fc"><i class="no-highlight">616</i>&nbsp;        					inv.setAmount(inv.getAmount().intValue() - amount);</b>
+<b class="fc"><i class="no-highlight">617</i>&nbsp;        					playerInventoryMapper.updateById(inv);</b>
+<i class="no-highlight">618</i>&nbsp;    					}
+<i class="no-highlight">619</i>&nbsp;
+<b class="fc"><i class="no-highlight">620</i>&nbsp;    					boolean found = false;</b>
+<b class="fc"><i class="no-highlight">621</i>&nbsp;    					for(PlayerInventoryDO inv2 : playerInvList) {</b>
+<b class="fc"><i class="no-highlight">622</i>&nbsp;    						if(inv2.getItemUuid().equals(itemID)) {</b>
+<b class="fc"><i class="no-highlight">623</i>&nbsp;    							found = true;</b>
+<b class="fc"><i class="no-highlight">624</i>&nbsp;    							inv2.setAmount(inv2.getAmount().intValue() + amount);</b>
+<b class="fc"><i class="no-highlight">625</i>&nbsp;    							playerInventoryMapper.updateById(inv2);</b>
+<i class="no-highlight">626</i>&nbsp;    						}
+<b class="fc"><i class="no-highlight">627</i>&nbsp;    					}</b>
+<b class="fc"><i class="no-highlight">628</i>&nbsp;    					if(!found) {</b>
+<b class="nc"><i class="no-highlight">629</i>&nbsp;    						PlayerInventoryDO p1Item = new PlayerInventoryDO();</b>
+<b class="nc"><i class="no-highlight">630</i>&nbsp;        					p1Item.setUuid(CommonUtils.generateUniqueId(&quot;PINV&quot;, 3));</b>
+<b class="nc"><i class="no-highlight">631</i>&nbsp;        					p1Item.setItemUuid(itemID);</b>
+<b class="nc"><i class="no-highlight">632</i>&nbsp;        					p1Item.setAmount(amount);</b>
+<b class="nc"><i class="no-highlight">633</i>&nbsp;        					p1Item.setPlayerUuid(dto.getPlayer1Uuid());</b>
+<b class="nc"><i class="no-highlight">634</i>&nbsp;        					p1Item.setCreateTime(CommonUtils.getTimeNow());</b>
+<b class="nc"><i class="no-highlight">635</i>&nbsp;        					p1Item.setModifiedTime(CommonUtils.getTimeNow());</b>
+<i class="no-highlight">636</i>&nbsp;        					
+<b class="nc"><i class="no-highlight">637</i>&nbsp;        					playerInventoryMapper.insert(p1Item);</b>
+<i class="no-highlight">638</i>&nbsp;    					}
+<i class="no-highlight">639</i>&nbsp;    				}
+<b class="fc"><i class="no-highlight">640</i>&nbsp;    			}</b>
+<b class="fc"><i class="no-highlight">641</i>&nbsp;    		}</b>
+<i class="no-highlight">642</i>&nbsp;    		
+<b class="fc"><i class="no-highlight">643</i>&nbsp;    		return new ResponseDTO(200, &quot;trade complete&quot;, null);</b>
+<i class="no-highlight">644</i>&nbsp;        }else {
+<b class="nc"><i class="no-highlight">645</i>&nbsp;        	return new ResponseDTO(500, &quot;ERROR: Invalid trade type&quot;, null);</b>
+<i class="no-highlight">646</i>&nbsp;        }
+<i class="no-highlight">647</i>&nbsp;    }
+<i class="no-highlight">648</i>&nbsp;    /**
+<i class="no-highlight">649</i>&nbsp;     * playerUuid should be check valid before passing in
+<i class="no-highlight">650</i>&nbsp;     * @param playerUuid
+<i class="no-highlight">651</i>&nbsp;     * @param amount
+<i class="no-highlight">652</i>&nbsp;     * @param tradeWay
+<i class="no-highlight">653</i>&nbsp;     * @return
+<i class="no-highlight">654</i>&nbsp;     */
+<i class="no-highlight">655</i>&nbsp;    @Transactional(rollbackFor = Exception.class, isolation = Isolation.SERIALIZABLE)
+<i class="no-highlight">656</i>&nbsp;    ResponseDTO tradeMoney(String playerUuid, int amount, int tradeWay) {
+<b class="fc"><i class="no-highlight">657</i>&nbsp;    	PlayerDO player =  new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">658</i>&nbsp;    	player.setUuid(playerUuid);</b>
+<b class="fc"><i class="no-highlight">659</i>&nbsp;    	PlayerDO playerFound = playerMapper.selectOne(new QueryWrapper&lt;&gt;(player));</b>
+<i class="no-highlight">660</i>&nbsp;    	
+<b class="fc"><i class="no-highlight">661</i>&nbsp;    	if(playerFound == null) {</b>
+<b class="nc"><i class="no-highlight">662</i>&nbsp;    		return new ResponseDTO(501, &quot;ERROR: trade player not found&quot;,null);</b>
+<i class="no-highlight">663</i>&nbsp;    	}
+<b class="fc"><i class="no-highlight">664</i>&nbsp;    	if(playerFound.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {</b>
+<b class="nc"><i class="no-highlight">665</i>&nbsp;    		return new ResponseDTO(502, &quot;ERROR: player is frozen&quot;,null);</b>
+<i class="no-highlight">666</i>&nbsp;    	}
+<b class="fc"><i class="no-highlight">667</i>&nbsp;    	if(tradeWay == PlayerTradeWayEnum.DECREASE.getTradeWay()) {</b>
+<b class="fc"><i class="no-highlight">668</i>&nbsp;    		if(amount &gt; playerFound.getBalance().intValue()) {</b>
+<b class="nc"><i class="no-highlight">669</i>&nbsp;    			return new ResponseDTO(504, &quot;ERROR: insufficient balance for player with playerUuid: &quot; + playerUuid,null);</b>
+<i class="no-highlight">670</i>&nbsp;    		}
+<b class="fc"><i class="no-highlight">671</i>&nbsp;    		playerFound.setBalance(playerFound.getBalance().intValue() - amount);</b>
+<b class="fc"><i class="no-highlight">672</i>&nbsp;    		if(playerMapper.updateById(playerFound) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">673</i>&nbsp;    			return new ResponseDTO(505, &quot;ERROR: decrease balance failed with playerUuid: &quot; + playerUuid,null);</b>
+<i class="no-highlight">674</i>&nbsp;    		}
+<b class="fc"><i class="no-highlight">675</i>&nbsp;    		return new ResponseDTO(200, &quot;completed&quot;,null);</b>
+<b class="fc"><i class="no-highlight">676</i>&nbsp;    	}else if(tradeWay == PlayerTradeWayEnum.INCREASE.getTradeWay()) {</b>
+<b class="fc"><i class="no-highlight">677</i>&nbsp;    		playerFound.setBalance(playerFound.getBalance().intValue() + amount);</b>
+<b class="fc"><i class="no-highlight">678</i>&nbsp;    		if(playerMapper.updateById(playerFound) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">679</i>&nbsp;    			return new ResponseDTO(505, &quot;ERROR: increase balance failed with playerUuid: &quot; + playerUuid,null);</b>
+<i class="no-highlight">680</i>&nbsp;    		}
+<b class="fc"><i class="no-highlight">681</i>&nbsp;    		return new ResponseDTO(200, &quot;completed&quot;,null);</b>
+<i class="no-highlight">682</i>&nbsp;    	}else {
+<b class="nc"><i class="no-highlight">683</i>&nbsp;    		return new ResponseDTO(503, &quot;ERROR: invalid tradeWay&quot;,null);</b>
+<i class="no-highlight">684</i>&nbsp;    	}
+<i class="no-highlight">685</i>&nbsp;    }
+<i class="no-highlight">686</i>&nbsp;
+<i class="no-highlight">687</i>&nbsp;
+<i class="no-highlight">688</i>&nbsp;	@Override
+<i class="no-highlight">689</i>&nbsp;	@Transactional(rollbackFor = Exception.class, isolation = Isolation.SERIALIZABLE)
+<i class="no-highlight">690</i>&nbsp;	public ResponseDTO removeMoney(PlayerRemoveMoneyDTO dto) {
+<i class="no-highlight">691</i>&nbsp;
+<i class="no-highlight">692</i>&nbsp;		// token verification
+<b class="fc"><i class="no-highlight">693</i>&nbsp;		String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">694</i>&nbsp;		GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">695</i>&nbsp;		manager.setToken(token);</b>
+<i class="no-highlight">696</i>&nbsp;
+<b class="fc"><i class="no-highlight">697</i>&nbsp;		List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">698</i>&nbsp;		if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">699</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">700</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">701</i>&nbsp;		if(managerList != null &amp;&amp; managerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">702</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: more than one manager found, please try again later&quot;, null);</b>
+<i class="no-highlight">703</i>&nbsp;		}
+<i class="no-highlight">704</i>&nbsp;
+<b class="fc"><i class="no-highlight">705</i>&nbsp;		manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">706</i>&nbsp;		String gameUuid = manager.getGameUuid();</b>
+<b class="fc"><i class="no-highlight">707</i>&nbsp;		if(StringUtils.isBlank(gameUuid)) {</b>
+<b class="nc"><i class="no-highlight">708</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: this manager has not created a game yet&quot;, null);</b>
+<i class="no-highlight">709</i>&nbsp;		}
+<i class="no-highlight">710</i>&nbsp;
+<i class="no-highlight">711</i>&nbsp;		// player search
+<b class="fc"><i class="no-highlight">712</i>&nbsp;		PlayerDO playerSearch = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">713</i>&nbsp;		playerSearch.setUuid(dto.getPlayerUuid());</b>
+<b class="fc"><i class="no-highlight">714</i>&nbsp;		playerSearch.setGameUuid(gameUuid);</b>
+<i class="no-highlight">715</i>&nbsp;
+<b class="fc"><i class="no-highlight">716</i>&nbsp;		PlayerDO player = playerMapper.selectOne(new QueryWrapper&lt;&gt;(playerSearch));</b>
+<b class="fc"><i class="no-highlight">717</i>&nbsp;		if (player == null) {</b>
+<b class="fc"><i class="no-highlight">718</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player does not exist&quot;, null);</b>
+<i class="no-highlight">719</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">720</i>&nbsp;		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {</b>
+<b class="fc"><i class="no-highlight">721</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player is frozen&quot;, null);</b>
+<i class="no-highlight">722</i>&nbsp;		}
+<i class="no-highlight">723</i>&nbsp;
+<i class="no-highlight">724</i>&nbsp;		// edit money
+<b class="fc"><i class="no-highlight">725</i>&nbsp;		Integer balance = player.getBalance();</b>
+<b class="fc"><i class="no-highlight">726</i>&nbsp;		Integer amount = dto.getAmount();</b>
+<b class="fc"><i class="no-highlight">727</i>&nbsp;		if (balance &lt; amount) {</b>
+<b class="fc"><i class="no-highlight">728</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: balance cannot be negative&quot;, null);</b>
+<i class="no-highlight">729</i>&nbsp;		}
+<i class="no-highlight">730</i>&nbsp;
+<b class="fc"><i class="no-highlight">731</i>&nbsp;		player.setModifiedTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">732</i>&nbsp;		player.setBalance(balance-amount);</b>
+<i class="no-highlight">733</i>&nbsp;
+<b class="fc"><i class="no-highlight">734</i>&nbsp;		if(playerMapper.updateById(player) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">735</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: failed to update database, please try again later&quot;, null);</b>
+<i class="no-highlight">736</i>&nbsp;		}
+<i class="no-highlight">737</i>&nbsp;
+<b class="fc"><i class="no-highlight">738</i>&nbsp;		return new ResponseDTO(200, &quot;money removed successfully&quot;, null);</b>
+<i class="no-highlight">739</i>&nbsp;	}
+<i class="no-highlight">740</i>&nbsp;
+<i class="no-highlight">741</i>&nbsp;	@Override
+<i class="no-highlight">742</i>&nbsp;	@Transactional(rollbackFor = Exception.class, isolation = Isolation.SERIALIZABLE)
+<i class="no-highlight">743</i>&nbsp;	public ResponseDTO buyItemSys(PlayerBuyItemSysDTO dto) {
+<i class="no-highlight">744</i>&nbsp;
+<i class="no-highlight">745</i>&nbsp;		// token verification
+<b class="fc"><i class="no-highlight">746</i>&nbsp;		String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">747</i>&nbsp;		GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">748</i>&nbsp;		manager.setToken(token);</b>
+<i class="no-highlight">749</i>&nbsp;
+<b class="fc"><i class="no-highlight">750</i>&nbsp;		List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">751</i>&nbsp;		if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">752</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">753</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">754</i>&nbsp;		if(managerList != null &amp;&amp; managerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">755</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: more than one manager found, please try again later&quot;, null);</b>
+<i class="no-highlight">756</i>&nbsp;		}
+<i class="no-highlight">757</i>&nbsp;
+<b class="fc"><i class="no-highlight">758</i>&nbsp;		manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">759</i>&nbsp;		String gameUuid = manager.getGameUuid();</b>
+<b class="fc"><i class="no-highlight">760</i>&nbsp;		if(StringUtils.isBlank(gameUuid)) {</b>
+<b class="nc"><i class="no-highlight">761</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: this manager has not created a game yet&quot;, null);</b>
+<i class="no-highlight">762</i>&nbsp;		}
+<i class="no-highlight">763</i>&nbsp;
+<i class="no-highlight">764</i>&nbsp;		// item search
+<b class="fc"><i class="no-highlight">765</i>&nbsp;		ItemDO itemSearch = new ItemDO();</b>
+<b class="fc"><i class="no-highlight">766</i>&nbsp;		String itemUuid = dto.getItemUuid();</b>
+<b class="fc"><i class="no-highlight">767</i>&nbsp;		itemSearch.setUuid(itemUuid);</b>
+<i class="no-highlight">768</i>&nbsp;
+<b class="fc"><i class="no-highlight">769</i>&nbsp;		ItemDO item = itemMapper.selectOne(new QueryWrapper&lt;&gt;(itemSearch));</b>
+<b class="fc"><i class="no-highlight">770</i>&nbsp;		if (item == null) {</b>
+<b class="fc"><i class="no-highlight">771</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: item does not exist&quot;, null);</b>
+<i class="no-highlight">772</i>&nbsp;		}
+<i class="no-highlight">773</i>&nbsp;
+<b class="fc"><i class="no-highlight">774</i>&nbsp;		String inventoryUuid = item.getInventoryUuid();</b>
+<b class="fc"><i class="no-highlight">775</i>&nbsp;		InventoryDO inventorySearch = new InventoryDO();</b>
+<b class="fc"><i class="no-highlight">776</i>&nbsp;		inventorySearch.setUuid(inventoryUuid);</b>
+<b class="fc"><i class="no-highlight">777</i>&nbsp;		inventorySearch.setGameUuid(gameUuid);</b>
+<b class="fc"><i class="no-highlight">778</i>&nbsp;		InventoryDO inventory = inventoryMapper.selectOne(new QueryWrapper&lt;&gt;(inventorySearch));</b>
+<b class="fc"><i class="no-highlight">779</i>&nbsp;		if (inventory == null) {</b>
+<b class="nc"><i class="no-highlight">780</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: item does not belong to your game&quot;, null);</b>
+<i class="no-highlight">781</i>&nbsp;		}
+<i class="no-highlight">782</i>&nbsp;
+<i class="no-highlight">783</i>&nbsp;		// player search
+<b class="fc"><i class="no-highlight">784</i>&nbsp;		PlayerDO playerSearch = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">785</i>&nbsp;		String playerUuid = dto.getPlayerUuid();</b>
+<b class="fc"><i class="no-highlight">786</i>&nbsp;		playerSearch.setUuid(playerUuid);</b>
+<b class="fc"><i class="no-highlight">787</i>&nbsp;		playerSearch.setGameUuid(gameUuid);</b>
+<i class="no-highlight">788</i>&nbsp;
+<b class="fc"><i class="no-highlight">789</i>&nbsp;		PlayerDO player = playerMapper.selectOne(new QueryWrapper&lt;&gt;(playerSearch));</b>
+<b class="fc"><i class="no-highlight">790</i>&nbsp;		if (player == null) {</b>
+<b class="fc"><i class="no-highlight">791</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player does not exist&quot;, null);</b>
+<i class="no-highlight">792</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">793</i>&nbsp;		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {</b>
+<b class="fc"><i class="no-highlight">794</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player is frozen&quot;, null);</b>
+<i class="no-highlight">795</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">796</i>&nbsp;		if (player.getGameInventoryUuid().equals(inventoryUuid) == false) {</b>
+<b class="fc"><i class="no-highlight">797</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: player cannot operate on this inventory&quot;, null);</b>
+<i class="no-highlight">798</i>&nbsp;		}
+<i class="no-highlight">799</i>&nbsp;
+<i class="no-highlight">800</i>&nbsp;		// edit balance
+<b class="fc"><i class="no-highlight">801</i>&nbsp;		Integer balance = player.getBalance();</b>
+<b class="fc"><i class="no-highlight">802</i>&nbsp;		Integer amount = dto.getAmount();</b>
+<b class="fc"><i class="no-highlight">803</i>&nbsp;		Integer price = item.getPrice();</b>
+<b class="fc"><i class="no-highlight">804</i>&nbsp;		Integer cost = amount*price;</b>
+<b class="fc"><i class="no-highlight">805</i>&nbsp;		if (balance &lt; cost) {</b>
+<b class="fc"><i class="no-highlight">806</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: no enough money to buy&quot;, null);</b>
+<i class="no-highlight">807</i>&nbsp;		}
+<i class="no-highlight">808</i>&nbsp;
+<b class="fc"><i class="no-highlight">809</i>&nbsp;		player.setModifiedTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">810</i>&nbsp;		player.setBalance(balance-cost);</b>
+<i class="no-highlight">811</i>&nbsp;
+<b class="fc"><i class="no-highlight">812</i>&nbsp;		if(playerMapper.updateById(player) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">813</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: failed to update database, please try again later&quot;, null);</b>
+<i class="no-highlight">814</i>&nbsp;		}
+<i class="no-highlight">815</i>&nbsp;
+<i class="no-highlight">816</i>&nbsp;		// edit item quantity
+<b class="fc"><i class="no-highlight">817</i>&nbsp;		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">818</i>&nbsp;		playerInventorySearch.setPlayerUuid(playerUuid);</b>
+<b class="fc"><i class="no-highlight">819</i>&nbsp;		playerInventorySearch.setItemUuid(itemUuid);</b>
+<i class="no-highlight">820</i>&nbsp;
+<b class="fc"><i class="no-highlight">821</i>&nbsp;		PlayerInventoryDO playerInventory = playerInventoryMapper.selectOne(new QueryWrapper&lt;&gt;(playerInventorySearch));</b>
+<b class="fc"><i class="no-highlight">822</i>&nbsp;		Integer resultAmount = amount;</b>
+<b class="fc"><i class="no-highlight">823</i>&nbsp;		if (playerInventory == null) {</b>
+<b class="fc"><i class="no-highlight">824</i>&nbsp;			playerInventory = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">825</i>&nbsp;			playerInventory.setPlayerUuid(playerUuid);</b>
+<b class="fc"><i class="no-highlight">826</i>&nbsp;			playerInventory.setItemUuid(itemUuid);</b>
+<b class="fc"><i class="no-highlight">827</i>&nbsp;			playerInventory.setUuid(CommonUtils.generateUniqueId(&quot;PINV&quot;, 3));</b>
+<b class="fc"><i class="no-highlight">828</i>&nbsp;			playerInventory.setCreateTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">829</i>&nbsp;			playerInventory.setModifiedTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">830</i>&nbsp;			playerInventory.setAmount(resultAmount);</b>
+<b class="fc"><i class="no-highlight">831</i>&nbsp;			if(playerInventoryMapper.insert(playerInventory) &lt;= 0) {</b>
+<b class="nc"><i class="no-highlight">832</i>&nbsp;				return new ResponseDTO(500, &quot;ERROR: failed to insert playerInventory&quot;, null);</b>
+<i class="no-highlight">833</i>&nbsp;			}
+<i class="no-highlight">834</i>&nbsp;		} else {
+<b class="fc"><i class="no-highlight">835</i>&nbsp;			resultAmount += playerInventory.getAmount();</b>
+<b class="fc"><i class="no-highlight">836</i>&nbsp;			playerInventory.setModifiedTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">837</i>&nbsp;			playerInventory.setAmount(resultAmount);</b>
+<b class="fc"><i class="no-highlight">838</i>&nbsp;			if(playerInventoryMapper.updateById(playerInventory) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">839</i>&nbsp;				return new ResponseDTO(500, &quot;ERROR: failed to update database, please try again later&quot;, null);</b>
+<i class="no-highlight">840</i>&nbsp;			}
+<i class="no-highlight">841</i>&nbsp;		}
+<i class="no-highlight">842</i>&nbsp;
+<b class="fc"><i class="no-highlight">843</i>&nbsp;		return new ResponseDTO(200, &quot;items bought successfully&quot;, null);</b>
+<i class="no-highlight">844</i>&nbsp;	}
+<i class="no-highlight">845</i>&nbsp;
+<i class="no-highlight">846</i>&nbsp;	@Override
+<i class="no-highlight">847</i>&nbsp;	@Transactional(rollbackFor = Exception.class, isolation = Isolation.SERIALIZABLE)
+<i class="no-highlight">848</i>&nbsp;	public ResponseDTO sellItemSys(PlayerSellItemSysDTO dto) {
+<i class="no-highlight">849</i>&nbsp;
+<i class="no-highlight">850</i>&nbsp;		// token verification
+<b class="fc"><i class="no-highlight">851</i>&nbsp;		String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">852</i>&nbsp;		GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">853</i>&nbsp;		manager.setToken(token);</b>
+<i class="no-highlight">854</i>&nbsp;
+<b class="fc"><i class="no-highlight">855</i>&nbsp;		List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">856</i>&nbsp;		if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">857</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">858</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">859</i>&nbsp;		if(managerList != null &amp;&amp; managerList.size() &gt; 1) {</b>
+<b class="nc"><i class="no-highlight">860</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: more than one manager found, please try again later&quot;, null);</b>
+<i class="no-highlight">861</i>&nbsp;		}
+<i class="no-highlight">862</i>&nbsp;
+<b class="fc"><i class="no-highlight">863</i>&nbsp;		manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">864</i>&nbsp;		String gameUuid = manager.getGameUuid();</b>
+<b class="fc"><i class="no-highlight">865</i>&nbsp;		if(StringUtils.isBlank(gameUuid)) {</b>
+<b class="nc"><i class="no-highlight">866</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: this manager has not created a game yet&quot;, null);</b>
+<i class="no-highlight">867</i>&nbsp;		}
+<i class="no-highlight">868</i>&nbsp;
+<i class="no-highlight">869</i>&nbsp;		// item search
+<b class="fc"><i class="no-highlight">870</i>&nbsp;		ItemDO itemSearch = new ItemDO();</b>
+<b class="fc"><i class="no-highlight">871</i>&nbsp;		String itemUuid = dto.getItemUuid();</b>
+<b class="fc"><i class="no-highlight">872</i>&nbsp;		itemSearch.setUuid(itemUuid);</b>
+<i class="no-highlight">873</i>&nbsp;
+<b class="fc"><i class="no-highlight">874</i>&nbsp;		ItemDO item = itemMapper.selectOne(new QueryWrapper&lt;&gt;(itemSearch));</b>
+<b class="fc"><i class="no-highlight">875</i>&nbsp;		if (item == null) {</b>
+<b class="fc"><i class="no-highlight">876</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: item does not exist&quot;, null);</b>
+<i class="no-highlight">877</i>&nbsp;		}
+<i class="no-highlight">878</i>&nbsp;
+<b class="fc"><i class="no-highlight">879</i>&nbsp;		String inventoryUuid = item.getInventoryUuid();</b>
+<b class="fc"><i class="no-highlight">880</i>&nbsp;		InventoryDO inventorySearch = new InventoryDO();</b>
+<b class="fc"><i class="no-highlight">881</i>&nbsp;		inventorySearch.setUuid(inventoryUuid);</b>
+<b class="fc"><i class="no-highlight">882</i>&nbsp;		inventorySearch.setGameUuid(gameUuid);</b>
+<b class="fc"><i class="no-highlight">883</i>&nbsp;		InventoryDO inventory = inventoryMapper.selectOne(new QueryWrapper&lt;&gt;(inventorySearch));</b>
+<b class="fc"><i class="no-highlight">884</i>&nbsp;		if (inventory == null) {</b>
+<b class="nc"><i class="no-highlight">885</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: item does not belong to your game&quot;, null);</b>
+<i class="no-highlight">886</i>&nbsp;		}
+<i class="no-highlight">887</i>&nbsp;
+<i class="no-highlight">888</i>&nbsp;		// player search
+<b class="fc"><i class="no-highlight">889</i>&nbsp;		PlayerDO playerSearch = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">890</i>&nbsp;		String playerUuid = dto.getPlayerUuid();</b>
+<b class="fc"><i class="no-highlight">891</i>&nbsp;		playerSearch.setUuid(playerUuid);</b>
+<b class="fc"><i class="no-highlight">892</i>&nbsp;		playerSearch.setGameUuid(gameUuid);</b>
+<i class="no-highlight">893</i>&nbsp;
+<b class="fc"><i class="no-highlight">894</i>&nbsp;		PlayerDO player = playerMapper.selectOne(new QueryWrapper&lt;&gt;(playerSearch));</b>
+<b class="fc"><i class="no-highlight">895</i>&nbsp;		if (player == null) {</b>
+<b class="fc"><i class="no-highlight">896</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player does not exist&quot;, null);</b>
+<i class="no-highlight">897</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">898</i>&nbsp;		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {</b>
+<b class="fc"><i class="no-highlight">899</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player is frozen&quot;, null);</b>
+<i class="no-highlight">900</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">901</i>&nbsp;		if (player.getGameInventoryUuid().equals(inventoryUuid) == false) {</b>
+<b class="fc"><i class="no-highlight">902</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: player cannot operate on this inventory&quot;, null);</b>
+<i class="no-highlight">903</i>&nbsp;		}
+<i class="no-highlight">904</i>&nbsp;
+<i class="no-highlight">905</i>&nbsp;		// edit item quantity
+<b class="fc"><i class="no-highlight">906</i>&nbsp;		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">907</i>&nbsp;		playerInventorySearch.setPlayerUuid(playerUuid);</b>
+<b class="fc"><i class="no-highlight">908</i>&nbsp;		playerInventorySearch.setItemUuid(itemUuid);</b>
+<i class="no-highlight">909</i>&nbsp;
+<b class="fc"><i class="no-highlight">910</i>&nbsp;		PlayerInventoryDO playerInventory = playerInventoryMapper.selectOne(new QueryWrapper&lt;&gt;(playerInventorySearch));</b>
+<b class="fc"><i class="no-highlight">911</i>&nbsp;		if (playerInventory == null) {</b>
+<b class="nc"><i class="no-highlight">912</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: player does not have the item&quot;, null);</b>
+<i class="no-highlight">913</i>&nbsp;		}
+<i class="no-highlight">914</i>&nbsp;
+<b class="fc"><i class="no-highlight">915</i>&nbsp;		Integer currentAmount = playerInventory.getAmount();</b>
+<b class="fc"><i class="no-highlight">916</i>&nbsp;		Integer amount = dto.getAmount();</b>
+<b class="fc"><i class="no-highlight">917</i>&nbsp;		if (currentAmount &lt; amount) {</b>
+<b class="fc"><i class="no-highlight">918</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: no enough item to sell&quot;, null);</b>
+<i class="no-highlight">919</i>&nbsp;		}
+<i class="no-highlight">920</i>&nbsp;
+<b class="fc"><i class="no-highlight">921</i>&nbsp;		if (currentAmount == amount) {</b>
+<b class="fc"><i class="no-highlight">922</i>&nbsp;			if(playerInventoryMapper.deleteById(playerInventory) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">923</i>&nbsp;				return new ResponseDTO(500, &quot;ERROR: failed to delete item from playerInventory, please try again later&quot;, null);</b>
+<i class="no-highlight">924</i>&nbsp;			}
+<i class="no-highlight">925</i>&nbsp;		} else {
+<b class="fc"><i class="no-highlight">926</i>&nbsp;			playerInventory.setModifiedTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">927</i>&nbsp;			playerInventory.setAmount(currentAmount-amount);</b>
+<b class="fc"><i class="no-highlight">928</i>&nbsp;			if(playerInventoryMapper.updateById(playerInventory) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">929</i>&nbsp;				return new ResponseDTO(500, &quot;ERROR: failed to update item quantity in playerInventory, please try again later&quot;, null);</b>
+<i class="no-highlight">930</i>&nbsp;			}
+<i class="no-highlight">931</i>&nbsp;		}
+<i class="no-highlight">932</i>&nbsp;
+<i class="no-highlight">933</i>&nbsp;		// edit balance
+<b class="fc"><i class="no-highlight">934</i>&nbsp;		Integer balance = player.getBalance();</b>
+<b class="fc"><i class="no-highlight">935</i>&nbsp;		Integer price = item.getPrice();</b>
+<b class="fc"><i class="no-highlight">936</i>&nbsp;		Integer profit = amount*price;</b>
+<i class="no-highlight">937</i>&nbsp;
+<b class="fc"><i class="no-highlight">938</i>&nbsp;		player.setModifiedTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">939</i>&nbsp;		player.setBalance(balance+profit);</b>
+<i class="no-highlight">940</i>&nbsp;
+<b class="fc"><i class="no-highlight">941</i>&nbsp;		if(playerMapper.updateById(player) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">942</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: failed to update database, please try again later&quot;, null);</b>
+<i class="no-highlight">943</i>&nbsp;		}
+<i class="no-highlight">944</i>&nbsp;
+<b class="fc"><i class="no-highlight">945</i>&nbsp;		return new ResponseDTO(200, &quot;items sold successfully&quot;, null);</b>
+<i class="no-highlight">946</i>&nbsp;	}
+<i class="no-highlight">947</i>&nbsp;
+<i class="no-highlight">948</i>&nbsp;
+<i class="no-highlight">949</i>&nbsp;	@Override
+<i class="no-highlight">950</i>&nbsp;	@Transactional(rollbackFor = Exception.class, isolation = Isolation.SERIALIZABLE)
+<i class="no-highlight">951</i>&nbsp;	public ResponseDTO addMoney(PlayerAddMoneyDTO dto) {
+<i class="no-highlight">952</i>&nbsp;
+<i class="no-highlight">953</i>&nbsp;		// token verification
+<b class="fc"><i class="no-highlight">954</i>&nbsp;		String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">955</i>&nbsp;		GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">956</i>&nbsp;		manager.setToken(token);</b>
+<i class="no-highlight">957</i>&nbsp;
+<b class="fc"><i class="no-highlight">958</i>&nbsp;		List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">959</i>&nbsp;		if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">960</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">961</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">962</i>&nbsp;		manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">963</i>&nbsp;		String gameUuid = manager.getGameUuid();</b>
+<i class="no-highlight">964</i>&nbsp;
+<i class="no-highlight">965</i>&nbsp;		// player search
+<b class="fc"><i class="no-highlight">966</i>&nbsp;		PlayerDO playerSearch = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">967</i>&nbsp;		playerSearch.setUuid(dto.getPlayerUuid());</b>
+<b class="fc"><i class="no-highlight">968</i>&nbsp;		playerSearch.setGameUuid(gameUuid);</b>
+<i class="no-highlight">969</i>&nbsp;
+<b class="fc"><i class="no-highlight">970</i>&nbsp;		PlayerDO player = playerMapper.selectOne(new QueryWrapper&lt;&gt;(playerSearch));</b>
+<b class="fc"><i class="no-highlight">971</i>&nbsp;		if (player == null) {</b>
+<b class="fc"><i class="no-highlight">972</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player does not exist&quot;, null);</b>
+<i class="no-highlight">973</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">974</i>&nbsp;		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {</b>
+<b class="fc"><i class="no-highlight">975</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player is frozen&quot;, null);</b>
+<i class="no-highlight">976</i>&nbsp;		}
+<i class="no-highlight">977</i>&nbsp;
+<i class="no-highlight">978</i>&nbsp;		// edit money
+<b class="fc"><i class="no-highlight">979</i>&nbsp;		Integer balance = player.getBalance();</b>
+<b class="fc"><i class="no-highlight">980</i>&nbsp;		Integer amount = dto.getAmount();</b>
+<i class="no-highlight">981</i>&nbsp;
+<b class="fc"><i class="no-highlight">982</i>&nbsp;		player.setModifiedTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">983</i>&nbsp;		player.setBalance(balance+amount);</b>
+<i class="no-highlight">984</i>&nbsp;
+<b class="fc"><i class="no-highlight">985</i>&nbsp;		if(playerMapper.updateById(player) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">986</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: failed to update database, please try again later&quot;, null);</b>
+<i class="no-highlight">987</i>&nbsp;		}
+<i class="no-highlight">988</i>&nbsp;
+<b class="fc"><i class="no-highlight">989</i>&nbsp;		return new ResponseDTO(200, &quot;money added successfully&quot;, null);</b>
+<i class="no-highlight">990</i>&nbsp;	}
+<i class="no-highlight">991</i>&nbsp;	
+<i class="no-highlight">992</i>&nbsp;	@Override
+<i class="no-highlight">993</i>&nbsp;	@Transactional(rollbackFor = Exception.class, isolation = Isolation.SERIALIZABLE)
+<i class="no-highlight">994</i>&nbsp;	public ResponseDTO addItem(PlayerItemDTO dto) {
+<i class="no-highlight">995</i>&nbsp;
+<i class="no-highlight">996</i>&nbsp;		// token verification
+<b class="fc"><i class="no-highlight">997</i>&nbsp;		String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">998</i>&nbsp;		GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">999</i>&nbsp;		manager.setToken(token);</b>
+<i class="no-highlight">1000</i>&nbsp;
+<b class="fc"><i class="no-highlight">1001</i>&nbsp;		List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">1002</i>&nbsp;		if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">1003</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">1004</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">1005</i>&nbsp;		manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">1006</i>&nbsp;		String gameUuid = manager.getGameUuid();</b>
+<i class="no-highlight">1007</i>&nbsp;
+<i class="no-highlight">1008</i>&nbsp;		// player search
+<b class="fc"><i class="no-highlight">1009</i>&nbsp;		PlayerDO playerSearch = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">1010</i>&nbsp;		playerSearch.setUuid(dto.getPlayerUuid());</b>
+<b class="fc"><i class="no-highlight">1011</i>&nbsp;		playerSearch.setGameUuid(gameUuid);</b>
+<i class="no-highlight">1012</i>&nbsp;
+<b class="fc"><i class="no-highlight">1013</i>&nbsp;		PlayerDO player = playerMapper.selectOne(new QueryWrapper&lt;&gt;(playerSearch));</b>
+<b class="fc"><i class="no-highlight">1014</i>&nbsp;		if (player == null) {</b>
+<b class="fc"><i class="no-highlight">1015</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player does not exist&quot;, null);</b>
+<i class="no-highlight">1016</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">1017</i>&nbsp;		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {</b>
+<b class="fc"><i class="no-highlight">1018</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player is frozen&quot;, null);</b>
+<i class="no-highlight">1019</i>&nbsp;		}
+<i class="no-highlight">1020</i>&nbsp;
+<i class="no-highlight">1021</i>&nbsp;		// item search
+<b class="fc"><i class="no-highlight">1022</i>&nbsp;		ItemDO itemSearch = new ItemDO();</b>
+<b class="fc"><i class="no-highlight">1023</i>&nbsp;		String itemUuid = dto.getItemUuid();</b>
+<b class="fc"><i class="no-highlight">1024</i>&nbsp;		itemSearch.setUuid(itemUuid);</b>
+<b class="fc"><i class="no-highlight">1025</i>&nbsp;		ItemDO item = itemMapper.selectOne(new QueryWrapper&lt;&gt;(itemSearch));</b>
+<b class="fc"><i class="no-highlight">1026</i>&nbsp;		if (item == null) {</b>
+<b class="fc"><i class="no-highlight">1027</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: item does not exist&quot;, null);</b>
+<i class="no-highlight">1028</i>&nbsp;		}
+<i class="no-highlight">1029</i>&nbsp;		
+<i class="no-highlight">1030</i>&nbsp;		// inventory search
+<b class="fc"><i class="no-highlight">1031</i>&nbsp;		String inventoryUuid = item.getInventoryUuid();</b>
+<b class="fc"><i class="no-highlight">1032</i>&nbsp;		InventoryDO inventorySearch = new InventoryDO();</b>
+<b class="fc"><i class="no-highlight">1033</i>&nbsp;		inventorySearch.setUuid(inventoryUuid);</b>
+<b class="fc"><i class="no-highlight">1034</i>&nbsp;		inventorySearch.setGameUuid(gameUuid);</b>
+<b class="fc"><i class="no-highlight">1035</i>&nbsp;		InventoryDO inventory = inventoryMapper.selectOne(new QueryWrapper&lt;&gt;(inventorySearch));</b>
+<b class="fc"><i class="no-highlight">1036</i>&nbsp;		if (inventory == null) {</b>
+<b class="nc"><i class="no-highlight">1037</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: inventory does not exist&quot;, null);</b>
+<i class="no-highlight">1038</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">1039</i>&nbsp;		String playerInventoryUuid = player.getGameInventoryUuid();</b>
+<b class="fc"><i class="no-highlight">1040</i>&nbsp;		if (!inventoryUuid.equals(playerInventoryUuid)) {</b>
+<b class="fc"><i class="no-highlight">1041</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: item does not belong to the player&#39;s game inventory&quot;, null);</b>
+<i class="no-highlight">1042</i>&nbsp;		}
+<i class="no-highlight">1043</i>&nbsp;		
+<i class="no-highlight">1044</i>&nbsp;		// edit item quantity
+<b class="fc"><i class="no-highlight">1045</i>&nbsp;		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">1046</i>&nbsp;		playerInventorySearch.setPlayerUuid(dto.getPlayerUuid());</b>
+<b class="fc"><i class="no-highlight">1047</i>&nbsp;		playerInventorySearch.setItemUuid(itemUuid);</b>
+<i class="no-highlight">1048</i>&nbsp;
+<b class="fc"><i class="no-highlight">1049</i>&nbsp;		boolean needToCreate = false;</b>
+<b class="fc"><i class="no-highlight">1050</i>&nbsp;		PlayerInventoryDO playerInventory = playerInventoryMapper.selectOne(new QueryWrapper&lt;&gt;(playerInventorySearch));</b>
+<b class="fc"><i class="no-highlight">1051</i>&nbsp;		Integer resultAmount = dto.getAmount();</b>
+<b class="fc"><i class="no-highlight">1052</i>&nbsp;		if (playerInventory == null) {</b>
+<i class="no-highlight">1053</i>&nbsp;			// if the item is not already in the inventory, create one
+<b class="fc"><i class="no-highlight">1054</i>&nbsp;			playerInventory = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">1055</i>&nbsp;			playerInventory.setPlayerUuid(dto.getPlayerUuid());</b>
+<b class="fc"><i class="no-highlight">1056</i>&nbsp;			playerInventory.setItemUuid(itemUuid);</b>
+<b class="fc"><i class="no-highlight">1057</i>&nbsp;			playerInventory.setUuid(CommonUtils.generateUniqueId(&quot;PINV&quot;, 3));</b>
+<b class="fc"><i class="no-highlight">1058</i>&nbsp;			playerInventory.setCreateTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">1059</i>&nbsp;			needToCreate = true;</b>
+<i class="no-highlight">1060</i>&nbsp;		} else {
+<i class="no-highlight">1061</i>&nbsp;			// if the item is already in the inventory, add to amount
+<b class="fc"><i class="no-highlight">1062</i>&nbsp;			resultAmount += playerInventory.getAmount();</b>
+<i class="no-highlight">1063</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">1064</i>&nbsp;		playerInventory.setModifiedTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">1065</i>&nbsp;		playerInventory.setAmount(resultAmount);</b>
+<i class="no-highlight">1066</i>&nbsp;
+<b class="fc"><i class="no-highlight">1067</i>&nbsp;		if (needToCreate) {</b>
+<b class="fc"><i class="no-highlight">1068</i>&nbsp;			if (playerInventoryMapper.insert(playerInventory) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">1069</i>&nbsp;				return new ResponseDTO(500, &quot;ERROR: failed to insert new item into database, please try again later&quot;,</b>
+<i class="no-highlight">1070</i>&nbsp;						null);
+<i class="no-highlight">1071</i>&nbsp;			}
+<i class="no-highlight">1072</i>&nbsp;		} else {
+<b class="fc"><i class="no-highlight">1073</i>&nbsp;			if (playerInventoryMapper.updateById(playerInventory) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">1074</i>&nbsp;				return new ResponseDTO(500, &quot;ERROR: failed to update database, please try again later&quot;, null);</b>
+<i class="no-highlight">1075</i>&nbsp;			}
+<i class="no-highlight">1076</i>&nbsp;		}
+<i class="no-highlight">1077</i>&nbsp;			
+<b class="fc"><i class="no-highlight">1078</i>&nbsp;		return new ResponseDTO(200, &quot;item added successfully&quot;, null);</b>
+<i class="no-highlight">1079</i>&nbsp;	}
+<i class="no-highlight">1080</i>&nbsp;
+<i class="no-highlight">1081</i>&nbsp;	@Override
+<i class="no-highlight">1082</i>&nbsp;	public ResponseDTO removeItem(PlayerItemDTO dto) {
+<i class="no-highlight">1083</i>&nbsp;
+<i class="no-highlight">1084</i>&nbsp;		// token verification
+<b class="fc"><i class="no-highlight">1085</i>&nbsp;		String token = dto.getToken();</b>
+<b class="fc"><i class="no-highlight">1086</i>&nbsp;		GameManagerDO manager = new GameManagerDO();</b>
+<b class="fc"><i class="no-highlight">1087</i>&nbsp;		manager.setToken(token);</b>
+<i class="no-highlight">1088</i>&nbsp;
+<b class="fc"><i class="no-highlight">1089</i>&nbsp;		List&lt;GameManagerDO&gt; managerList = gameManagerMapper.selectList(new QueryWrapper&lt;&gt;(manager));</b>
+<b class="fc"><i class="no-highlight">1090</i>&nbsp;		if(managerList == null || managerList.size() == 0) {</b>
+<b class="fc"><i class="no-highlight">1091</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: token is not valid, please login first&quot;, null);</b>
+<i class="no-highlight">1092</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">1093</i>&nbsp;		manager = managerList.get(0);</b>
+<b class="fc"><i class="no-highlight">1094</i>&nbsp;		String gameUuid = manager.getGameUuid();</b>
+<i class="no-highlight">1095</i>&nbsp;		
+<i class="no-highlight">1096</i>&nbsp;		// player search
+<b class="fc"><i class="no-highlight">1097</i>&nbsp;		PlayerDO playerSearch = new PlayerDO();</b>
+<b class="fc"><i class="no-highlight">1098</i>&nbsp;		String playerUuid = dto.getPlayerUuid();</b>
+<b class="fc"><i class="no-highlight">1099</i>&nbsp;		playerSearch.setUuid(playerUuid);</b>
+<b class="fc"><i class="no-highlight">1100</i>&nbsp;		playerSearch.setGameUuid(gameUuid);</b>
+<i class="no-highlight">1101</i>&nbsp;
+<b class="fc"><i class="no-highlight">1102</i>&nbsp;		PlayerDO player = playerMapper.selectOne(new QueryWrapper&lt;&gt;(playerSearch));</b>
+<b class="fc"><i class="no-highlight">1103</i>&nbsp;		if (player == null) {</b>
+<b class="fc"><i class="no-highlight">1104</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player does not exist&quot;, null);</b>
+<i class="no-highlight">1105</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">1106</i>&nbsp;		if (player.getStatus().equals(PlayerStatusEnum.FROZEN.getStatus())) {</b>
+<b class="fc"><i class="no-highlight">1107</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: the player is frozen&quot;, null);</b>
+<i class="no-highlight">1108</i>&nbsp;		}
+<i class="no-highlight">1109</i>&nbsp;
+<i class="no-highlight">1110</i>&nbsp;		// item search
+<b class="fc"><i class="no-highlight">1111</i>&nbsp;		ItemDO itemSearch = new ItemDO();</b>
+<b class="fc"><i class="no-highlight">1112</i>&nbsp;		String itemUuid = dto.getItemUuid();</b>
+<b class="fc"><i class="no-highlight">1113</i>&nbsp;		itemSearch.setUuid(itemUuid);</b>
+<b class="fc"><i class="no-highlight">1114</i>&nbsp;		ItemDO item = itemMapper.selectOne(new QueryWrapper&lt;&gt;(itemSearch));</b>
+<b class="fc"><i class="no-highlight">1115</i>&nbsp;		if (item == null) {</b>
+<b class="fc"><i class="no-highlight">1116</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: item does not exist&quot;, null);</b>
+<i class="no-highlight">1117</i>&nbsp;		}
+<i class="no-highlight">1118</i>&nbsp;		
+<i class="no-highlight">1119</i>&nbsp;		// inventory search
+<b class="fc"><i class="no-highlight">1120</i>&nbsp;		String inventoryUuid = item.getInventoryUuid();</b>
+<b class="fc"><i class="no-highlight">1121</i>&nbsp;		InventoryDO inventorySearch = new InventoryDO();</b>
+<b class="fc"><i class="no-highlight">1122</i>&nbsp;		inventorySearch.setUuid(inventoryUuid);</b>
+<b class="fc"><i class="no-highlight">1123</i>&nbsp;		inventorySearch.setGameUuid(gameUuid);</b>
+<b class="fc"><i class="no-highlight">1124</i>&nbsp;		InventoryDO inventory = inventoryMapper.selectOne(new QueryWrapper&lt;&gt;(inventorySearch));</b>
+<b class="fc"><i class="no-highlight">1125</i>&nbsp;		if (inventory == null) {</b>
+<b class="nc"><i class="no-highlight">1126</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: inventory does not exist&quot;, null);</b>
+<i class="no-highlight">1127</i>&nbsp;		}
+<b class="fc"><i class="no-highlight">1128</i>&nbsp;		String playerInventoryUuid = player.getGameInventoryUuid();</b>
+<b class="fc"><i class="no-highlight">1129</i>&nbsp;		if (!inventoryUuid.equals(playerInventoryUuid)) {</b>
+<b class="nc"><i class="no-highlight">1130</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: item does not belong to the player&#39;s game inventory&quot;, null);</b>
+<i class="no-highlight">1131</i>&nbsp;		}
+<i class="no-highlight">1132</i>&nbsp;
+<i class="no-highlight">1133</i>&nbsp;		// edit item quantity
+<b class="fc"><i class="no-highlight">1134</i>&nbsp;		PlayerInventoryDO playerInventorySearch = new PlayerInventoryDO();</b>
+<b class="fc"><i class="no-highlight">1135</i>&nbsp;		playerInventorySearch.setPlayerUuid(playerUuid);</b>
+<b class="fc"><i class="no-highlight">1136</i>&nbsp;		playerInventorySearch.setItemUuid(itemUuid);</b>
+<i class="no-highlight">1137</i>&nbsp;
+<b class="fc"><i class="no-highlight">1138</i>&nbsp;		PlayerInventoryDO playerInventory = playerInventoryMapper.selectOne(new QueryWrapper&lt;&gt;(playerInventorySearch));</b>
+<b class="fc"><i class="no-highlight">1139</i>&nbsp;		if (playerInventory == null) {</b>
+<b class="fc"><i class="no-highlight">1140</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: player does not have the item&quot;, null);</b>
+<i class="no-highlight">1141</i>&nbsp;		}
+<i class="no-highlight">1142</i>&nbsp;
+<b class="fc"><i class="no-highlight">1143</i>&nbsp;		Integer currentAmount = playerInventory.getAmount();</b>
+<b class="fc"><i class="no-highlight">1144</i>&nbsp;		Integer amount = dto.getAmount();</b>
+<b class="fc"><i class="no-highlight">1145</i>&nbsp;		if (currentAmount &lt; amount) {</b>
+<b class="nc"><i class="no-highlight">1146</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: not enough item to remove&quot;, null);</b>
+<i class="no-highlight">1147</i>&nbsp;		}
+<i class="no-highlight">1148</i>&nbsp;
+<b class="fc"><i class="no-highlight">1149</i>&nbsp;		playerInventory.setModifiedTime(CommonUtils.getTimeNow());</b>
+<b class="fc"><i class="no-highlight">1150</i>&nbsp;		playerInventory.setAmount(currentAmount-amount);</b>
+<i class="no-highlight">1151</i>&nbsp;		
+<i class="no-highlight">1152</i>&nbsp;		//if the item does not exist anymore after this method, delete this entry from database
+<b class="fc"><i class="no-highlight">1153</i>&nbsp;		if(playerInventory.getAmount()==0) {</b>
+<b class="nc"><i class="no-highlight">1154</i>&nbsp;			playerInventoryMapper.deleteById(playerInventory);</b>
+<i class="no-highlight">1155</i>&nbsp;		}
+<i class="no-highlight">1156</i>&nbsp;		
+<b class="fc"><i class="no-highlight">1157</i>&nbsp;		if(playerInventoryMapper.updateById(playerInventory) &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">1158</i>&nbsp;			return new ResponseDTO(500, &quot;ERROR: failed to update database, please try again later&quot;, null);</b>
+<i class="no-highlight">1159</i>&nbsp;		}
+<i class="no-highlight">1160</i>&nbsp;
+<b class="fc"><i class="no-highlight">1161</i>&nbsp;		return new ResponseDTO(200, &quot;items removed successfully&quot;, null);</b>
+<i class="no-highlight">1162</i>&nbsp;	}
+<i class="no-highlight">1163</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-12-11 23:16</div>
+</div>
+</body>
+</html>

@@ -250,3 +250,24 @@
 2021-12-11 14:27:24.689  INFO 2878 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
 2021-12-11 14:27:25.315  INFO 2878 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-12-11 14:27:25.519  INFO 2878 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-11 23:15:05.451  INFO 3916 --- [main] c.s.o.ServiceOperationApplicationTests   : Starting ServiceOperationApplicationTests using Java 13 on ZhiyuansMacBook with PID 3916 (started by jyyzlzy in /Users/jyyzlzy/Documents/columbia_courses/4156/team/repo1/COMSW4156-TEAM-SANGRIA-REPO/service-operation)
+2021-12-11 23:15:05.453  INFO 3916 --- [main] c.s.o.ServiceOperationApplicationTests   : The following profiles are active: dev
+2021-12-11 23:15:10.387  INFO 3916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-11 23:15:10.449  INFO 3916 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-11 23:15:10.450  INFO 3916 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-11 23:15:10.773  INFO 3916 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-11 23:15:10.774  INFO 3916 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5273 ms
+2021-12-11 23:15:14.542  INFO 3916 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-11 23:15:15.527  INFO 3916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-11 23:15:15.529  INFO 3916 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-11 23:15:15.576  INFO 3916 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-11 23:15:15.630  INFO 3916 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-11 23:15:15.947  INFO 3916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-11 23:15:15.952  INFO 3916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-11 23:15:15.979  INFO 3916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-11 23:15:16.023  INFO 3916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-11 23:15:16.147  INFO 3916 --- [main] c.s.o.ServiceOperationApplicationTests   : Started ServiceOperationApplicationTests in 12.837 seconds (JVM running for 17.334)
+2021-12-11 23:15:18.088  INFO 3916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-11 23:15:20.003  INFO 3916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-11 23:15:47.197  INFO 3916 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-11 23:15:47.216  INFO 3916 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

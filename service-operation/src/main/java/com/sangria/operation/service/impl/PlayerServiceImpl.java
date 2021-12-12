@@ -918,7 +918,7 @@ public class PlayerServiceImpl implements PlayerService {
 			return new ResponseDTO(500, "ERROR: no enough item to sell", null);
 		}
 
-		if (currentAmount == amount) {
+		if (currentAmount.intValue() == amount.intValue()) {
 			if(playerInventoryMapper.deleteById(playerInventory) < 0) {
 				return new ResponseDTO(500, "ERROR: failed to delete item from playerInventory, please try again later", null);
 			}

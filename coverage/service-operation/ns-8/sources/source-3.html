@@ -1,0 +1,131 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > StringUtils</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sangria.operation.utils</a>
+</div>
+
+<h1>Coverage Summary for Class: StringUtils (com.sangria.operation.utils)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StringUtils</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.sangria.operation.utils;
+<i class="no-highlight">2</i>&nbsp;
+<b class="nc"><i class="no-highlight">3</i>&nbsp;public class StringUtils {</b>
+<i class="no-highlight">4</i>&nbsp;    public static final String EMPTY = &quot;&quot;;
+<i class="no-highlight">5</i>&nbsp;
+<i class="no-highlight">6</i>&nbsp;    public static boolean isEmpty(String str) {
+<b class="nc"><i class="no-highlight">7</i>&nbsp;        return str == null || str.length() == 0;</b>
+<i class="no-highlight">8</i>&nbsp;    }
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;    public static boolean isNotEmpty(String str) {
+<b class="nc"><i class="no-highlight">11</i>&nbsp;        return !StringUtils.isEmpty(str);</b>
+<i class="no-highlight">12</i>&nbsp;    }
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;    public static boolean isBlank(String str) {
+<i class="no-highlight">15</i>&nbsp;        int strLen;
+<b class="nc"><i class="no-highlight">16</i>&nbsp;        if (str == null || (strLen = str.length()) == 0) {</b>
+<b class="nc"><i class="no-highlight">17</i>&nbsp;            return true;</b>
+<i class="no-highlight">18</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">19</i>&nbsp;        for (int i = 0; i &lt; strLen; i++) {</b>
+<b class="nc"><i class="no-highlight">20</i>&nbsp;            if ((Character.isWhitespace(str.charAt(i)) == false)) {</b>
+<b class="nc"><i class="no-highlight">21</i>&nbsp;                return false;</b>
+<i class="no-highlight">22</i>&nbsp;            }
+<i class="no-highlight">23</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">24</i>&nbsp;        return true;</b>
+<i class="no-highlight">25</i>&nbsp;    }
+<i class="no-highlight">26</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-12-11 23:16</div>
+</div>
+</body>
+</html>

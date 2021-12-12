@@ -1,0 +1,163 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CommonUtils</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sangria.auth.utils</a>
+</div>
+
+<h1>Coverage Summary for Class: CommonUtils (com.sangria.auth.utils)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CommonUtils</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (3/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    56%
+  </span>
+  <span class="absValue">
+    (14/25)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.sangria.auth.utils;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import java.text.SimpleDateFormat;
+<i class="no-highlight">4</i>&nbsp;import java.util.ArrayList;
+<i class="no-highlight">5</i>&nbsp;import java.util.Date;
+<i class="no-highlight">6</i>&nbsp;import java.util.Random;
+<i class="no-highlight">7</i>&nbsp;
+<i class="no-highlight">8</i>&nbsp;import com.alibaba.fastjson.JSON;
+<i class="no-highlight">9</i>&nbsp;import com.alibaba.fastjson.JSONObject;
+<i class="no-highlight">10</i>&nbsp;import com.baomidou.mybatisplus.core.metadata.IPage;
+<i class="no-highlight">11</i>&nbsp;
+<b class="nc"><i class="no-highlight">12</i>&nbsp;public class CommonUtils {</b>
+<i class="no-highlight">13</i>&nbsp;	
+<i class="no-highlight">14</i>&nbsp;    public static &lt;T&gt; T copyData(Object fromObject, Class&lt;T&gt; clazz) {
+<b class="fc"><i class="no-highlight">15</i>&nbsp;        return JSON.parseObject(JSONObject.toJSONString(fromObject), clazz);</b>
+<i class="no-highlight">16</i>&nbsp;    }
+<i class="no-highlight">17</i>&nbsp;
+<i class="no-highlight">18</i>&nbsp;    public static &lt;T&gt; IPage&lt;T&gt; copyPageData(IPage fromObject, Class&lt;T&gt; clazz) {
+<b class="nc"><i class="no-highlight">19</i>&nbsp;        if (fromObject == null) {</b>
+<b class="nc"><i class="no-highlight">20</i>&nbsp;            return null;</b>
+<i class="no-highlight">21</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">22</i>&nbsp;        ArrayList&lt;T&gt; data = new ArrayList&lt;T&gt;();</b>
+<b class="nc"><i class="no-highlight">23</i>&nbsp;        if (fromObject.getRecords() != null) {</b>
+<b class="nc"><i class="no-highlight">24</i>&nbsp;            for (Object record : fromObject.getRecords()) {</b>
+<b class="nc"><i class="no-highlight">25</i>&nbsp;                data.add(copyData(record, clazz));</b>
+<b class="nc"><i class="no-highlight">26</i>&nbsp;            }</b>
+<b class="nc"><i class="no-highlight">27</i>&nbsp;            fromObject.setRecords(data);</b>
+<i class="no-highlight">28</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">29</i>&nbsp;        return fromObject;</b>
+<i class="no-highlight">30</i>&nbsp;    }
+<i class="no-highlight">31</i>&nbsp;
+<i class="no-highlight">32</i>&nbsp;    public static String generateJSON(Object fromObject) {
+<b class="nc"><i class="no-highlight">33</i>&nbsp;        return JSONObject.toJSONString(fromObject);</b>
+<i class="no-highlight">34</i>&nbsp;    }
+<i class="no-highlight">35</i>&nbsp;    
+<i class="no-highlight">36</i>&nbsp;    public static String generateUniqueId(String prefix, int numOfRandomInt) {
+<b class="fc"><i class="no-highlight">37</i>&nbsp;    	String result = prefix;</b>
+<b class="fc"><i class="no-highlight">38</i>&nbsp;    	Date date = new Date();</b>
+<b class="fc"><i class="no-highlight">39</i>&nbsp;    	SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyyMMddHHmmss&quot;);</b>
+<b class="fc"><i class="no-highlight">40</i>&nbsp;    	result += sdf.format(date);</b>
+<i class="no-highlight">41</i>&nbsp;    			
+<b class="fc"><i class="no-highlight">42</i>&nbsp;    	int num = numOfRandomInt &gt; 3 ? 3 : numOfRandomInt;</b>
+<b class="fc"><i class="no-highlight">43</i>&nbsp;    	for(int i = 1; i &lt;= num; i++) {</b>
+<b class="fc"><i class="no-highlight">44</i>&nbsp;    		int randomInt = new Random().nextInt(20);</b>
+<b class="fc"><i class="no-highlight">45</i>&nbsp;    		result += String.valueOf(randomInt);</b>
+<i class="no-highlight">46</i>&nbsp;    	}
+<i class="no-highlight">47</i>&nbsp;    	
+<b class="fc"><i class="no-highlight">48</i>&nbsp;    	return result;</b>
+<i class="no-highlight">49</i>&nbsp;    }
+<i class="no-highlight">50</i>&nbsp;    
+<i class="no-highlight">51</i>&nbsp;    public static String getTimeNow() {
+<b class="fc"><i class="no-highlight">52</i>&nbsp;    	Date date = new Date();</b>
+<b class="fc"><i class="no-highlight">53</i>&nbsp;    	SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</b>
+<i class="no-highlight">54</i>&nbsp;    	
+<b class="fc"><i class="no-highlight">55</i>&nbsp;    	String now = sdf.format(date);</b>
+<b class="fc"><i class="no-highlight">56</i>&nbsp;    	return now;</b>
+<i class="no-highlight">57</i>&nbsp;    }
+<i class="no-highlight">58</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-12-11 22:51</div>
+</div>
+</body>
+</html>
