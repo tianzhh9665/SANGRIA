@@ -75,7 +75,20 @@ public class OperationController extends BaseController{
 
     @Value("${Service.operation.apis.itemMake}")
     private String itemMakeAPI;
-
+    
+    @Value("${Service.operation.apis.addMoney}")
+    private String addMoneyAPI;
+    
+    @Value("${Service.operation.apis.playerAdd}")
+    private String playerAddAPI;
+    
+    @Value("${Service.operation.apis.playerItemAdd}")
+    private String playerItemAddAPI;
+    
+    @Value("${Service.operation.apis.playerItemRemove}")
+    private String playerItemRemoveAPI;
+    
+    
     @ApiOperation(value = "Freeze a player, then the player can not do anything")
     @PostMapping(value = "/freeze")
     public JSONObject freeze(@RequestBody PlayerFreezeDTO dto) {
@@ -171,7 +184,7 @@ public class OperationController extends BaseController{
         return result;
     }
 
-    @ApiOperation(value = "add item to game inventory")
+    @ApiOperation(value = "add an item to a game's inventory")
     @PostMapping(value = "/inventoryAdd")
     public JSONObject inventoryAdd(@RequestBody InventoryAddDTO dto) {
         String requestUrlHead = "http://" + IP + ":" + port + "/" + context + "/";
@@ -183,7 +196,7 @@ public class OperationController extends BaseController{
         return result;
     }
 
-    @ApiOperation(value = "clear game inventory")
+    @ApiOperation(value = "clear a game's inventory")
     @PostMapping(value = "/inventoryClear")
     public JSONObject inventoryClear(@RequestBody InventoryClearDTO dto) {
         String requestUrlHead = "http://" + IP + ":" + port + "/" + context + "/";
@@ -206,7 +219,7 @@ public class OperationController extends BaseController{
         return result;
     }
 
-    @ApiOperation(value = "Add a new item to specified inventory")
+    @ApiOperation(value = "Add a new item to a specified inventory in game")
     @PostMapping(value = "/itemAdd")
     public JSONObject itemAdd(@RequestBody ItemAddDTO dto) {
         String requestUrlHead = "http://" + IP + ":" + port + "/" + context + "/";
@@ -241,4 +254,52 @@ public class OperationController extends BaseController{
         return result;
     }
 
+    @ApiOperation(value = "add money to a player")
+    @PostMapping(value = "/addMoney")
+    public JSONObject addMoney(@RequestBody PlayerAddMoneyDTO dto) {
+        String requestUrlHead = "http://" + IP + ":" + port + "/" + context + "/";
+        String requestUrl = requestUrlHead + addMoneyAPI;
+        String paramJsonStr = JSON.toJSONString(dto);
+
+        JSONObject result = JSONObject.parseObject(HttpUtils.post(requestUrl, paramJsonStr));
+
+        return result;
+    }
+    
+    @ApiOperation(value = "add a player")
+    @PostMapping(value = "/playerAdd")
+    public JSONObject playerAdd(@RequestBody PlayerAddDTO dto) {
+        String requestUrlHead = "http://" + IP + ":" + port + "/" + context + "/";
+        String requestUrl = requestUrlHead + playerAddAPI;
+        String paramJsonStr = JSON.toJSONString(dto);
+
+        JSONObject result = JSONObject.parseObject(HttpUtils.post(requestUrl, paramJsonStr));
+
+        return result;
+    }
+
+    @ApiOperation(value = "add an item to a player's inventory")
+    @PostMapping(value = "/playerItemAdd")
+    public JSONObject playerItemAdd(@RequestBody PlayerItemDTO dto) {
+        String requestUrlHead = "http://" + IP + ":" + port + "/" + context + "/";
+        String requestUrl = requestUrlHead + playerItemAddAPI;
+        String paramJsonStr = JSON.toJSONString(dto);
+
+        JSONObject result = JSONObject.parseObject(HttpUtils.post(requestUrl, paramJsonStr));
+
+        return result;
+    }
+    
+    @ApiOperation(value = "remove an item from a player's inventory")
+    @PostMapping(value = "/playerItemRemove")
+    public JSONObject playerItemRemove(@RequestBody PlayerItemDTO dto) {
+        String requestUrlHead = "http://" + IP + ":" + port + "/" + context + "/";
+        String requestUrl = requestUrlHead + playerItemRemoveAPI;
+        String paramJsonStr = JSON.toJSONString(dto);
+
+        JSONObject result = JSONObject.parseObject(HttpUtils.post(requestUrl, paramJsonStr));
+
+        return result;
+    }
+    
 }

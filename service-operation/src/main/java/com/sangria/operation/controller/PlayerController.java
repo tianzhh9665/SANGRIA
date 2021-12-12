@@ -312,7 +312,7 @@ public class PlayerController extends BaseController{
 	}
 	
 	/**
-	 * add item for a player
+	 * remove item for a player
 	 * @param dto
 	 * @return
 	 */

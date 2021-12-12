@@ -60,3 +60,52 @@ Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'Se
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.12.jar:5.3.12]
 	... 17 common frames omitted
 
+2021-12-11 14:38:32.712  INFO 3548 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 17 on LAPTOP-OAAERONV with PID 3548 (C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-client\target\classes started by ASUS in C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-client)
+2021-12-11 14:38:32.714  INFO 3548 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
+2021-12-11 14:38:34.198  INFO 3548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
+2021-12-11 14:38:34.211  INFO 3548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-11 14:38:34.211  INFO 3548 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-11 14:38:34.300  INFO 3548 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
+2021-12-11 14:38:34.301  INFO 3548 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1546 ms
+2021-12-11 14:38:34.830  INFO 3548 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-11 14:38:35.901  INFO 3548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path '/client'
+2021-12-11 14:38:35.902  INFO 3548 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-11 14:38:35.921  INFO 3548 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-11 14:38:35.947  INFO 3548 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-11 14:38:36.153  INFO 3548 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-11 14:38:36.221  INFO 3548 --- [main] c.s.client.ServiceClientApplication      : Started ServiceClientApplication in 3.927 seconds (JVM running for 4.313)
+2021-12-11 14:39:12.019  INFO 3548 --- [http-nio-8093-exec-4] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-11 14:39:12.020  INFO 3548 --- [http-nio-8093-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-11 14:39:12.021  INFO 3548 --- [http-nio-8093-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-11 14:44:53.854  INFO 1728 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 17 on LAPTOP-OAAERONV with PID 1728 (C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-client\target\classes started by ASUS in C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-client)
+2021-12-11 14:44:53.856  INFO 1728 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
+2021-12-11 14:44:55.009  INFO 1728 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
+2021-12-11 14:44:55.019  INFO 1728 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-11 14:44:55.020  INFO 1728 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-11 14:44:55.111  INFO 1728 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
+2021-12-11 14:44:55.111  INFO 1728 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1214 ms
+2021-12-11 14:44:55.674  INFO 1728 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-11 14:44:56.661  INFO 1728 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path '/client'
+2021-12-11 14:44:56.662  INFO 1728 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-11 14:44:56.674  INFO 1728 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-11 14:44:56.694  INFO 1728 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-11 14:44:56.852  INFO 1728 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-11 14:44:56.896  INFO 1728 --- [main] c.s.client.ServiceClientApplication      : Started ServiceClientApplication in 3.421 seconds (JVM running for 3.69)
+2021-12-11 14:45:14.840  INFO 1728 --- [http-nio-8093-exec-1] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-11 14:45:14.840  INFO 1728 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-11 14:45:14.841  INFO 1728 --- [http-nio-8093-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-11 15:04:46.625  INFO 20752 --- [main] c.s.client.ServiceClientApplication      : Starting ServiceClientApplication using Java 17 on LAPTOP-OAAERONV with PID 20752 (C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-client\target\classes started by ASUS in C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-client)
+2021-12-11 15:04:46.627  INFO 20752 --- [main] c.s.client.ServiceClientApplication      : The following profiles are active: dev
+2021-12-11 15:04:47.892  INFO 20752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8093 (http)
+2021-12-11 15:04:47.904  INFO 20752 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-11 15:04:47.905  INFO 20752 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-11 15:04:48.005  INFO 20752 --- [main] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring embedded WebApplicationContext
+2021-12-11 15:04:48.006  INFO 20752 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1340 ms
+2021-12-11 15:04:48.489  INFO 20752 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-11 15:04:49.393  INFO 20752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8093 (http) with context path '/client'
+2021-12-11 15:04:49.395  INFO 20752 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-11 15:04:49.408  INFO 20752 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-11 15:04:49.428  INFO 20752 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-11 15:04:49.616  INFO 20752 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-11 15:04:49.660  INFO 20752 --- [main] c.s.client.ServiceClientApplication      : Started ServiceClientApplication in 3.422 seconds (JVM running for 3.707)
+2021-12-11 15:05:38.442  INFO 20752 --- [http-nio-8093-exec-2] o.a.c.c.C.[.[localhost].[/client]        : Initializing Spring DispatcherServlet 'dispatcherServlet'

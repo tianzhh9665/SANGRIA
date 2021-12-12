@@ -26,7 +26,7 @@ logging:
           mapper : debug
 
 Service:
-  ip: 35.196.112.19
+  ip: 127.0.0.1
   auth:
     port: 8091
     context: auth
@@ -55,6 +55,10 @@ Service:
       itemAdd: item/add
       itemInfo: item/info
       itemMake: item/make
+      addMoney: player/addMoney
+      playerAdd: player/add
+      playerItemAdd: player/addItem
+      playerItemRemove: player/removeItem
     
     
           

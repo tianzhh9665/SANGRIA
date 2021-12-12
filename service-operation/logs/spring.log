@@ -167,3 +167,51 @@
 2021-12-11 09:42:19.364  INFO 2189 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
 2021-12-11 09:42:20.190  INFO 2189 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-12-11 09:42:20.502  INFO 2189 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-11 14:44:59.465  INFO 12324 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 17 on LAPTOP-OAAERONV with PID 12324 (C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-operation\target\classes started by ASUS in C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-operation)
+2021-12-11 14:44:59.467  INFO 12324 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-11 14:45:00.730  INFO 12324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-11 14:45:00.742  INFO 12324 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-11 14:45:00.743  INFO 12324 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-11 14:45:00.841  INFO 12324 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-11 14:45:00.841  INFO 12324 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1332 ms
+2021-12-11 14:45:01.841  INFO 12324 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-11 14:45:02.362  INFO 12324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8092 (http) with context path '/operation'
+2021-12-11 14:45:02.363  INFO 12324 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-12-11 14:45:02.392  INFO 12324 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-12-11 14:45:02.427  INFO 12324 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-12-11 14:45:02.661  INFO 12324 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2021-12-11 14:45:02.664  INFO 12324 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_1
+2021-12-11 14:45:02.675  INFO 12324 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2021-12-11 14:45:02.694  INFO 12324 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: infoUsingGET_2
+2021-12-11 14:45:02.748  INFO 12324 --- [main] c.s.o.ServiceOperationApplication        : Started ServiceOperationApplication in 3.656 seconds (JVM running for 3.935)
+2021-12-11 15:04:55.949  INFO 24432 --- [main] c.s.o.ServiceOperationApplication        : Starting ServiceOperationApplication using Java 17 on LAPTOP-OAAERONV with PID 24432 (C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-operation\target\classes started by ASUS in C:\Users\ASUS\Desktop\coms4156\COMSW4156-TEAM-SANGRIA-REPO\service-operation)
+2021-12-11 15:04:55.951  INFO 24432 --- [main] c.s.o.ServiceOperationApplication        : The following profiles are active: dev
+2021-12-11 15:04:57.271  INFO 24432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8092 (http)
+2021-12-11 15:04:57.286  INFO 24432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-11 15:04:57.286  INFO 24432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-12-11 15:04:57.391  INFO 24432 --- [main] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring embedded WebApplicationContext
+2021-12-11 15:04:57.392  INFO 24432 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1403 ms
+2021-12-11 15:04:58.608  INFO 24432 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-12-11 15:04:58.990  WARN 24432 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8092 is already in use
+2021-12-11 15:04:58.999  INFO 24432 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-12-11 15:04:59.018  INFO 24432 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-11 15:04:59.042 ERROR 24432 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8092 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8092 or configure this application to listen on another port.
+
+2021-12-11 15:05:16.163  INFO 12324 --- [http-nio-8092-exec-5] o.a.c.c.C.[.[localhost].[/operation]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-11 15:05:16.164  INFO 12324 --- [http-nio-8092-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-11 15:05:16.166  INFO 12324 --- [http-nio-8092-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-11 15:05:41.473  INFO 12324 --- [http-nio-8092-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
