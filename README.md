@@ -54,8 +54,19 @@ Test:
 		a. have the project deployed and run on the vm as described above  
 		b. in the Postman, send requests to the endpoints: e.g. 35.196.112.19/auth/gameManager/login with parameters  
 		
+	Test in CI:  
+		All Unit tests have been included in the Github Action and will run on every push.  
+		
 Style Checker and Static Bug Finder:  
-	We are using the SonarCloud as the style checker and static bug finder during the process of CI using Github Action  
-
-Postman Test Result:  
-	Postman Test result is included in the service-auth test.postman_test_run.json file.
+	We are using the SonarCloud as the style checker and static bug finder during the process of CI using Github Action, and the report could be found here:  
+	
+	Service-auth: https://sonarcloud.io/summary/overall?id=jyyzlzy_COMSW4156-TEAM-SANGRIA-REPO  
+	Service-Operation: https://sonarcloud.io/project/security_hotspots?id=tianzhh9665_COMSW4156-TEAM-SANGRIA-REPO  
+	
+Coverage Test:
+	Coverage is computed by the Junit coverage and the report could be found here:  
+	
+	Service-auth: coverage/service-auth/index.html  
+	Service-operation: coverage/service-operation/index.html  
+	
+	Note: Because of the design issues of the service development framework we chosen (SpringBoot), there are many parts of the codes in the project which may not be reached by the coverage test, e.g. controller(which is just the entrance of the in comming requests), unused utils.java, dtos, daos, entities(which are used during the implementation but will not be reached by the coverage test). Hence, we are focusing on enchancing our test coverage on *ServiceImpl.java, which is the place for nearly all the codes of logic implementation. Overcall, we achieved 81% on service-operation's *ServiceImpl.java files and 80.9% on service-auth's.
