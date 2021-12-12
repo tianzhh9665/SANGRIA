@@ -3,6 +3,7 @@ package com.sangria.operation;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sangria.operation.Enum.ItemTypeEnum;
 import com.sangria.operation.Enum.PlayerStatusEnum;
 import com.sangria.operation.dao.ItemMapper;
 import com.sangria.operation.dao.PlayerInventoryMapper;
@@ -906,6 +907,101 @@ class ServiceOperationApplicationTests {
 		if (oldPlayerInventory != null) {
 			playerInventoryMapper.insert(oldPlayerInventory);
 		}
+	}
+	
+	@Test
+	void testInventoryAdd() {
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+		
+		InventoryAddDTO addDTO = new InventoryAddDTO();
+		addDTO.setToken(testToken);
+		
+		Assert.assertEquals(inventoryService.add(addDTO).getCode(), 200);
+		
+		String fakeToken = "fakeToken";
+		addDTO = new InventoryAddDTO();
+		addDTO.setToken(fakeToken);
+		
+		Assert.assertEquals(inventoryService.add(addDTO).getCode(), 500);
+		
+	}
+	
+	@Test
+	void testInventoryInfo() {
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+		String inventory = "INV20211205224845599";
+		
+		Assert.assertEquals(inventoryService.info(testToken, inventory).getCode(), 200);
+		String fakeToken = "fakeToken";
+		Assert.assertEquals(inventoryService.info(fakeToken, inventory).getCode(), 500);
+		String fakeInventory = "fakeInventoryId";
+		Assert.assertEquals(inventoryService.info(fakeToken, fakeInventory).getCode(), 500);
+		
+		
+		
+	}
+	
+	@Test
+	void testInventoryClear() {
+		String inventory = "INV202112081046200114";
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+		
+		InventoryClearDTO clearDTO = new InventoryClearDTO();
+		clearDTO.setToken(testToken);
+		clearDTO.setInventoryId(inventory);
+		
+		Assert.assertEquals(inventoryService.clear(clearDTO).getCode(), 200);
+		String fakeToken = "fakeToken";
+		clearDTO = new InventoryClearDTO();
+		clearDTO.setToken(fakeToken);
+		Assert.assertEquals(inventoryService.clear(clearDTO).getCode(), 500);
+		clearDTO.setToken(testToken);
+		String fakeInventory = "fakeInventoryId";
+		clearDTO.setInventoryId(fakeInventory);
+		
+		Assert.assertEquals(inventoryService.clear(clearDTO).getCode(), 500);
+		
+	}
+	
+	@Test
+	void testGameItemAdd() {
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+		
+		ItemAddDTO addDTO = new ItemAddDTO();
+		addDTO.setToken(testToken);
+		addDTO.setName("testItem");
+		addDTO.setType(ItemTypeEnum.NOT_COM_AND_TRA.getType());
+		addDTO.setPrice(1);
+		addDTO.setInventoryId("INV202112081046200114");
+		addDTO.setDescription("des");
+		
+		Assert.assertEquals(itemService.add(addDTO).getCode(), 200);
+		addDTO.setToken("fakeToken");
+		Assert.assertEquals(itemService.add(addDTO).getCode(), 500);
+		addDTO.setToken(testToken);
+		addDTO.setInventoryId("fakeInventory");
+		Assert.assertEquals(itemService.add(addDTO).getCode(), 500);
+	}
+	
+	@Test
+	void testGameItemInfo() {
+		GameManagerDO manager = new GameManagerDO();
+		manager.setUsername(testUsername);
+		String testToken = gameManagerMapper.selectOne(new QueryWrapper<>(manager)).getToken();
+		
+		String itemID = "ITEM2021120522492419219";
+		
+		Assert.assertEquals(itemService.info(testToken, itemID).getCode(), 200);
+		Assert.assertEquals(itemService.info("fakeToken", itemID).getCode(), 500);
+		Assert.assertEquals(itemService.info(testToken, "fakeId").getCode(), 500);
 	}
 	
 }
