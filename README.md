@@ -14,6 +14,11 @@ Swagger:
 2. Service:  
 	Service-auth: http://35.196.112.19:8091/auth/swagger-ui.html  
 	Service-operation: http://35.196.112.19:8092/operation/swagger-ui.html  
+	
+Client Description:  
+
+The client we developed is a service called service-client. Because the ideal user of our service are various games connecting to our service, for simplicity, we developed this service to represent various operations done by the games. Our client does nothing but sending HTTP get/post requests to our service-auth/service-operation, and return the results that our services return.
+
 
 How to build, run, and test the project:  
 
@@ -69,5 +74,4 @@ Coverage Test:
 	
 	Service-auth: coverage/service-auth/index.html  
 	Service-operation: coverage/service-operation/index.html  
-	
 	
