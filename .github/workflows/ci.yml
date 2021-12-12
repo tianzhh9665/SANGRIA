@@ -5,8 +5,6 @@ name: SangriaBuildAndTest
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build-and-test:
@@ -20,9 +18,30 @@ jobs:
     - name: Set up Java and Maven
       uses: actions/setup-java@v2
       with:
-        java-version: 8
+        java-version: 11
         distribution: 'temurin'
         
+    - name: Cache SonarCloud packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar
+        restore-keys: ${{ runner.os }}-sonar
+          
+    - name: Cache Maven packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+
+    - name: Build and analyze using SonarCloud
+      working-directory: ./service-operation
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=tianzhh9665_COMSW4156-TEAM-SANGRIA-REPO -Pcoverage
+    
     - name: Test auth
       working-directory: ./service-auth
       run: mvn clean test --file pom.xml -DskipTests=false
