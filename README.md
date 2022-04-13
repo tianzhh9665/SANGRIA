@@ -1,4 +1,4 @@
-# COMSW4156-TEAM-SANGRIA-TEAM-ASSIGNMENT-REPO
+# SANGRIA
 Build Status: ![Build Status](https://github.com/tianzhh9665/COMSW4156-TEAM-SANGRIA-REPO/actions/workflows/ci.yml/badge.svg)
 
 
